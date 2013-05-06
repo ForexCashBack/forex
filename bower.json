@@ -1,0 +1,10 @@
+{
+    "name": "Forex",
+    "version": "0.0.1",
+    "dependencies": {
+        "jquery": "latest",
+        "backbone": "latest",
+        "requirejs": "latest",
+        "bootstrap": "latest"
+    }
+}
