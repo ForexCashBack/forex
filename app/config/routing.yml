@@ -1,0 +1,5 @@
+forex_web:
+    resource: "@ForexWebBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
