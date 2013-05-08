@@ -9,8 +9,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
+     * @Route("/")
+     * @Template
+     */
+    public function homepageAction()
+    {
+        return array();
+    }
+
+    /**
      * @Route("/hello/{name}")
-     * @Template()
+     * @Template
      */
     public function indexAction($name)
     {
