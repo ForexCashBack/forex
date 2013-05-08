@@ -12,7 +12,6 @@ class AccountAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
             ->add('accountNumber')
             ->add('broker', 'sonata_type_model', array(), array())
             ->add('user', 'sonata_type_model', array(), array())
