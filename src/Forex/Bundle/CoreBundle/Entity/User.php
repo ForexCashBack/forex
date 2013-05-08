@@ -2,8 +2,9 @@
 
 namespace Forex\Bundle\CoreBundle\Entity;
 
-use FOS\UserBundle\Entity\User as BaseUser;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Entity\User as BaseUser;
 
 /**
  * @ORM\Entity
@@ -18,8 +19,33 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Account", mappedBy="user")
+     */
+    protected $accounts;
+
     public function __construct()
     {
         parent::__construct();
+        $this->accounts = new ArrayCollection();
+    }
+
+    public function addAccount(Account $account)
+    {
+        if (!$this->accounts->contains($account)) {
+            $this->accounts->add($account);
+        }
+    }
+
+    public function removeAccount(Account $account)
+    {
+        if ($this->accounts->contains($account)) {
+            $this->accounts->remove($account);
+        }
+    }
+
+    public function getAccounts()
+    {
+        return $this->accounts();
     }
 }
