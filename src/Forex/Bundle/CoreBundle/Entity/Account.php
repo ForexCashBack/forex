@@ -32,6 +32,11 @@ class Account
      */
     protected $broker;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Payment", mappedBy="account")
+     */
+    protected $payments;
+
     public function setId($id)
     {
         $this->id = $id;
@@ -72,8 +77,20 @@ class Account
         return $this->broker;
     }
 
+    public function addPayment(Payment $payment)
+    {
+        $this->payments->add($payment);
+    }
+
+    public function getPayments()
+    {
+        return $this->payments;
+    }
+
     public function __toString()
     {
-        return $this->id ?: 'New Account';
+        return (string) $this->id
+            ? sprintf('%s - %s:%s', $this->user->getUsername(), $this->broker->getName(), $this->getAccountNumber())
+            : 'New Account';
     }
 }

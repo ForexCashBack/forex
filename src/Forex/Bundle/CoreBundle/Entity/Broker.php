@@ -27,6 +27,11 @@ class Broker
      */
     protected $accounts;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Payment", mappedBy="broker")
+     */
+    protected $payments;
+
     public function setId($id)
     {
         $this->id = $id;
@@ -55,6 +60,16 @@ class Broker
     public function getAccount()
     {
         return $this->account;
+    }
+
+    public function addPayment(Payment $payment)
+    {
+        $this->payments->add($payment);
+    }
+
+    public function getPayments()
+    {
+        return $this->payments;
     }
 
     public function __toString()

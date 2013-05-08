@@ -32,3 +32,14 @@ services:
             - 'SonataAdminBundle:CRUD'
         calls:
             - [ setTranslationDomain, [ForexAdminBundle]]
+
+    forex.admin.payment:
+        class: Forex\Bundle\AdminBundle\Admin\PaymentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Financial, label: "Payments" }
+        arguments:
+            - ~
+            - Forex\Bundle\CoreBundle\Entity\Payment
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]
