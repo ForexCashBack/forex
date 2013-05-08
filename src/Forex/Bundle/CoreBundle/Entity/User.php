@@ -46,6 +46,6 @@ class User extends BaseUser
 
     public function getAccounts()
     {
-        return $this->accounts();
+        return $this->accounts;
     }
 }
