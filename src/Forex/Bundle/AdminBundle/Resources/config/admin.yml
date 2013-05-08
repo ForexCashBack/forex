@@ -2,7 +2,7 @@ services:
     forex.admin.user:
         class: Forex\Bundle\AdminBundle\Admin\UserAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: users, label: "Users" }
+            - { name: sonata.admin, manager_type: orm, group: Main, label: "Users" }
         arguments:
             - ~
             - Forex\Bundle\CoreBundle\Entity\User
@@ -10,3 +10,25 @@ services:
         calls:
             - [ setTranslationDomain, [ForexAdminBundle]]
             - [ setUserManager, [@fos_user.user_manager]]
+
+    forex.admin.broker:
+        class: Forex\Bundle\AdminBundle\Admin\BrokerAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Main, label: "Brokers" }
+        arguments:
+            - ~
+            - Forex\Bundle\CoreBundle\Entity\Broker
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]
+
+    forex.admin.account:
+        class: Forex\Bundle\AdminBundle\Admin\AccountAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Main, label: "Accounts" }
+        arguments:
+            - ~
+            - Forex\Bundle\CoreBundle\Entity\Account
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]

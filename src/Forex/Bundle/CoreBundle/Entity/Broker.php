@@ -56,4 +56,9 @@ class Broker
     {
         return $this->account;
     }
+
+    public function __toString()
+    {
+        return $this->name ?: 'New Broker';
+    }
 }

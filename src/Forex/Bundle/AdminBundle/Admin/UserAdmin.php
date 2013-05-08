@@ -21,6 +21,11 @@ class UserAdmin extends Admin
             ->add('enabled', null, array('required' => false))
             ->add('expired', null, array('required' => false))
             ->add('locked', null, array('required' => false))
+            ->add('accounts', 'sonata_type_collection', array(), array(
+                'edit' => 'inline',
+                'inline' => 'table',
+                'sortable'  => 'position'
+            ))
         ;
     }
 
