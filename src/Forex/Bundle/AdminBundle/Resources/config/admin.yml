@@ -1,0 +1,12 @@
+services:
+    forex.admin.user:
+        class: Forex\Bundle\AdminBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: users, label: "Users" }
+        arguments:
+            - ~
+            - Forex\Bundle\CoreBundle\Entity\User
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]
+            - [ setUserManager, [@fos_user.user_manager]]

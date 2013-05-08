@@ -20,9 +20,15 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Sonata\jQueryBundle\SonatajQueryBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Forex\Bundle\WebBundle\ForexWebBundle(),
             new Forex\Bundle\CoreBundle\ForexCoreBundle(),
+            new Forex\Bundle\AdminBundle\ForexAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
