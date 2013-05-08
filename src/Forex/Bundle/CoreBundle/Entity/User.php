@@ -20,7 +20,12 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Account", mappedBy="user")
+     * @ORM\OneToMany(
+     *      targetEntity="Account",
+     *      mappedBy="user",
+     *      cascade={"persist", "remove", "merge"},
+     *      orphanRemoval=true
+     * )
      */
     protected $accounts;
 
@@ -33,6 +38,7 @@ class User extends BaseUser
     public function addAccount(Account $account)
     {
         if (!$this->accounts->contains($account)) {
+            $account->setUser($this);
             $this->accounts->add($account);
         }
     }

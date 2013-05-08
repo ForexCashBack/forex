@@ -15,17 +15,34 @@ class UserAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('email')
-            ->add('username')
-            ->add('enabled', null, array('required' => false))
-            ->add('expired', null, array('required' => false))
-            ->add('locked', null, array('required' => false))
-            ->add('accounts', 'sonata_type_collection', array(), array(
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable'  => 'position'
-            ))
+            ->with('General')
+                ->add('email')
+                ->add('username')
+                ->add('plainPassword', 'text', array(
+                    'required' => false,
+                    'label' => 'Password',
+                    'help' => 'Update the users password',
+                ))
+            ->end()
+            ->with('Accounts')
+                ->add('accounts', 'sonata_type_collection', array(), array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'sortable'  => 'position'
+                ))
+            ->end()
+            ->with('User Status')
+                ->add('enabled', null, array('required' => false))
+                ->add('expired', null, array('required' => false))
+                ->add('locked', null, array('required' => false))
+            ->end()
         ;
+    }
+
+    public function preUpdate($user)
+    {
+        $this->getUserManager()->updateCanonicalFields($user);
+        $this->getUserManager()->updatePassword($user);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

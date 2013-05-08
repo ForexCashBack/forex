@@ -71,4 +71,9 @@ class Account
     {
         return $this->broker;
     }
+
+    public function __toString()
+    {
+        return $this->id ?: 'New Account';
+    }
 }
