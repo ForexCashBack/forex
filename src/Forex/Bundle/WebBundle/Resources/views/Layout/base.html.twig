@@ -2,27 +2,30 @@
 <html>
 <head lang="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
     <title>{% block title 'Forex' %}</title>
-    {% stylesheets 'components/bootstrap/less/bootstrap.less' filter='less' output='css/main.css' %}
+    {% stylesheets 'css/main.less' filter='less' output='css/main.css' %}
         <link rel="stylesheet" href="{{ asset_url }}">
     {% endstylesheets %}
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
+    <link rel="stylesheet" href="../components/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="brand" href="/">Forex</a>
+    <div class="container">
+        <div class="header">
+            <h1>Forex Cash Back</h1>
+            <div class="navbar navbar-inverse">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="brand" href="/">Forex</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="container">
-        {% block content 'Default Content' %}
+        <div class="container">
+            {% block content 'Default Content' %}
+            <p><i class="icon-camera-retro icon-large icon-spin"></i> icon-camera-retro</p>
+        </div>
     </div>
 
     {% javascripts
