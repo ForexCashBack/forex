@@ -5,18 +5,30 @@
     <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
     <title>{% block title 'Forex' %}</title>
     {% stylesheets 'css/main.less' filter='less' output='css/main.css' %}
-        <link rel="stylesheet" href="{{ asset_url }}">
+        <link rel="stylesheet" href="{{ asset_url }}?cachebust={{ "now"|date() }}">
     {% endstylesheets %}
     <link rel="stylesheet" href="../components/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
+    <div id="accountBar">
+        <div class="container">
+            <p>Welcome to Forex Cash Back</p>
+            <ul class="pull-right inline">
+                <li>Login</li>
+                <li>Create Account</li>
+            </ul>
+        </div>
+    </div>
     <div class="container">
         <div class="header">
             <h1>Forex Cash Back</h1>
             <div class="navbar navbar-inverse">
                 <div class="navbar-inner">
                     <div class="container">
-                        <a class="brand" href="/">Forex</a>
+                        <a class="brand" href="/">Home</a>
+                        <a class="brand" href="/">FAQs</a>
+                        <a class="brand" href="/">Brokers</a>
+                        <a class="brand" href="/">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -24,7 +36,6 @@
 
         <div class="container">
             {% block content 'Default Content' %}
-            <p><i class="icon-camera-retro icon-large icon-spin"></i> icon-camera-retro</p>
         </div>
     </div>
 

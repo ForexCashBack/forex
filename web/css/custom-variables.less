@@ -1,6 +1,13 @@
+// http://colorschemedesigner.com/ - accented analogic @ 34D800
+
 // Typography
 // -------------------------
 @sansFontFamily:        "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// AccountBar
+//--------------------------
+@accountBarBackground: #4B5F96;
+@accountBarText: lighten(@accountBarBackground, 50%);
 
 
 // Navbar
@@ -23,9 +30,9 @@
 @navbarBrandColor:                @navbarLinkColor;
 
 // Inverted navbar
-@navbarInverseBackground:                #111111;
-@navbarInverseBackgroundHighlight:       #222222;
-@navbarInverseBorder:                    #252525;
+@navbarInverseBackground:                darken(@accountBarBackground, 75%);
+@navbarInverseBackgroundHighlight:       darken(@accountBarBackground, 85%);
+@navbarInverseBorder:                    darken(@accountBarBackground, 90%);
 
 @navbarInverseText:                      @grayLight;
 @navbarInverseLinkColor:                 @grayLight;
