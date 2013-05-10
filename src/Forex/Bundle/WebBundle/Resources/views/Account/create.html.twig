@@ -1,0 +1,10 @@
+{% extends "ForexWebBundle:Layout:base.html.twig" %}
+
+{% block content %}
+    <h2>Create an account for {{ broker.name }}</h2>
+
+    <form>
+        {{ form_widget(form) }}
+        <button>Create Account</button>
+    </form>
+{% endblock %}

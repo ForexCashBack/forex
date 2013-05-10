@@ -1,0 +1,12 @@
+{% extends "ForexWebBundle:Layout:base.html.twig" %}
+
+{% block content %}
+    <h2>Add an account</h2>
+    <p>Choose an brokerage to add an account for</p>
+
+    <ul>
+    {% for broker in brokers %}
+        <li><a href="{{ path('account_create', {brokerId: broker.id}) }}">{{ broker.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "ForexWebBundle:Layout:base.html.twig" %}
+
+{% block content %}
+    <h2>My Accounts</h2>
+
+    <table class="table">
+        <tr>
+            <th>Account ID</th>
+            <th>Brokerage</th>
+            <th>Account Number</th>
+        </tr>
+        {% for account in user.accounts %}
+            <tr>
+                <td>{{ account.id }}</td>
+                <td>{{ account.broker.name }}</td>
+                <td>{{ account.accountNumber}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{{ path('account_add') }}" class="btn">Add Account</a>
+{% endblock %}
