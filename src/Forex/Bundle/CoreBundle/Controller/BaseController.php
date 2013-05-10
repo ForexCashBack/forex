@@ -15,4 +15,9 @@ class BaseController extends Controller
     {
         return $this->getEntityManager()->getRepository($class);
     }
+
+    protected function addMessage($type, $message)
+    {
+        $this->get('session')->getFlashBag()->add($type, $message);
+    }
 }

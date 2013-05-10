@@ -35,6 +35,15 @@
         </div>
 
         <div class="container">
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ type }}">
+                        <strong>{{ message }}</strong>
+                        <button type="button" class="close" data-dismiss="alert">×</a>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
             {% block content 'Default Content' %}
         </div>
     </div>
