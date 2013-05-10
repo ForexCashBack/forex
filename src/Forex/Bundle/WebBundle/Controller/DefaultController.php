@@ -38,4 +38,13 @@ class DefaultController extends BaseController
             'brokers' => $brokers,
         );
     }
+
+    /**
+     * @Route("/faq", name="faq")
+     * @Template
+     */
+    public function faqAction()
+    {
+        return array();
+    }
 }
