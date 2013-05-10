@@ -1,0 +1,9 @@
+{% extends "ForexWebBundle:Layout:base.html.twig" %}
+
+{% block content %}
+    <ul>
+    {% for broker in brokers %}
+        <li>{{ broker.name }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
