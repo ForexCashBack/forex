@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new Forex\Bundle\WebBundle\ForexWebBundle(),
             new Forex\Bundle\CoreBundle\ForexCoreBundle(),
             new Forex\Bundle\AdminBundle\ForexAdminBundle(),
+            new Forex\Bundle\UserBundle\ForexUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
