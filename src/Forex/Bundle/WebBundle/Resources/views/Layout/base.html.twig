@@ -14,8 +14,12 @@
         <div class="container">
             <p>Welcome to Forex Cash Back</p>
             <ul class="pull-right inline">
-                <li>Login</li>
-                <li>Create Account</li>
+                {% if is_granted('ROLE_USER') %}
+                    <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+                    <li><a href="{{ path('fos_user_registration_register') }}">Create Account</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
