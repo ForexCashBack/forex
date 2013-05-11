@@ -2,19 +2,19 @@
 
 namespace Forex\Bundle\AdminBundle\Admin;
 
-use Forex\Bundle\CoreBundle\Payment\PaymentManager;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class PaymentAdmin extends Admin
+class PayoutAdmin extends Admin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('broker', 'sonata_type_model', array(), array())
+            ->add('id')
             ->add('account', 'sonata_type_model', array(), array())
+            ->add('partialPayouts', 'sonata_type_model', array(), array())
             ->add('amount', null, array(
                 'help' => 'Enter payments as integers.  Ex. $123.45 = 12345',
             ))
@@ -24,7 +24,6 @@ class PaymentAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('broker')
             ->add('account')
         ;
     }
@@ -33,24 +32,8 @@ class PaymentAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->add('broker')
             ->add('account')
             ->add('amount')
         ;
-    }
-
-    public function prePersist($object)
-    {
-        $this->getPaymentManager()->createPayment($object);
-    }
-
-    public function setPaymentManager(PaymentManager $paymentManager)
-    {
-        $this->paymentManager = $paymentManager;
-    }
-
-    protected function getPaymentManager()
-    {
-        return $this->paymentManager;
     }
 }

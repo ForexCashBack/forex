@@ -43,3 +43,26 @@ services:
             - 'SonataAdminBundle:CRUD'
         calls:
             - [ setTranslationDomain, [ForexAdminBundle]]
+            - [ setPaymentManager, [@forex.payment_manager]]
+
+    forex.admin.payout:
+        class: Forex\Bundle\AdminBundle\Admin\PayoutAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Financial, label: "Payouts" }
+        arguments:
+            - ~
+            - Forex\Bundle\CoreBundle\Entity\Payout
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]
+
+    forex.admin.partialpayout:
+        class: Forex\Bundle\AdminBundle\Admin\PartialPayoutAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Financial, label: "Partial Payouts" }
+        arguments:
+            - ~
+            - Forex\Bundle\CoreBundle\Entity\PartialPayout
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]

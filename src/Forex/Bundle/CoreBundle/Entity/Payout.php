@@ -2,16 +2,16 @@
 
 namespace Forex\Bundle\CoreBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * This represents a payment that we receive from a broker for a specific account
- * Each payment will create one associated partial payment.
+ * This represents a payment that we send to a user for a specific account
  *
  * @ORM\Entity
- * @ORM\Table(name="payments")
+ * @ORM\Table(name="payouts")
  */
-class Payment
+class Payout
 {
     /**
      * @ORM\Id
@@ -21,19 +21,14 @@ class Payment
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Broker", inversedBy="payments")
-     */
-    protected $broker;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Account", inversedBy="payments")
+     * @ORM\ManyToOne(targetEntity="Account", inversedBy="payouts")
      */
     protected $account;
 
     /**
-     * @ORM\OneToOne(targetEntity="PartialPayout", mappedBy="payment")
+     * @ORM\OneToMany(targetEntity="PartialPayout", mappedBy="payout")
      */
-    protected $partialPayout;
+    protected $partialPayouts;
 
     /**
      * @ORM\Column(type="bigint")
@@ -48,6 +43,7 @@ class Payment
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        $this->partialPayouts = new ArrayCollection();
     }
 
     public function setId($id)
@@ -90,14 +86,21 @@ class Payment
         return $this->amount;
     }
 
-    public function setPartialPayout(PartialPayout $partialPayout)
+    public function setPartialPayouts(array $partialPayouts)
     {
-        $this->partialPayout = $partialPayout;
+        foreach ($partialPayouts as $partialPayment) {
+            $this->addPartialPayment($partialPayment);
+        }
     }
 
-    public function getPartialPayout()
+    public function addPartialPayout(PartialPayout $partialPayout)
     {
-        return $this->partialPayout;
+        $this->partialPayouts->add($partialPayout);
+    }
+
+    public function getPartialPayouts()
+    {
+        return $this->partialPayouts;
     }
 
     public function __toString()

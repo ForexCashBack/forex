@@ -99,3 +99,8 @@ sonata_admin:
         blocks:
             # display a dashboard block
             - { position: left, type: sonata.admin.block.admin_list }
+
+jms_di_extra:
+    locations:
+        all_bundles: false
+        bundles: [ForexCoreBundle]

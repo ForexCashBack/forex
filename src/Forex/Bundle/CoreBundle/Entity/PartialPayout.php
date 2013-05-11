@@ -5,13 +5,12 @@ namespace Forex\Bundle\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * This represents a payment that we receive from a broker for a specific account
- * Each payment will create one associated partial payment.
+ * This represents a payment that we send to a user for a specific account
  *
  * @ORM\Entity
- * @ORM\Table(name="payments")
+ * @ORM\Table(name="partial_payouts")
  */
-class Payment
+class PartialPayout
 {
     /**
      * @ORM\Id
@@ -21,19 +20,19 @@ class Payment
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Broker", inversedBy="payments")
-     */
-    protected $broker;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Account", inversedBy="payments")
+     * @ORM\ManyToOne(targetEntity="Account", inversedBy="payouts")
      */
     protected $account;
 
     /**
-     * @ORM\OneToOne(targetEntity="PartialPayout", mappedBy="payment")
+     * @ORM\ManyToOne(targetEntity="Payout", inversedBy="partialPayouts")
      */
-    protected $partialPayout;
+    protected $payout;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Payment", inversedBy="partialPayout")
+     */
+    protected $payment;
 
     /**
      * @ORM\Column(type="bigint")
@@ -45,8 +44,10 @@ class Payment
      */
     protected $createdAt;
 
-    public function __construct()
+    public function __construct(Payment $payment)
     {
+        $this->payment = $payment;
+        $this->account = $payment->getAccount();
         $this->createdAt = new \DateTime();
     }
 
@@ -80,6 +81,16 @@ class Payment
         return $this->account;
     }
 
+    public function setPayout(Payout $payout)
+    {
+        $this->payout = $payout;
+    }
+
+    public function getPayout()
+    {
+        return $this->payout;
+    }
+
     public function setAmount($amount)
     {
         $this->amount = $amount;
@@ -88,16 +99,6 @@ class Payment
     public function getAmount()
     {
         return $this->amount;
-    }
-
-    public function setPartialPayout(PartialPayout $partialPayout)
-    {
-        $this->partialPayout = $partialPayout;
-    }
-
-    public function getPartialPayout()
-    {
-        return $this->partialPayout;
     }
 
     public function __toString()

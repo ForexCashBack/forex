@@ -14,6 +14,7 @@ class BrokerAdmin extends Admin
         $formMapper
             //->add('id')
             ->add('name')
+            ->add('basePercentage')
         ;
     }
 
@@ -30,6 +31,7 @@ class BrokerAdmin extends Admin
         $listMapper
             ->addIdentifier('id')
             ->add('name')
+            ->add('basePercentage')
         ;
     }
 }

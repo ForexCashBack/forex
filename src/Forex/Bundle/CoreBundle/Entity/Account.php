@@ -2,6 +2,7 @@
 
 namespace Forex\Bundle\CoreBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +37,28 @@ class Account
      * @ORM\OneToMany(targetEntity="Payment", mappedBy="account")
      */
     protected $payments;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Payout", mappedBy="account")
+     */
+    protected $payouts;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    protected $payoutPercentage;
+
+    public function __construct(Broker $broker = null, User $user = null)
+    {
+        $this->broker = $broker;
+        $this->user = $user;
+        if ($broker) {
+            $this->payoutPercentage = $broker->getBasePercentage();
+        }
+
+        $this->payments = new ArrayCollection();
+        $this->payouts = new ArrayCollection();
+    }
 
     public function setId($id)
     {
@@ -85,6 +108,26 @@ class Account
     public function getPayments()
     {
         return $this->payments;
+    }
+
+    public function addPayout(Payout $payout)
+    {
+        $this->payouts->add($payout);
+    }
+
+    public function getPayouts()
+    {
+        return $this->payouts;
+    }
+
+    public function setPayoutPercentage($payoutPercentage)
+    {
+        $this->payoutPercentage = $payoutPercentage;
+    }
+
+    public function getPayoutPercentage()
+    {
+        return $this->payoutPercentage;
     }
 
     public function __toString()
