@@ -33,4 +33,9 @@ class BaseController extends Controller
 
         return $this->createForm(new AccountFormType(), $account);
     }
+
+    protected function getAccountManager()
+    {
+        return $this->container->get('forex.account_manager');
+    }
 }

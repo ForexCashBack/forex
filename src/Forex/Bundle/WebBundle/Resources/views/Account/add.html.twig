@@ -6,7 +6,7 @@
 
     <ul>
     {% for broker in brokers %}
-        <li><a href="{{ path('account_create', {brokerId: broker.id}) }}">{{ broker.name }}</a></li>
+        <li><a href="{{ path('account_new', {brokerId: broker.id}) }}">{{ broker.name }}</a></li>
     {% endfor %}
     </ul>
 {% endblock %}

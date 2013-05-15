@@ -42,14 +42,40 @@ class AccountController extends BaseController
     }
 
     /**
-     * @Route("/create/{brokerId}", name="account_create")
+     * @Route("/new/{brokerId}", name="account_new")
      * @ParamConverter("broker", class="ForexCoreBundle:Broker", options={"id" = "brokerId"})
      * @Template
+     */
+    public function newAction(Broker $broker)
+    {
+        $user = $this->getUser();
+        $form = $this->createAccountForm($user, $broker);
+
+        return array(
+            'user' => $user,
+            'broker' => $broker,
+            'form' => $form->createView(),
+        );
+    }
+
+    /**
+     * @Route("/create/{brokerId}", name="account_create")
+     * @ParamConverter("broker", class="ForexCoreBundle:Broker", options={"id" = "brokerId"})
+     * @Template("ForexWebBundle:Account:new.html.twig")
      */
     public function createAction(Broker $broker)
     {
         $user = $this->getUser();
         $form = $this->createAccountForm($user, $broker);
+        $form->bindRequest($this->getRequest());
+
+        if ($form->isValid()) {
+            $account = $form->getData();
+            $this->getAccountManager()->createAccount($account);
+            $this->getEntityManager()->flush();
+
+            return $this->redirect($this->generateUrl('account_list'));
+        }
 
         return array(
             'user' => $user,

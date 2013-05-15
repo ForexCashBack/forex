@@ -3,7 +3,7 @@
 {% block content %}
     <h2>Create an account for {{ broker.name }}</h2>
 
-    <form>
+    <form action="{{ path('account_create', {brokerId: broker.id}) }}" method="post">
         {{ form_widget(form) }}
         <button>Create Account</button>
     </form>
