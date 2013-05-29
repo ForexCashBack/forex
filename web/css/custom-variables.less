@@ -1,41 +1,43 @@
 // http://colorschemedesigner.com/ - accented analogic @ 34D800
 
+// Colors
+// -------------------------
+@primaryColor: #0E405E;
+
 // Typography
 // -------------------------
 @sansFontFamily:        "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@serifFontFamily:       "Arapey", Georgia, "Times New Roman", Times, serif;
 
 // AccountBar
 //--------------------------
-@accountBarBackground: #4B5F96;
+@accountBarBackground: #0E405E;
 @accountBarText: lighten(@accountBarBackground, 50%);
 
 
 // Navbar
 // -------------------------
-@navbarCollapseWidth:             979px;
-@navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
-
-@navbarHeight:                    40px;
+@navbarHeight:                    60px;
 @navbarBackgroundHighlight:       #ffffff;
-@navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
+@navbarBackground:                @primaryColor;
 @navbarBorder:                    darken(@navbarBackground, 12%);
 
-@navbarText:                      #777;
-@navbarLinkColor:                 #777;
-@navbarLinkColorHover:            @grayDark;
-@navbarLinkColorActive:           @gray;
+@navbarText:                      @gray;
+@navbarLinkColor:                 @gray;
+@navbarLinkColorHover:            @grayDarker;
+@navbarLinkColorActive:           @grayDark;
 @navbarLinkBackgroundHover:       transparent;
 @navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
 
-@navbarBrandColor:                @navbarLinkColor;
+@navbarBrandColor:                darken(@navbarLinkColor, 25%);
 
 // Inverted navbar
-@navbarInverseBackground:                darken(@accountBarBackground, 75%);
-@navbarInverseBackgroundHighlight:       darken(@accountBarBackground, 85%);
-@navbarInverseBorder:                    darken(@accountBarBackground, 90%);
+@navbarInverseBackground:                @primaryColor;
+@navbarInverseBackgroundHighlight:       darken(@primaryColor, 10%);
+@navbarInverseBorder:                    darken(@primaryColor, 15%);
 
-@navbarInverseText:                      @grayLight;
-@navbarInverseLinkColor:                 @grayLight;
+@navbarInverseText:                      @white;
+@navbarInverseLinkColor:                 @white;
 @navbarInverseLinkColorHover:            @white;
 @navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
 @navbarInverseLinkBackgroundHover:       transparent;
@@ -46,4 +48,14 @@
 @navbarInverseSearchBorder:              @navbarInverseBackground;
 @navbarInverseSearchPlaceholderColor:    #ccc;
 
-@navbarInverseBrandColor:                @navbarInverseLinkColor;
+@navbarInverseBrandColor:                @grayLighter;
+
+// Hero
+@heroUnitBackground: @grayLighter;
+@heroUnitLeadColor: @grayDark;
+.hero-unit {
+  margin-top: 25px;
+  h1 {
+    font-family: @serifFontFamily;
+  }
+}

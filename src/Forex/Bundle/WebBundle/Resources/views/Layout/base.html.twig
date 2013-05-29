@@ -2,43 +2,47 @@
 <html>
 <head lang="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
-    <title>{% block title 'Forex' %}</title>
+    <link href='http://fonts.googleapis.com/css?family=Arapey|Noto+Sans' rel='stylesheet' type='text/css'>
+    <title>{% block title 'Forex Cash Back' %}</title>
     {% stylesheets 'css/main.less' filter='less' output='css/main.css' %}
         <link rel="stylesheet" href="{{ asset_url }}">
     {% endstylesheets %}
     <link rel="stylesheet" href="../components/font-awesome/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
-    <div id="accountBar">
-        <div class="container">
-            <p>Welcome to Forex Cash Back</p>
-            <ul class="pull-right inline">
-                {% if is_granted('ROLE_USER') %}
-                    <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
-                {% else %}
-                    <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
-                    <li><a href="{{ path('fos_user_registration_register') }}">Create Account</a></li>
-                {% endif %}
-            </ul>
-        </div>
-    </div>
-    <div class="container">
-        <div class="header">
-            <h1>Forex Cash Back</h1>
-            <div class="navbar navbar-inverse">
-                <div class="navbar-inner">
-                    <div class="container">
-                        <a class="brand" href="/">Home</a>
-                        <a class="brand" href="{{ path('faq') }}">FAQs</a>
-                        <a class="brand" href="{{ path('brokers') }}">Brokers</a>
-                        <a class="brand" href="/">Contact Us</a>
+<body class="{% block body_class '' %}">
+    <div class="navbar navbar-inverse navbar-static-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="/">Forex Cash Back</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{{ path('faq') }}">FAQs</a></li>
+                        <li><a href="{{ path('brokers') }}">Brokers</a></li>
+                        <li><a href="/">Contact Us</a></li>
+                    </ul>
+                    <div class="nav navbar-text pull-right">
+                        {% if is_granted('ROLE_USER') %}
+                            <a href="{{ path('fos_user_security_logout') }}" class="navbar-text">Logout</a>
+                        {% else %}
+                            <a href="{{ path('fos_user_security_login') }}" class="navbar-text">Login</a>
+                            |
+                            <a href="{{ path('fos_user_registration_register') }}" class="navbar-text">Create Account</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="container">
+    <div class="container">
+        <div class="row">
             {% for type, messages in app.session.flashbag.all() %}
                 {% for message in messages %}
                     <div class="alert alert-{{ type }}">
@@ -47,9 +51,9 @@
                     </div>
                 {% endfor %}
             {% endfor %}
-
-            {% block content 'Default Content' %}
         </div>
+
+        {% block content 'Default Content' %}
     </div>
 
     {% javascripts
