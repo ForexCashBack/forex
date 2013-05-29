@@ -25,7 +25,7 @@
                         <li><a href="/">Home</a></li>
                         <li><a href="{{ path('faq') }}">FAQs</a></li>
                         <li><a href="{{ path('brokers') }}">Brokers</a></li>
-                        <li><a href="/">Contact Us</a></li>
+                        <li><a href="{{ path('contact') }}">Contact Us</a></li>
                     </ul>
                     <div class="nav navbar-text pull-right">
                         {% if is_granted('ROLE_USER') %}

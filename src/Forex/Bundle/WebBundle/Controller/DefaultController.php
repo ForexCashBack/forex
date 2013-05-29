@@ -47,4 +47,17 @@ class DefaultController extends BaseController
     {
         return array();
     }
+
+    /**
+     * @Route("/contact", name="contact")
+     * @Template
+     */
+    public function contactAction()
+    {
+        $form = $this->createContactForm();
+
+        return array(
+            'contactForm' => $form->createView(),
+        );
+    }
 }
