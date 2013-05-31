@@ -13,7 +13,7 @@ class PartialPayoutAdmin extends Admin
     {
         $formMapper
             ->add('id')
-            ->add('account', 'sonata_type_model', array(), array())
+            ->add('user', 'sonata_type_model', array(), array())
             ->add('payout', 'sonata_type_model', array(), array())
             ->add('amount', null, array(
                 'help' => 'Enter payments as integers.  Ex. $123.45 = 12345',
@@ -24,7 +24,7 @@ class PartialPayoutAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('account')
+            ->add('user')
         ;
     }
 
@@ -32,7 +32,7 @@ class PartialPayoutAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->add('account')
+            ->add('user')
             ->add('amount')
         ;
     }

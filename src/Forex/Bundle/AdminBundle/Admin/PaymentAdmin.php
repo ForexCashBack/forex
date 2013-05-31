@@ -41,7 +41,7 @@ class PaymentAdmin extends Admin
 
     public function prePersist($object)
     {
-        $this->getPaymentManager()->createPayment($object);
+        $this->getPaymentManager()->createPartialPayouts($object);
     }
 
     public function setPaymentManager(PaymentManager $paymentManager)

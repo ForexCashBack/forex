@@ -5,7 +5,7 @@ namespace Forex\Bundle\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * This represents a payment that we send to a user for a specific account
+ * This represents an amount that we will group together into a payout
  *
  * @ORM\Entity
  * @ORM\Table(name="partial_payouts")
@@ -20,9 +20,9 @@ class PartialPayout
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Account", inversedBy="payouts")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="partialPayouts")
      */
-    protected $account;
+    protected $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="Payout", inversedBy="partialPayouts")
@@ -30,7 +30,7 @@ class PartialPayout
     protected $payout;
 
     /**
-     * @ORM\OneToOne(targetEntity="Payment", inversedBy="partialPayout")
+     * @ORM\ManyToOne(targetEntity="Payment", inversedBy="partialPayout")
      */
     protected $payment;
 
@@ -40,6 +40,11 @@ class PartialPayout
     protected $amount;
 
     /**
+     * ORM\Column(type="string")
+     */
+    protected $description;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     protected $createdAt;
@@ -47,8 +52,17 @@ class PartialPayout
     public function __construct(Payment $payment)
     {
         $this->payment = $payment;
-        $this->account = $payment->getAccount();
         $this->createdAt = new \DateTime();
+    }
+
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+    }
+
+    public function getUser()
+    {
+        return $this->user;
     }
 
     public function setId($id)
@@ -71,16 +85,6 @@ class PartialPayout
         return $this->broker;
     }
 
-    public function setAccount(Account $account)
-    {
-        $this->account = $account;
-    }
-
-    public function getAccount()
-    {
-        return $this->account;
-    }
-
     public function setPayout(Payout $payout)
     {
         $this->payout = $payout;
@@ -101,10 +105,20 @@ class PartialPayout
         return $this->amount;
     }
 
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
     public function __toString()
     {
         return $this->id
-            ? sprintf('%s - %s', $this->id, $this->account->getId())
-            : 'New Account';
+            ? sprintf('%s - %s', $this->id, $this->user->getId())
+            : 'New Payment';
     }
 }

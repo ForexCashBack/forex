@@ -35,10 +35,16 @@ class User extends BaseUser
      **/
     protected $referrer;
 
+    /**
+     * @ORM\OneToMany(targetEntity="PartialPayout", mappedBy="user")
+     **/
+    protected $partialPayouts;
+
     public function __construct()
     {
         parent::__construct();
         $this->accounts = new ArrayCollection();
+        $this->partialPayouts = new ArrayCollection();
     }
 
     public function addAccount(Account $account)
@@ -59,5 +65,15 @@ class User extends BaseUser
     public function getAccounts()
     {
         return $this->accounts;
+    }
+
+    public function setReferrer(User $user)
+    {
+        $this->referrer = $user;
+    }
+
+    public function getReferrer()
+    {
+        return $this->referrer;
     }
 }

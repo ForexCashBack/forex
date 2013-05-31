@@ -18,6 +18,7 @@ class UserAdmin extends Admin
             ->with('General')
                 ->add('email')
                 ->add('username')
+                ->add('referrer')
                 ->add('plainPassword', 'text', array(
                     'required' => false,
                     'label' => 'Password',

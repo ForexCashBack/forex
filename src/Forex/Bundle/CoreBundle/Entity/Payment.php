@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * This represents a payment that we receive from a broker for a specific account
- * Each payment will create one associated partial payment.
+ * Each payment will create one or more associated partial payment.
  *
  * @ORM\Entity
  * @ORM\Table(name="payments")
@@ -31,7 +31,7 @@ class Payment
     protected $account;
 
     /**
-     * @ORM\OneToOne(targetEntity="PartialPayout", mappedBy="payment")
+     * @ORM\OneToMany(targetEntity="PartialPayout", mappedBy="payment")
      */
     protected $partialPayout;
 
