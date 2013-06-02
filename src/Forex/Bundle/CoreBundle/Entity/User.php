@@ -30,7 +30,7 @@ class User extends BaseUser
     protected $accounts;
 
     /**
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="referrer_id", referencedColumnName="id")
      **/
     protected $referrer;
