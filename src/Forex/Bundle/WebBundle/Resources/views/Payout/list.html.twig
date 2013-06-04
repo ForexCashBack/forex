@@ -1,0 +1,20 @@
+{% extends "ForexWebBundle:Layout:base.html.twig" %}
+
+{% block content %}
+    <h2>My Payouts</h2>
+
+    <table class="table">
+        <tr>
+            <th>Payout ID</th>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+        {% for payout in user.payouts %}
+            <tr>
+                <td>{{ payout.id }}</td>
+                <td>{{ payout.amount }}</td>
+                <td>{{ payout.createdAt|date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

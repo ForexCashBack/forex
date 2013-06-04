@@ -36,6 +36,11 @@ class User extends BaseUser
     protected $referrer;
 
     /**
+     * @ORM\OneToMany(targetEntity="Payout", mappedBy="user")
+     **/
+    protected $payouts;
+
+    /**
      * @ORM\OneToMany(targetEntity="PartialPayout", mappedBy="user")
      **/
     protected $partialPayouts;
@@ -75,5 +80,15 @@ class User extends BaseUser
     public function getReferrer()
     {
         return $this->referrer;
+    }
+
+    public function addPayout(Payout $payout)
+    {
+        $this->payouts[] = $payout;
+    }
+
+    public function getPayouts()
+    {
+        return $this->payouts;
     }
 }

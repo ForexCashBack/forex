@@ -21,9 +21,9 @@ class Payout
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Account", inversedBy="payouts")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="payouts")
      */
-    protected $account;
+    protected $user;
 
     /**
      * @ORM\OneToMany(targetEntity="PartialPayout", mappedBy="payout")
@@ -66,14 +66,14 @@ class Payout
         return $this->broker;
     }
 
-    public function setAccount(Account $account)
+    public function setUser(User $user)
     {
-        $this->account = $account;
+        $this->user = $user;
     }
 
-    public function getAccount()
+    public function getUser()
     {
-        return $this->account;
+        return $this->user;
     }
 
     public function setAmount($amount)
@@ -103,10 +103,15 @@ class Payout
         return $this->partialPayouts;
     }
 
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
     public function __toString()
     {
         return $this->id
-            ? sprintf('%s - %s', $this->id, $this->account->getId())
-            : 'New Account';
+            ? sprintf('%s - %s', $this->id, $this->user->getUsername())
+            : 'New Payout';
     }
 }

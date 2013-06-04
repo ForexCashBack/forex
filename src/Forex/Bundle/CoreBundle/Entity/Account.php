@@ -39,11 +39,6 @@ class Account
     protected $payments;
 
     /**
-     * @ORM\OneToMany(targetEntity="Payout", mappedBy="account")
-     */
-    protected $payouts;
-
-    /**
      * @ORM\Column(type="float")
      */
     protected $payoutPercentage;
