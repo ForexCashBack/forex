@@ -27,15 +27,23 @@
                         <li><a href="{{ path('brokers') }}">Brokers</a></li>
                         <li><a href="{{ path('contact') }}">Contact Us</a></li>
                     </ul>
-                    <div class="nav navbar-text pull-right">
+                    <ul class="nav pull-right">
                         {% if is_granted('ROLE_USER') %}
-                            <a href="{{ path('fos_user_security_logout') }}" class="navbar-text">Logout</a>
+                            <li class="dropdown navbar-dropdown">
+                                <a href="{{ path('fos_user_profile_show') }}" class="dropdown-toggle"  data-toggle="dropdown" data-target="#"><i class="icon-home"></i> My Account <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                                    <li><a tabindex="-1" href="{{ path('fos_user_profile_show') }}">My Profile</a></li>
+                                    <li><a tabindex="-1" href="{{ path('account_list') }}">My Brokerage Accounts</a></li>
+                                </ul>
+                            </li>
+                            <li class="divider-vertical"></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
                         {% else %}
                             <a href="{{ path('fos_user_security_login') }}" class="navbar-text">Login</a>
                             |
                             <a href="{{ path('fos_user_registration_register') }}" class="navbar-text">Create Account</a>
                         {% endif %}
-                    </div>
+                    </ul>
                 </div>
             </div>
         </div>
