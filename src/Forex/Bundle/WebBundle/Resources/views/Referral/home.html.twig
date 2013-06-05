@@ -1,0 +1,25 @@
+{% extends "ForexWebBundle:Layout:base.html.twig" %}
+
+{% set referralUrl = url('homepage', {rid: user.id}) %}
+
+{% block content %}
+    <h2>My Referrals</h2>
+
+    <p>Here is your personal referral url</p>
+    <p class="text-info"><strong>{{ referralUrl }}</strong></p>
+
+    <h3>My Referred Users</h3>
+
+    <table class="table">
+        <tr>
+            <th>User</th>
+            <th>Signup Date</th>
+        </tr>
+        {% for referral in user.referrals %}
+            <tr>
+                <td>{{ referral.username }}</td>
+                <td>{{ referral.createdAt|date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

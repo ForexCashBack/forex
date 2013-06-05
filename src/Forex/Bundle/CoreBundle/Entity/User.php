@@ -30,10 +30,15 @@ class User extends BaseUser
     protected $accounts;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="referrals")
      * @ORM\JoinColumn(name="referrer_id", referencedColumnName="id")
      **/
     protected $referrer;
+
+    /**
+     * @ORM\OneToMany(targetEntity="User", mappedBy="referrer")
+     **/
+    protected $referrals;
 
     /**
      * @ORM\OneToMany(targetEntity="Payout", mappedBy="user")
@@ -45,11 +50,17 @@ class User extends BaseUser
      **/
     protected $partialPayouts;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $createdAt;
+
     public function __construct()
     {
         parent::__construct();
         $this->accounts = new ArrayCollection();
         $this->partialPayouts = new ArrayCollection();
+        $this->createdAt = new \DateTime();
     }
 
     public function addAccount(Account $account)
@@ -90,5 +101,15 @@ class User extends BaseUser
     public function getPayouts()
     {
         return $this->payouts;
+    }
+
+    public function getReferrals()
+    {
+        return $this->referrals;
+    }
+
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
     }
 }
