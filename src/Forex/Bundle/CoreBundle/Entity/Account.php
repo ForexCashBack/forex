@@ -4,6 +4,7 @@ namespace Forex\Bundle\CoreBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -40,6 +41,12 @@ class Account
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 1,
+     *      minMessage = "Percentage must be greater than 0",
+     *      maxMessage = "Percentage must be less than 1"
+     * )
      */
     protected $payoutPercentage;
 

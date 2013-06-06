@@ -19,10 +19,12 @@ class BrokerAdmin extends Admin
                 ->add('maxLeverage')
                 ->add('website')
                 ->add('yearFounded')
-                ->add('basePercentage')
+                ->add('basePercentage', 'percent')
+            ->end()
             ->with('Images')
                 ->add('rectangleImagePath')
                 ->add('squareImagePath')
+            ->end()
         ;
     }
 
@@ -39,7 +41,7 @@ class BrokerAdmin extends Admin
         $listMapper
             ->addIdentifier('id')
             ->add('name')
-            ->add('basePercentage')
+            ->add('basePercentage', 'percent')
         ;
     }
 }

@@ -15,8 +15,9 @@ class PartialPayoutAdmin extends Admin
             ->add('id')
             ->add('user', 'sonata_type_model', array(), array())
             ->add('payout', 'sonata_type_model', array(), array())
-            ->add('amount', null, array(
-                'help' => 'Enter payments as integers.  Ex. $123.45 = 12345',
+            ->add('amount', 'money', array(
+                'currency' => 'USD',
+                'divisor' => 100,
             ))
         ;
     }
@@ -33,7 +34,10 @@ class PartialPayoutAdmin extends Admin
         $listMapper
             ->addIdentifier('id')
             ->add('user')
-            ->add('amount')
+            ->add('amount', 'money', array(
+                'currency' => 'USD',
+                'divisor' => 100,
+            ))
         ;
     }
 }

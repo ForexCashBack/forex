@@ -13,8 +13,9 @@ class PayoutAdmin extends Admin
     {
         $formMapper
             ->add('user', 'sonata_type_model', array(), array())
-            ->add('amount', null, array(
-                'help' => 'Enter payments as integers.  Ex. $123.45 = 12345',
+            ->add('amount', 'money', array(
+                'currency' => 'USD',
+                'divisor' => 100,
             ))
         ;
     }
@@ -31,7 +32,10 @@ class PayoutAdmin extends Admin
         $listMapper
             ->addIdentifier('id')
             ->add('user')
-            ->add('amount')
+            ->add('amount', 'money', array(
+                'currency' => 'USD',
+                'divisor' => 100,
+            ))
         ;
     }
 }

@@ -15,8 +15,9 @@ class PaymentAdmin extends Admin
         $formMapper
             ->add('broker', 'sonata_type_model', array(), array())
             ->add('account', 'sonata_type_model', array(), array())
-            ->add('amount', null, array(
-                'help' => 'Enter payments as integers.  Ex. $123.45 = 12345',
+            ->add('amount', 'money', array(
+                'currency' => 'USD',
+                'divisor' => 100,
             ))
         ;
     }
@@ -35,7 +36,10 @@ class PaymentAdmin extends Admin
             ->addIdentifier('id')
             ->add('broker')
             ->add('account')
-            ->add('amount')
+            ->add('amount', 'money', array(
+                'currency' => 'USD',
+                'divisor' => 100,
+            ))
         ;
     }
 

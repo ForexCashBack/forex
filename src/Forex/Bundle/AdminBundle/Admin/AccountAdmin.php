@@ -18,7 +18,7 @@ class AccountAdmin extends Admin
             ->add('accountNumber')
             ->add('broker', 'sonata_type_model', array(), array())
             ->add('user', 'sonata_type_model', array(), array())
-            ->add('payoutPercentage')
+            ->add('payoutPercentage', 'percent')
         ;
     }
 

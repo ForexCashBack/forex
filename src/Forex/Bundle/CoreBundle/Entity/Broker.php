@@ -47,9 +47,9 @@ class Broker
      * @ORM\Column(type="float")
      * @Assert\Range(
      *      min = 0,
-     *      max = 100,
+     *      max = 1,
      *      minMessage = "Percentage must be greater than 0",
-     *      maxMessage = "Percentage must be less than 100"
+     *      maxMessage = "Percentage must be less than 1"
      * )
      */
     protected $basePercentage;
