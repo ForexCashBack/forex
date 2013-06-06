@@ -6,7 +6,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Name</th>
+                <th>Company</th>
                 <th>Min Deposit</th>
                 <th>Max Leverage</th>
                 <th>Website</th>
@@ -16,7 +16,11 @@
         <tbody>
             {% for broker in brokers %}
                 <tr>
-                    <td><b>{{ broker.name }}</b></br><small class="muted">{{ broker.companyName }}</small></td>
+                    <td>
+                        <b>{{ broker.name }}</b><br />
+                        <small class="muted">{{ broker.companyName }}</small><br />
+                        <img src="{{ asset(broker.rectangleImagePath) }}">
+                    </td>
                     <td>{{ broker.minDeposit }}</td>
                     <td>{{ broker.maxLeverage }}</td>
                     <td>{{ broker.website }}</td>

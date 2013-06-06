@@ -12,13 +12,17 @@ class BrokerAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name')
-            ->add('companyName')
-            ->add('minDeposit')
-            ->add('maxLeverage')
-            ->add('website')
-            ->add('yearFounded')
-            ->add('basePercentage')
+            ->with('General')
+                ->add('name')
+                ->add('companyName')
+                ->add('minDeposit')
+                ->add('maxLeverage')
+                ->add('website')
+                ->add('yearFounded')
+                ->add('basePercentage')
+            ->with('Images')
+                ->add('rectangleImagePath')
+                ->add('squareImagePath')
         ;
     }
 

@@ -78,6 +78,20 @@ class Broker
      */
     protected $yearFounded;
 
+    /**
+     * The path to the image relative to the web directory
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $rectangleImagePath;
+
+    /**
+     * The path to the image relative to the web directory
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $squareImagePath;
+
     public function __construct()
     {
         $this->accounts = new ArrayCollection();
@@ -335,6 +349,52 @@ class Broker
     public function getYearFounded()
     {
         return $this->yearFounded;
+    }
+
+    /**
+     * Set rectangleImagePath
+     *
+     * @param string $rectangleImagePath
+     * @return Broker
+     */
+    public function setRectangleImagePath($rectangleImagePath)
+    {
+        $this->rectangleImagePath = $rectangleImagePath;
+
+        return $this;
+    }
+
+    /**
+     * Get rectangleImagePath
+     *
+     * @return string
+     */
+    public function getRectangleImagePath()
+    {
+        return $this->rectangleImagePath;
+    }
+
+    /**
+     * Set squareImagePath
+     *
+     * @param string $squareImagePath
+     * @return Broker
+     */
+    public function setSquareImagePath($squareImagePath)
+    {
+        $this->squareImagePath = $squareImagePath;
+
+        return $this;
+    }
+
+    /**
+     * Get squareImagePath
+     *
+     * @return string
+     */
+    public function getSquareImagePath()
+    {
+        return $this->squareImagePath;
     }
 
     public function __toString()
