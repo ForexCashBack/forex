@@ -60,4 +60,13 @@ class DefaultController extends BaseController
             'contactForm' => $form->createView(),
         );
     }
+
+    /**
+     * @Route("/affiliate", name="affiliate")
+     * @Template
+     */
+    public function affiliateAction()
+    {
+        return array();
+    }
 }

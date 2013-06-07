@@ -13,9 +13,9 @@ use JMS\DiExtraBundle\Annotation as DI;
  */
 class PaymentManager
 {
-    const REFERRAL_PERCENT_LEVEL_1 = 0.12;
-    const REFERRAL_PERCENT_LEVEL_2 = 0.02;
-    const REFERRAL_PERCENT_LEVEL_3 = 0.005;
+    const REFERRAL_PERCENT_LEVEL_1 = 0.10;
+    const REFERRAL_PERCENT_LEVEL_2 = 0.05;
+    const REFERRAL_PERCENT_LEVEL_3 = 0.01;
 
     protected $em;
 

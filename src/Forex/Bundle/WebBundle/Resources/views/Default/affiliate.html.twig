@@ -1,0 +1,35 @@
+{% extends "ForexWebBundle:Layout:base.html.twig" %}
+
+{% block content %}
+    <h2>Affiliate Program</h2>
+
+    <h3>Overview</h3>
+    <p>Our affiliate program is designed to give you a mechanism for creating a passive stream of income.  It is a great low effort way to generate an additional stream of income.  Below we explain how all of the details work.</p>
+
+    <h3>3 Tier System</h3>
+    <p>We pay commission for three levels of referrals.</p>
+    <ol>
+        <li>Tier 1 - <b>10%</b></li>
+        <li>Tier 2 - <b>5%</b></li>
+        <li>Tier 3 - <b>1%</b></li>
+    </ol>
+    <p>We offer a 3 tier system. That means that you can get a cut of rebates from traders that you refer to us in addition to two additional levels of referred users.  However, it doesn't start there.  If the people you refer also participate in the affiliate program, you get paid a percentage of their commissions as well.</p>
+    <ol>
+        <li>You refer a trader, lets call them "David".  For any rebate that "David" receives you will receive 10% of the amount he does.</li>
+        <li>"David" then refers another trader, "Sharon".  For any rebate that "Sharon" receives, you will receive 5% of the amount she does.</li>
+        <li>"Sharon then refers another trader, "Simon".  For any rebate that "Simon" receives, you will receive 1% of the amount he does.</li>
+    </ol>
+    <p>In the previous scenario, lets say that each trader gets paid a rebate of $300.  You would get $48 ($30 from "David", $15 from "Sharon" and $3 from "Simon").  No imagine that you have referred many traders and your referrals subsequently refer a number of other traders.  The money can being to add up quickly, and its all for just trading normally as you do now.</p>
+
+    <h3>How much can I earn?</h3>
+    <p>The income you can earn is unlimited.  However, the number and quality of members you refer determine the actual payouts.</p>
+    <p>Don't worry, the money paid out from the affiliate program does not impact the main traders payouts.</p>
+    <p>There is no obligation to open an account, or make any purchases.  There are no quotas, or minimums required (other than our standard minimum payout guidelines).  Once you sign up and start referring users you'll instantly start earning cash.</p>
+
+    <h3>How do I get started</h3>
+    <p>Its simple, just <a href="{{ path('fos_user_registration_register') }}">create an account</a>, then click on the "My Referrals" in your "My Account" dropdown.  There you will find your personalized link.  Just simply share that link and any users that come to our site via that link will be linked to your account.<p>
+
+    <h3>How do we track referrals</h3>
+    <p>We use the same technique that all web-based platforms use to track incoming traffic, cookie.  When a user first arrives to our site and has the referral parameter (your account id) in the url, then we store that value as a cookie in their browser.  Then when a user completes registration we check to see if that cookie exists, if it does then we give the referring user credit for the origination.</p>
+    <p>So long as the user does not clear their cookies, your referral will be credited even months after the initial visit.  Please note, that we give credit to the first person who refers a user.  Meaning, if a user follows another persons referral link first, even if they subsequently click on your link, the initial referrer gets credit.  So, what are you waiting for?  <a href="{{ path('fos_user_registration_register') }}">Sign up now</a> and start referring users!</p>
+{% endblock %}
