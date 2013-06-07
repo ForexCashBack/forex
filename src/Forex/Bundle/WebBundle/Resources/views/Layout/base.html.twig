@@ -23,7 +23,13 @@
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li><a href="/">Home</a></li>
-                        <li><a href="{{ path('faq') }}">FAQs</a></li>
+                        <li class="dropdown navbar-dropdown">
+                            <a href="{{ path('faq') }}" class="dropdown-toggle" data-toggle="dropdown">FAQs <b class="caret"></b></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                                <li><a tabindex="-1" href="{{ path('payment-methods') }}">Payment Methods</a></li>
+                                <li><a tabindex="-1" href="{{ path('faq') }}">General FAQs</a></li>
+                            </ul>
+                        </li>
                         <li><a href="{{ path('brokers') }}">Brokers</a></li>
                         <li><a href="{{ path('contact') }}">Contact Us</a></li>
                         <li><a href="{{ path('affiliate') }}">Affiliate Program</a></li>
@@ -31,7 +37,7 @@
                     <ul class="nav pull-right">
                         {% if is_granted('ROLE_USER') %}
                             <li class="dropdown navbar-dropdown">
-                                <a href="{{ path('fos_user_profile_show') }}" class="dropdown-toggle"  data-toggle="dropdown" data-target="#"><i class="icon-home"></i> My Account <b class="caret"></b></a>
+                                <a href="{{ path('fos_user_profile_show') }}" class="dropdown-toggle" data-toggle="dropdown" data-target="#"><i class="icon-home"></i> My Account <b class="caret"></b></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                                     <li><a tabindex="-1" href="{{ path('fos_user_profile_show') }}">My Profile</a></li>
                                     <li><a tabindex="-1" href="{{ path('account_list') }}">My Brokerage Accounts</a></li>
