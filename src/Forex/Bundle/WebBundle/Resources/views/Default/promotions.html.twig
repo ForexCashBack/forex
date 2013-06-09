@@ -1,0 +1,26 @@
+{% extends "ForexWebBundle:Layout:base.html.twig" %}
+
+{% block content %}
+    <h2>Promotions</h2>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Broker</th>
+                <th>Promotion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for promotion in promotions %}
+                <tr>
+                    <td>
+                        <b>{{ promotion.name }}</b><br />
+                        <img src="{{ asset(promotion.broker.rectangleImagePath) }}"><br />
+                        <small class="muted">{{ promotion.broker.companyName }}</small>
+                    </td>
+                    <td>{{ promotion.text }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

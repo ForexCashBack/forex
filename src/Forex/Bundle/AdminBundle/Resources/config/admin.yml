@@ -66,3 +66,14 @@ services:
             - 'SonataAdminBundle:CRUD'
         calls:
             - [ setTranslationDomain, [ForexAdminBundle]]
+
+    forex.admin.promotion:
+        class: Forex\Bundle\AdminBundle\Admin\PromotionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Marketing, label: "Promotions" }
+        arguments:
+            - ~
+            - Forex\Bundle\CoreBundle\Entity\Promotion
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]

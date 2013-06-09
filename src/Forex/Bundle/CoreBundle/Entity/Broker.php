@@ -44,6 +44,11 @@ class Broker
     protected $payments;
 
     /**
+     * @ORM\OneToMany(targetEntity="Promotion", mappedBy="broker")
+     */
+    protected $promotions;
+
+    /**
      * @ORM\Column(type="float")
      * @Assert\Range(
      *      min = 0,

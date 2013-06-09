@@ -79,4 +79,17 @@ class DefaultController extends BaseController
     {
         return array();
     }
+
+    /**
+     * @Route("/promotions", name="promotions")
+     * @Template
+     */
+    public function promotionsAction()
+    {
+        $promotions = $this->getRepository('ForexCoreBundle:Promotion')->findActive();
+
+        return array(
+            'promotions' => $promotions,
+        );
+    }
 }
