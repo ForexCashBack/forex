@@ -15,11 +15,28 @@ class BrokerAdmin extends Admin
             ->with('General')
                 ->add('name')
                 ->add('companyName')
+                ->add('referralLink', 'url')
                 ->add('minDeposit')
                 ->add('maxLeverage')
+                ->add('highlight')
                 ->add('website')
                 ->add('yearFounded')
                 ->add('basePercentage', 'percent')
+            ->end()
+            ->with('Regulations')
+                ->add(
+                    'regulations',
+                    'sonata_type_collection',
+                    array(
+                        'required' => false,
+                        'by_reference' => false,
+                    ),
+                    array(
+                        'edit' => 'inline'
+                        ,'inline' => 'table',
+                        'sortable' => 'id',
+                    )
+                )
             ->end()
             ->with('Images')
                 ->add('rectangleImagePath')

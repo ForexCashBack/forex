@@ -34,6 +34,12 @@ class Broker
     protected $companyName;
 
     /**
+     * @ORM\Column(type="string")
+     * @Assert\Url
+     */
+    protected $referralLink;
+
+    /**
      * @ORM\OneToMany(targetEntity="Account", mappedBy="broker")
      */
     protected $accounts;
@@ -47,6 +53,11 @@ class Broker
      * @ORM\OneToMany(targetEntity="Promotion", mappedBy="broker")
      */
     protected $promotions;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Regulation", mappedBy="broker")
+     */
+    protected $regulations;
 
     /**
      * @ORM\Column(type="float")
@@ -97,10 +108,18 @@ class Broker
      */
     protected $squareImagePath;
 
+    /**
+     * A description of why to use this broker
+     *
+     * @ORM\Column(type="text")
+     */
+    protected $highlight;
+
     public function __construct()
     {
         $this->accounts = new ArrayCollection();
         $this->payments = new ArrayCollection();
+        $this->regulations = new ArrayCollection();
     }
 
     /**
@@ -239,6 +258,39 @@ class Broker
     public function getPayments()
     {
         return $this->payments;
+    }
+
+    /**
+     * Add promotion
+     *
+     * @param \Forex\Bundle\CoreBundle\Entity\Promotion $promotions
+     * @return Broker
+     */
+    public function addPromotion(Promotion $promotions)
+    {
+        $this->promotions[] = $promotions;
+
+        return $this;
+    }
+
+    /**
+     * Remove promotion
+     *
+     * @param \Forex\Bundle\CoreBundle\Entity\Promotion $promotions
+     */
+    public function removePromotion(Promotion $promotions)
+    {
+        $this->promotions->removeElement($promotions);
+    }
+
+    /**
+     * Get promotions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPromotions()
+    {
+        return $this->promotions;
     }
 
     /**
@@ -402,8 +454,87 @@ class Broker
         return $this->squareImagePath;
     }
 
+    /**
+     * Set referralLink
+     *
+     * @param string $referralLink
+     * @return Broker
+     */
+    public function setReferralLink($referralLink)
+    {
+        $this->referralLink = $referralLink;
+
+        return $this;
+    }
+
+    /**
+     * Get referralLink
+     *
+     * @return string
+     */
+    public function getReferralLink()
+    {
+        return $this->referralLink;
+    }
+
+    /**
+     * Set highlight
+     *
+     * @param string $highlight
+     * @return Broker
+     */
+    public function setHighlight($highlight)
+    {
+        $this->highlight = $highlight;
+
+        return $this;
+    }
+
+    /**
+     * Get highlight
+     *
+     * @return string
+     */
+    public function getHighlight()
+    {
+        return $this->highlight;
+    }
+
     public function __toString()
     {
         return $this->name ?: 'New Broker';
+    }
+
+    /**
+     * Add regulation
+     *
+     * @param \Forex\Bundle\CoreBundle\Entity\Regulation $regulation
+     * @return Broker
+     */
+    public function addRegulation(Regulation $regulation)
+    {
+        $this->regulations[] = $regulation;
+
+        return $this;
+    }
+
+    /**
+     * Remove regulation
+     *
+     * @param \Forex\Bundle\CoreBundle\Entity\Regulation $regulation
+     */
+    public function removeRegulation(Regulation $regulation)
+    {
+        $this->regulations->removeElement($regulation);
+    }
+
+    /**
+     * Get regulations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRegulations()
+    {
+        return $this->regulations;
     }
 }

@@ -77,3 +77,25 @@ services:
             - 'SonataAdminBundle:CRUD'
         calls:
             - [ setTranslationDomain, [ForexAdminBundle]]
+
+    forex.admin.regulator:
+        class: Forex\Bundle\AdminBundle\Admin\RegulatorAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Regulations, label: "Regulators" }
+        arguments:
+            - ~
+            - Forex\Bundle\CoreBundle\Entity\Regulator
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]
+
+    forex.admin.regulation:
+        class: Forex\Bundle\AdminBundle\Admin\RegulationAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Regulations, label: "Regulations" }
+        arguments:
+            - ~
+            - Forex\Bundle\CoreBundle\Entity\Regulation
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]

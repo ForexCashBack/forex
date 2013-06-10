@@ -7,6 +7,7 @@
         <thead>
             <tr>
                 <th>Company</th>
+                <th>Regulations</th>
                 <th>Min Deposit</th>
                 <th>Max Leverage</th>
                 <th>Website</th>
@@ -20,6 +21,13 @@
                         <b>{{ broker.name }}</b><br />
                         <small class="muted">{{ broker.companyName }}</small><br />
                         <img src="{{ asset(broker.rectangleImagePath) }}">
+                    </td>
+                    <td>
+                        {% for regulation in broker.regulations %}
+                            <a href="{{ regulation.url ?: regulation.regulator.url }}"><abbr title="{{ regulation.regulator.name }}">{{ regulation.regulator.abbr }}</abbr></a>
+                        {% else %}
+                            N/A
+                        {% endfor %}
                     </td>
                     <td>{{ broker.minDeposit }}</td>
                     <td>{{ broker.maxLeverage }}</td>
