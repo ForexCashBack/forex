@@ -62,10 +62,10 @@ class DefaultController extends BaseController
     }
 
     /**
-     * @Route("/affiliate", name="affiliate")
+     * @Route("/referral-program", name="referral-program")
      * @Template
      */
-    public function affiliateAction()
+    public function referralAction()
     {
         return array();
     }
