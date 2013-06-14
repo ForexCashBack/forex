@@ -99,3 +99,14 @@ services:
             - 'SonataAdminBundle:CRUD'
         calls:
             - [ setTranslationDomain, [ForexAdminBundle]]
+
+    forex.admin.currency:
+        class: Forex\Bundle\AdminBundle\Admin\CurrencyAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Financial, label: "Currency" }
+        arguments:
+            - ~
+            - Forex\Bundle\CoreBundle\Entity\Currency
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]
