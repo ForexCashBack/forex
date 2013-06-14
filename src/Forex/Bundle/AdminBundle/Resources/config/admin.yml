@@ -110,3 +110,14 @@ services:
             - 'SonataAdminBundle:CRUD'
         calls:
             - [ setTranslationDomain, [ForexAdminBundle]]
+
+    forex.admin.deposit_method:
+        class: Forex\Bundle\AdminBundle\Admin\DepositMethodAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Financial, label: "Deposit Methods" }
+        arguments:
+            - ~
+            - Forex\Bundle\CoreBundle\Entity\DepositMethod
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]
