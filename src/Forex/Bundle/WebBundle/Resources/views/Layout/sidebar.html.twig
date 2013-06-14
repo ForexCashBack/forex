@@ -1,0 +1,49 @@
+<div class="section">
+    <h5>Current Rates</h5>
+
+    {% render url('_sidebar_broker_rates') %}
+</div>
+
+<div class="section">
+    <h5>Cashback Estimator</h5>
+    <form action="#" class="form form-inline">
+        <label for="cb_est_volume">Volume</label>
+        <select id="cb_est_volume">
+            <option>1 Lot (100,000 units)</option>
+            <option>.1 Lot (10,000 units)</option>
+            <option>.01 Lot (1,000 units)</option>
+        </select>
+
+        <label for="cb_est_trades"># trades/day</label>
+        <input id="cb_est_trades" type="text">
+
+        <label for="cb_est_rate">Cash back Rate</label>
+        <select id="cb_est_rate">
+            <option>.1 Pips</option>
+            <option>.15 Pips</option>
+        </select>
+
+        <button class="btn btn-success">Calculate</button>
+
+        <fieldset>
+            <legend>Estimated Earnings</legend>
+            <p>Monthly Earnings <span>$0</span></p>
+            <p>Yearly Earnings <span>$0</span></p>
+        </fieldset>
+    </form>
+</div>
+
+<div class="section">
+    <h5>Suggest a Service</h5>
+    <p class="muted">Suggest a product, service or broker</p>
+    <form action="#">
+        <input type="text" placeholder="ex. FxPro">
+        <button class="btn btn-info">Submit</button>
+    </form>
+</div>
+
+<div class="section">
+    <h5>Sign up</h5>
+    <p>What are you waiting for?</p>
+    <p><a href="" class="btn btn-success btn-large">Sign up now</a></p>
+</div>

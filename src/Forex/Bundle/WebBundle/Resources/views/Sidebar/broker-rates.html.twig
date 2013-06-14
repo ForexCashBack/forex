@@ -1,0 +1,16 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Broker</th>
+            <th>Rate</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for broker in brokers %}
+            <tr>
+                <td>{{ broker.name }}</td>
+                <td>{{ broker.minDeposit }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

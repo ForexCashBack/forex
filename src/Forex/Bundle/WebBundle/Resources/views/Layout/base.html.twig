@@ -71,7 +71,14 @@
             {% endfor %}
         </div>
 
-        {% block content 'Default Content' %}
+        <div class="row">
+            <div class="span9">
+                {% block content 'Default Content' %}
+            </div>
+            <div class="span3 sidebar">
+                {% include "ForexWebBundle:Layout:sidebar.html.twig" %}
+            </div>
+        </div>
     </div>
 
     <footer class="footer navbar navbar-inverse navbar-fixed-bottom">
