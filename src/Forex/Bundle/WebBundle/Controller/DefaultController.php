@@ -72,7 +72,6 @@ class DefaultController extends BaseController
 
     /**
      * @Route("/payment-methods", name="payment-methods")
-     * Template
      * @Template("ForexWebBundle:Default:payment-methods.html.twig")
      */
     public function paymentMethodsAction()
