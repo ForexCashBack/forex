@@ -10,9 +10,11 @@
                 <th>Regulations</th>
                 <th>Min Deposit</th>
                 <th>Max Leverage</th>
+                <th>Accepts US Clients</th>
+                <th>Spread</th>
                 <th>Website</th>
                 <th>Year Founded</th>
-            </tr>
+            </tr>src/Forex/Bundle/CoreBundle/Entity/Broker.php
         </thead>
         <tbody>
             {% for broker in brokers %}
@@ -31,6 +33,8 @@
                     </td>
                     <td>{{ broker.minDeposit }}</td>
                     <td>{{ broker.maxLeverage }}</td>
+                    <td>{{ broker.usClients ? 'Yes' : 'No' }}</td>
+                    <td><a href="{{ broker.spreadLink }}">{{ broker.spread ?: 'Spread Link' }}</td>
                     <td>{{ broker.website }}</td>
                     <td>{{ broker.yearFounded }}</td>
                 </tr>

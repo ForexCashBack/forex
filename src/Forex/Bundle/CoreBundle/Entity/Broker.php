@@ -95,6 +95,13 @@ class Broker
     protected $yearFounded;
 
     /**
+     * The plain text of the rate they offer
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $rate;
+
+    /**
      * The path to the image relative to the web directory
      *
      * @ORM\Column(type="string", nullable=true)
@@ -114,6 +121,28 @@ class Broker
      * @ORM\Column(type="text")
      */
     protected $highlight;
+
+    /**
+     * A description of the spread
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $spread;
+
+    /**
+     * The link to the brokers spread
+     *
+     * @ORM\Column(type="string")
+     * @Assert\Url
+     */
+    protected $spreadLink;
+
+    /**
+     * Does the broker accept US clients
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $usClients;
 
     public function __construct()
     {
@@ -409,6 +438,29 @@ class Broker
     }
 
     /**
+     * Set rate
+     *
+     * @param string $rate
+     * @return Broker
+     */
+    public function setRate($rate)
+    {
+        $this->rate = $rate;
+
+        return $this;
+    }
+
+    /**
+     * Get rate
+     *
+     * @return string
+     */
+    public function getRate()
+    {
+        return $this->rate;
+    }
+
+    /**
      * Set rectangleImagePath
      *
      * @param string $rectangleImagePath
@@ -500,11 +552,6 @@ class Broker
         return $this->highlight;
     }
 
-    public function __toString()
-    {
-        return $this->name ?: 'New Broker';
-    }
-
     /**
      * Add regulation
      *
@@ -536,5 +583,79 @@ class Broker
     public function getRegulations()
     {
         return $this->regulations;
+    }
+
+    /**
+     * Set spread
+     *
+     * @param string $spread
+     * @return Broker
+     */
+    public function setSpread($spread)
+    {
+        $this->spread = $spread;
+
+        return $this;
+    }
+
+    /**
+     * Get spread
+     *
+     * @return string
+     */
+    public function getSpread()
+    {
+        return $this->spread;
+    }
+
+    /**
+     * Set spreadLink
+     *
+     * @param string $spreadLink
+     * @return Broker
+     */
+    public function setSpreadLink($spreadLink)
+    {
+        $this->spreadLink = $spreadLink;
+
+        return $this;
+    }
+
+    /**
+     * Get spreadLink
+     *
+     * @return string
+     */
+    public function getSpreadLink()
+    {
+        return $this->spreadLink;
+    }
+
+    /**
+     * Set usClients
+     *
+     * @param boolean $usClients
+     * @return Broker
+     */
+    public function setUsClients($usClients)
+    {
+        $this->usClients = $usClients;
+
+        return $this;
+    }
+
+    /**
+     * Get usClients
+     *
+     * @return boolean
+     */
+    public function getUsClients()
+    {
+        return $this->usClients;
+    }
+
+    public function __toString()
+    {
+        return $this->name ?: 'New Broker';
     }
 }

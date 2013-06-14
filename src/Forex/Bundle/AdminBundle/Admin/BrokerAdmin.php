@@ -21,7 +21,10 @@ class BrokerAdmin extends Admin
                 ->add('highlight')
                 ->add('website')
                 ->add('yearFounded')
+                ->add('rate')
                 ->add('basePercentage', 'percent')
+                ->add('spread')
+                ->add('spreadLink', 'url')
             ->end()
             ->with('Regulations')
                 ->add(
