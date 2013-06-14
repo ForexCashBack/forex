@@ -60,6 +60,16 @@ class Broker
     protected $regulations;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Currency")
+     * @ORM\JoinTable(
+     *      name="broker_equity_holdings",
+     *      joinColumns={@ORM\JoinColumn(name="currency", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="broker", referencedColumnName="abbr")}
+     * )
+     */
+    protected $equityHoldingCurriencies;
+
+    /**
      * @ORM\Column(type="float")
      * @Assert\Range(
      *      min = 0,
@@ -652,6 +662,39 @@ class Broker
     public function getUsClients()
     {
         return $this->usClients;
+    }
+
+    /**
+     * Add equityHoldingCurriencies
+     *
+     * @param \Forex\Bundle\CoreBundle\Entity\Currency $equityHoldingCurriencies
+     * @return Broker
+     */
+    public function addEquityHoldingCurriency(Currency $currency)
+    {
+        $this->equityHoldingCurriencies[] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Remove equityHoldingCurriencies
+     *
+     * @param \Forex\Bundle\CoreBundle\Entity\Currency $equityHoldingCurriencies
+     */
+    public function removeEquityHoldingCurriency(Currency $currency)
+    {
+        $this->equityHoldingCurriencies->removeElement($currency);
+    }
+
+    /**
+     * Get equityHoldingCurriencies
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEquityHoldingCurriencies()
+    {
+        return $this->equityHoldingCurriencies;
     }
 
     public function __toString()

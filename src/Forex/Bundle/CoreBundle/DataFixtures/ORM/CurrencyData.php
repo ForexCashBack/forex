@@ -187,7 +187,7 @@ class CurrencyData extends AbstractFixture implements OrderedFixtureInterface
             $currency->setName($name);
             $manager->persist($currency);
 
-            $this->addReference(sprintf('currency.%s', $abbr), $currency);
+            $this->addReference(sprintf('currency.%s', strtolower($abbr)), $currency);
         }
 
         $manager->flush();
@@ -198,6 +198,6 @@ class CurrencyData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 3;
+        return 1;
     }
 }

@@ -12,6 +12,7 @@
                 <th>Max Leverage</th>
                 <th>Accepts US Clients</th>
                 <th>Spread</th>
+                <th>Currency Holdings</th>
                 <th>Website</th>
                 <th>Year Founded</th>
             </tr>src/Forex/Bundle/CoreBundle/Entity/Broker.php
@@ -34,7 +35,14 @@
                     <td>{{ broker.minDeposit }}</td>
                     <td>{{ broker.maxLeverage }}</td>
                     <td>{{ broker.usClients ? 'Yes' : 'No' }}</td>
-                    <td><a href="{{ broker.spreadLink }}">{{ broker.spread ?: 'Spread Link' }}</td>
+                    <td><a href="{{ broker.spreadLink }}">{{ broker.spread ?: 'Spread Link' }}</a></td>
+                    <td>
+                        {% for currency in broker.equityHoldingCurriencies %}
+                            <abbr title="{{ currency.name }}">{{ currency.abbr }}</abbr>
+                        {% else %}
+                            N/A
+                        {% endfor %}
+                    </td>
                     <td>{{ broker.website }}</td>
                     <td>{{ broker.yearFounded }}</td>
                 </tr>
