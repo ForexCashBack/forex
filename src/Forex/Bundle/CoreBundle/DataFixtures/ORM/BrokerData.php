@@ -16,6 +16,7 @@ class BrokerData extends AbstractFixture implements OrderedFixtureInterface
     {
         $test = new Broker();
         $test->setName('Test Broker');
+        $test->setSlug('test-broker');
         $test->setCompanyName('Test Broker, LLC');
         $test->setReferralLink('http://www.test.com?referral_link=test');
         $test->setBasePercentage(0.8);
@@ -31,6 +32,7 @@ class BrokerData extends AbstractFixture implements OrderedFixtureInterface
 
         $fxpro = new Broker();
         $fxpro->setName('FxPro');
+        $fxpro->setSlug('fxpro');
         $fxpro->setCompanyName('FxPro Financial Services Ltd');
         $fxpro->setReferralLink('http://www.fxpro.com?referral_link=test');
         $fxpro->setBasePercentage(0.8);
@@ -46,6 +48,7 @@ class BrokerData extends AbstractFixture implements OrderedFixtureInterface
 
         $excel = new Broker();
         $excel->setName('Excel Markets');
+        $excel->setSlug('excel-markets');
         $excel->setCompanyName('Global Brokers NZ Ltd.');
         $excel->setReferralLink('https://www.excelmarkets.com?referral_link=test');
         $excel->setBasePercentage(0.8);

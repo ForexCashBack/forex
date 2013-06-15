@@ -27,19 +27,6 @@ class DefaultController extends BaseController
     }
 
     /**
-     * @Route("/brokers", name="brokers")
-     * @Template
-     */
-    public function brokerAction()
-    {
-        $brokers = $this->getRepository('ForexCoreBundle:Broker')->findAll();
-
-        return array(
-            'brokers' => $brokers,
-        );
-    }
-
-    /**
      * @Route("/faq", name="faq")
      * @Template
      */

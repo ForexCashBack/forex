@@ -8,7 +8,7 @@
     <tbody>
         {% for broker in brokers %}
             <tr>
-                <td>{{ broker.name }}</td>
+                <td><a href="{{ path('broker_view', {slug: broker.slug}) }}">{{ broker.name }}</a></td>
                 <td>{{ broker.rate }}</td>
             </tr>
         {% endfor %}

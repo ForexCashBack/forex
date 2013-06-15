@@ -22,6 +22,12 @@ class Broker
     protected $id;
 
     /**
+     * @ORM\Column(type="string", length=25, unique=true)
+     * @Assert\MaxLength(25)
+     */
+    protected $slug;
+
+    /**
      * @ORM\Column(type="string", length=100)
      * @Assert\MaxLength(100)
      */
@@ -205,6 +211,29 @@ class Broker
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Broker
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**

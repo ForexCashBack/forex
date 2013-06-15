@@ -21,9 +21,11 @@
             {% for broker in brokers %}
                 <tr>
                     <td>
-                        <b>{{ broker.name }}</b><br />
-                        <small class="muted">{{ broker.companyName }}</small><br />
-                        <img src="{{ asset(broker.rectangleImagePath) }}">
+                        <a href="{{ path('broker_view', {slug: broker.slug}) }}">
+                            <b>{{ broker.name }}</b><br />
+                            <small class="muted">{{ broker.companyName }}</small><br />
+                            <img src="{{ asset(broker.rectangleImagePath) }}">
+                        </a>
                     </td>
                     <td>
                         {% for regulation in broker.regulations %}

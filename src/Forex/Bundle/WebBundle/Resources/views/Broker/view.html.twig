@@ -1,0 +1,29 @@
+{% extends "ForexWebBundle:Layout:base.html.twig" %}
+
+{% block content %}
+    <h2><a href="{{ broker.referralLink }}">{{ broker.name }}</a></h2>
+
+    <p class="lead">{{ broker.highlight }}</p>
+
+    <h3>Broker Information</h3>
+    <ul>
+        <li>
+            Regulations: 
+            {% for regulation in broker.regulations %}
+                <a href="{{ regulation.url ?: regulation.regulator.url }}"><abbr title="{{ regulation.regulator.name }}">{{ regulation.regulator.abbr }}</abbr></a>
+            {% endfor %}
+        </li>
+        <li>Minimum Deposit: {{ broker.minDeposit }}</li>
+        <li>Maximum Leverage: {{ broker.maxLeverage }}</li>
+        <li>US Clients: {{ broker.usClients ? 'Yes' : 'No' }}</li>
+        <li>Spreads: <a href="{{ broker.spreadLink }}">{{ broker.spread ?: 'Spread Link' }}</a></li>
+        <li>
+            Equity Holdings:
+            {% for currency in broker.equityHoldingCurriencies %}
+                <abbr title="{{ currency.name }}">{{ currency.abbr }}</abbr>
+            {% endfor %}
+        </li>
+        <li>Website: <a href="{{ broker.website }}">{{ broker.website }}</a></li>
+        <li>Year Founded: {{ broker.yearFounded }}</li>
+    </ul>
+{% endblock %}
