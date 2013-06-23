@@ -6,29 +6,30 @@
 
 <div class="section">
     <h5>Cashback Estimator</h5>
-    <form action="#" class="form form-inline">
+    <form action="#" class="form form-inline" id="cb_est">
         <label for="cb_est_volume">Volume</label>
         <select id="cb_est_volume">
-            <option>1 Lot (100,000 units)</option>
-            <option>.1 Lot (10,000 units)</option>
-            <option>.01 Lot (1,000 units)</option>
+            <option value="1">1 Lot (100,000 units)</option>
+            <option value=".1">.1 Lot (10,000 units)</option>
+            <option value=".01">.01 Lot (1,000 units)</option>
         </select>
 
         <label for="cb_est_trades"># trades/day</label>
-        <input id="cb_est_trades" type="text">
+        <input id="cb_est_trades" type="text" value="20">
 
         <label for="cb_est_rate">Cash back Rate</label>
         <select id="cb_est_rate">
-            <option>.1 Pips</option>
-            <option>.15 Pips</option>
+        {% for pips in ['.1', '.15', '.2', '.25', '.3', '.35', '.4', '.45', '.5', '.55', '.6', '.65', '.7', '.75', '.8', '.85', '.9', '.95', '1', '1.1', '1.2', '1.3', '1.4', '1.5', '1.6'] %}
+            <option value="{{ pips }}">{{ pips }} Pips</option>
+        {% endfor %}
         </select>
 
-        <button class="btn btn-success">Calculate</button>
+        <button class="btn btn-success" id="cb_est_calculate">Calculate</button>
 
         <fieldset>
             <legend>Estimated Earnings</legend>
-            <p>Monthly Earnings <span>$0</span></p>
-            <p>Yearly Earnings <span>$0</span></p>
+            <p>Monthly Earnings $<span id="cs_est_monthly_earnings">0</span></p>
+            <p>Yearly Earnings $<span id="cs_est_yearly_earnings">0</span></p>
         </fieldset>
     </form>
 </div>
