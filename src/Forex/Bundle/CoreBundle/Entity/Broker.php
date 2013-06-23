@@ -23,19 +23,19 @@ class Broker
 
     /**
      * @ORM\Column(type="string", length=25, unique=true)
-     * @Assert\MaxLength(25)
+     * @Assert\Length(max=25)
      */
     protected $slug;
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Assert\MaxLength(100)
+     * @Assert\Length(max=100)
      */
     protected $name;
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Assert\MaxLength(100)
+     * @Assert\Length(max=100)
      */
     protected $companyName;
 
