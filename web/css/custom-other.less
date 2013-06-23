@@ -2,16 +2,6 @@ body {
     background: url("/img/cream_dust.png") repeat scroll 0 0 transparent;
 }
 
-#accountBar {
-    background: @accountBarBackground;
-    color: @accountBarText;
-    border-bottom: 2px solid darken(@accountBarBackground, 10%);
-
-    p {
-        display: inline;
-    }
-}
-
 .homepage {
     h3 {
         font-family: @serifFontFamily;
@@ -22,20 +12,32 @@ body {
   padding: 25px;
 }
 
-.footer {
-    .brand {
-        color: @secondaryColor;
-    }
-    border-top: 1px solid @grayDarker;
-    height: 60px;
-    background: @primaryColor;
-}
-
 .main-content {
     .border-radius( 5px );
     border: 1px solid @grayLighter;
     background: @white;
     margin-top: 5px;
+}
+
+.footer {
+    .brand {
+        color: @grayLight;
+    }
+    border-top: 3px solid @grayLight;
+    margin-top: 15px;
+    padding: 10px 0;
+    background: @blueDark;
+    color: @grayLighter;
+    .high-risk {
+        .warning-text {
+            font-size: 11px;
+        }
+        .border-radius( 5px );
+        border: 1px solid @grayLight;
+        padding: 5px;
+        margin-bottom: 5px;
+        background: @blueMedium;
+    }
 }
 
 .sidebar {
