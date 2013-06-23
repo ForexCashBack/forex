@@ -26,4 +26,4 @@ assetic:
     use_controller: true
 
 swiftmailer:
-    #delivery_address: dev-email@forexcashback.com
+    delivery_address: dev-email@forexcashback.com
