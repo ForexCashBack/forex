@@ -7,9 +7,9 @@ parameters:
     database_password: forex
 
     mailer_transport:  smtp
-    mailer_host:       127.0.0.1
-    mailer_user:       ~
-    mailer_password:   ~
+    mailer_host:       "smtp.zoho.com"
+    mailer_user:       "jsuggs@forexcashback.com"
+    mailer_password:   "Admin3469"
 
     locale:            en
     secret:            S7uK4zene3ePHutHexeqeste
