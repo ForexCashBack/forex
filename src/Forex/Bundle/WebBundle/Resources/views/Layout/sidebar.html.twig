@@ -35,12 +35,7 @@
 </div>
 
 <div class="section">
-    <h5>Suggest a Service</h5>
-    <p class="muted">Suggest a product, service or broker</p>
-    <form action="#">
-        <input type="text" placeholder="ex. FxPro">
-        <button class="btn btn-info">Submit</button>
-    </form>
+    {{ render(controller('ForexWebBundle:Feedback:brokerSuggestion')) }}
 </div>
 
 <div class="section">

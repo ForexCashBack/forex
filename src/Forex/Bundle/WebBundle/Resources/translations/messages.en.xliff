@@ -62,6 +62,10 @@
                 <source>user.create_account</source>
                 <target>Create Account</target>
             </trans-unit>
+            <trans-unit id="feedback.suggestion_success">
+                <source>feedback.suggestion_success</source>
+                <target>Thank you, your suggestion has been forwarded to our team</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
