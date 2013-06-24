@@ -22,36 +22,36 @@
                 <a class="brand" href="/">Forex Cash Back</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li><a href="/">Home</a></li>
+                        <li><a href="/">{% trans %}nav.home{% endtrans %}</a></li>
                         <li class="dropdown navbar-dropdown">
-                            <a href="{{ path('faq') }}" class="dropdown-toggle" data-toggle="dropdown">FAQs <b class="caret"></b></a>
+                            <a href="{{ path('faq') }}" class="dropdown-toggle" data-toggle="dropdown">{% trans %}nav.faq.dropdown{% endtrans %} <b class="caret"></b></a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                                <li><a tabindex="-1" href="{{ path('payment-methods') }}">Payment Methods</a></li>
-                                <li><a tabindex="-1" href="{{ path('faq') }}">General FAQs</a></li>
+                                <li><a tabindex="-1" href="{{ path('payment-methods') }}">{% trans %}nav.payment_methods{% endtrans %}</a></li>
+                                <li><a tabindex="-1" href="{{ path('faq') }}">{% trans %}nav.faq.general{% endtrans %}</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ path('broker_list') }}">Brokers</a></li>
-                        <li><a href="{{ path('contact') }}">Contact Us</a></li>
-                        <li><a href="{{ path('referral-program') }}">Referral Program</a></li>
+                        <li><a href="{{ path('broker_list') }}">{% trans %}nav.brokers{% endtrans %}</a></li>
+                        <li><a href="{{ path('contact') }}">{% trans %}nav.contact_us{% endtrans %}</a></li>
+                        <li><a href="{{ path('referral-program') }}">{% trans %}nav.referral_program{% endtrans %}</a></li>
                     </ul>
                     <ul class="nav pull-right">
                         {% if is_granted('ROLE_USER') %}
                             <li class="dropdown navbar-dropdown">
                                 <a href="{{ path('fos_user_profile_show') }}" class="dropdown-toggle" data-toggle="dropdown" data-target="#"><i class="icon-home"></i> My Account <b class="caret"></b></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                                    <li><a tabindex="-1" href="{{ path('fos_user_profile_show') }}">My Profile</a></li>
-                                    <li><a tabindex="-1" href="{{ path('account_list') }}">My Brokerage Accounts</a></li>
-                                    <li><a tabindex="-1" href="{{ path('payout_list') }}">My Payouts</a></li>
+                                    <li><a tabindex="-1" href="{{ path('fos_user_profile_show') }}">{% trans %}account.my_profile{% endtrans %}</a></li>
+                                    <li><a tabindex="-1" href="{{ path('account_list') }}">{% trans %}account.my_accounts{% endtrans %}</a></li>
+                                    <li><a tabindex="-1" href="{{ path('payout_list') }}">{% trans %}account.my_payouts{% endtrans %}</a></li>
                                     <li class="divider"></li>
-                                    <li><a tabindex="-1" href="{{ path('referral_home') }}">My Referrals</a></li>
+                                    <li><a tabindex="-1" href="{{ path('referral_home') }}">{% trans %}account.my_referrals{% endtrans %}</a></li>
                                 </ul>
                             </li>
                             <li class="divider-vertical"></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}">{% trans %}user.logout{% endtrans %}</a></li>
                         {% else %}
-                            <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+                            <li><a href="{{ path('fos_user_security_login') }}">{% trans %}user.login{% endtrans %}</a></li>
                             <li class="divider-vertical"></li>
-                            <li><a href="{{ path('fos_user_registration_register') }}">Create Account</a></li>
+                            <li><a href="{{ path('fos_user_registration_register') }}">{% trans %}user.create_account{% endtrans %}</a></li>
                         {% endif %}
                     </ul>
                 </div>

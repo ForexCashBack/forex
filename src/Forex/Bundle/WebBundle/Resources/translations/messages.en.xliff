@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="nav.home">
+                <source>nav.home</source>
+                <target>Home</target>
+            </trans-unit>
+            <trans-unit id="nav.faq.dropdown">
+                <source>nav.faq.dropdown</source>
+                <target>FAQs</target>
+            </trans-unit>
+            <trans-unit id="nav.payment_methods">
+                <source>nav.payment_methods</source>
+                <target>Payment Methods</target>
+            </trans-unit>
+            <trans-unit id="nav.faq.general">
+                <source>nav.faq.general</source>
+                <target>General FAQs</target>
+            </trans-unit>
+            <trans-unit id="nav.brokers">
+                <source>nav.brokers</source>
+                <target>Brokers</target>
+            </trans-unit>
+            <trans-unit id="nav.contact_us">
+                <source>nav.contact_us</source>
+                <target>Contact Us</target>
+            </trans-unit>
+            <trans-unit id="nav.referral_program">
+                <source>nav.referral_program</source>
+                <target>Referral Program</target>
+            </trans-unit>
+            <trans-unit id="account.my_profile">
+                <source>account.my_profile</source>
+                <target>My Profile</target>
+            </trans-unit>
+            <trans-unit id="account.my_brokerage_accounts">
+                <source>account.my_brokerage_accounts</source>
+                <target>My Brokerage Accounts</target>
+            </trans-unit>
+            <trans-unit id="account.my_accounts">
+                <source>account.my_accounts</source>
+                <target>My Accounts</target>
+            </trans-unit>
+            <trans-unit id="account.my_payouts">
+                <source>account.my_payouts</source>
+                <target>My Payouts</target>
+            </trans-unit>
+            <trans-unit id="account.my_referrals">
+                <source>account.my_referrals</source>
+                <target>My Referrals</target>
+            </trans-unit>
+            <trans-unit id="user.logout">
+                <source>user.logout</source>
+                <target>Logout</target>
+            </trans-unit>
+            <trans-unit id="user.login">
+                <source>user.login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="user.create_account">
+                <source>user.create_account</source>
+                <target>Create Account</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

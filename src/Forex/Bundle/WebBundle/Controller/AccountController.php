@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * @Route("/account")
+ * @Route("/{_locale}/account", defaults={"_locale" = "en"})
  */
 class AccountController extends BaseController
 {

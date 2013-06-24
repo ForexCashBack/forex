@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="nav.home">
+                <source>nav.home</source>
+                <target>Maison</target>
+            </trans-unit>
+            <trans-unit id="nav.faq.dropdown">
+                <source>nav.faq.dropdown</source>
+                <target>FAQs</target>
+            </trans-unit>
+            <trans-unit id="nav.payment_methods">
+                <source>nav.payment_methods</source>
+                <target>Modes de paiement</target>
+            </trans-unit>
+            <trans-unit id="nav.faq.general">
+                <source>nav.faq.general</source>
+                <target>Foire aux questions</target>
+            </trans-unit>
+            <trans-unit id="nav.brokers">
+                <source>nav.brokers</source>
+                <target>Courtiers</target>
+            </trans-unit>
+            <trans-unit id="nav.contact_us">
+                <source>nav.contact_us</source>
+                <target>Contactez-nous</target>
+            </trans-unit>
+            <trans-unit id="nav.referral_program">
+                <source>nav.referral_program</source>
+                <target>Programme de parrainage</target>
+            </trans-unit>
+            <trans-unit id="account.my_profile">
+                <source>account.my_profile</source>
+                <target>Mon Profil</target>
+            </trans-unit>
+            <trans-unit id="account.my_brokerage_accounts">
+                <source>account.my_brokerage_accounts</source>
+                <target>Mes comptes de courtage</target>
+            </trans-unit>
+            <trans-unit id="account.my_accounts">
+                <source>account.my_accounts</source>
+                <target>Mes Comptes</target>
+            </trans-unit>
+            <trans-unit id="account.my_payouts">
+                <source>account.my_payouts</source>
+                <target>Mes Paiements</target>
+            </trans-unit>
+            <trans-unit id="account.my_referrals">
+                <source>account.my_referrals</source>
+                <target>My Parrainages</target>
+            </trans-unit>
+            <trans-unit id="user.logout">
+                <source>user.logout</source>
+                <target>Déconnexion</target>
+            </trans-unit>
+            <trans-unit id="user.login">
+                <source>user.login</source>
+                <target>Connexion</target>
+            </trans-unit>
+            <trans-unit id="user.create_account">
+                <source>user.create_account</source>
+                <target>Créer un compte</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

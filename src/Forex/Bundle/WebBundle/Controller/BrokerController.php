@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * @Route("/broker")
+ * @Route("/{_locale}/broker", defaults={"_locale" = "en"})
  */
 class BrokerController extends BaseController
 {

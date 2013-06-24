@@ -7,7 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * @Route("/referral")
+ * @Route("/{_locale}/referral", defaults={"_locale" = "en"})
  */
 class ReferralController extends BaseController
 {
