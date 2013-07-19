@@ -4,12 +4,19 @@ namespace Forex\Bundle\CoreBundle\Controller;
 
 use Forex\Bundle\CoreBundle\Entity\Account;
 use Forex\Bundle\CoreBundle\Entity\Broker;
+use Forex\Bundle\CoreBundle\Entity\BrokerSuggestion;
 use Forex\Bundle\CoreBundle\Entity\User;
 use Forex\Bundle\WebBundle\Form\AccountFormType;
+use Forex\Bundle\WebBundle\Form\BrokerSuggestionFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class BaseController extends Controller
 {
+    protected function getLocale()
+    {
+        return $this->getRequest()->attributes->get('_locale');
+    }
+
     protected function getEntityManager()
     {
         return $this->container->get('doctrine.orm.default_entity_manager');
@@ -25,6 +32,11 @@ class BaseController extends Controller
         $this->get('session')->getFlashBag()->add($type, $message);
     }
 
+    protected function getTranslatedKey($key)
+    {
+        return $this->get('translator')->trans($key);
+    }
+
     protected function createAccountForm(User $user, Broker $broker)
     {
         $account = new Account();
@@ -32,6 +44,14 @@ class BaseController extends Controller
         $account->setBroker($broker);
 
         return $this->createForm(new AccountFormType(), $account);
+    }
+
+    protected function createBrokerSuggestionForm(User $user = null)
+    {
+        $brokerSuggestion = new BrokerSuggestion();
+        $brokerSuggestion->setUser($user);
+
+        return $this->createForm(new BrokerSuggestionFormType(), $brokerSuggestion);
     }
 
     protected function createContactForm()
