@@ -121,3 +121,14 @@ services:
             - 'SonataAdminBundle:CRUD'
         calls:
             - [ setTranslationDomain, [ForexAdminBundle]]
+
+    forex.admin.broker_suggestion:
+        class: Forex\Bundle\AdminBundle\Admin\BrokerSuggestionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Main, label: "Broker Suggestions" }
+        arguments:
+            - ~
+            - Forex\Bundle\CoreBundle\Entity\BrokerSuggestion
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]
