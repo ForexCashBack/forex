@@ -60,7 +60,7 @@
     </div>
 
     <div class="container main-content">
-        <div class="row">
+        <div>
             {% for type, messages in app.session.flashbag.all() %}
                 {% for message in messages %}
                     <div class="alert alert-{{ type }}">
