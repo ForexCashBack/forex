@@ -33,19 +33,52 @@ class RegulatorData extends AbstractFixture implements OrderedFixtureInterface
         $fsa->setUrl('http://www.fsa.gov.uk/');
         $manager->persist($fsa);
 
+        $fca = new Regulator();
+        $fca->setAbbr('FCA');
+        $fca->setName('Financial Conduct Authority');
+        $fca->setUrl('http://www.fca.org.uk/');
+        $manager->persist($fca);
+
         $fma = new Regulator();
         $fma->setAbbr('FMA');
         $fma->setName('Financial Markets Authority');
         $fma->setUrl('http://www.fma.govt.nz/laws-we-enforce/registers/list-of-authorised-futures-dealers/');
         $manager->persist($fma);
 
+        $mifid = new Regulator();
+        $mifid->setAbbr('MiFID');
+        $mifid->setName('Markets in Financial Instruments Directive');
+        $mifid->setUrl('http://ec.europa.eu/internal_market/securities/isd/mifid/index_en.htm');
+        $manager->persist($mifid);
+
+        $bafin = new Regulator();
+        $bafin->setAbbr('BaFin');
+        $bafin->setName('Federal Financial Supervisory Authority');
+        $bafin->setUrl('http://www.bafin.de/EN/Homepage/homepage_node.html');
+        $manager->persist($bafin);
+
         // Create the broker regulations
 
-        // Test Broker
-        $testCysec = new Regulation();
-        $testCysec->setBroker($this->getReference('broker.test'));
-        $testCysec->setRegulator($cysec);
-        $manager->persist($testCysec);
+        // AFBFX
+        $afbfxCysec = new Regulation();
+        $afbfxCysec->setBroker($this->getReference('broker.afbfx'));
+        $afbfxCysec->setRegulator($cysec);
+        $manager->persist($afbfxCysec);
+
+        $afbfxFCA = new Regulation();
+        $afbfxFCA->setBroker($this->getReference('broker.afbfx'));
+        $afbfxFCA->setRegulator($fca);
+        $manager->persist($afbfxFCA);
+
+        $afbfxMIFID = new Regulation();
+        $afbfxMIFID->setBroker($this->getReference('broker.afbfx'));
+        $afbfxMIFID->setRegulator($mifid);
+        $manager->persist($afbfxMIFID);
+
+        $afbfxBaFin = new Regulation();
+        $afbfxBaFin->setBroker($this->getReference('broker.afbfx'));
+        $afbfxBaFin->setRegulator($bafin);
+        $manager->persist($afbfxBaFin);
 
         // FxPro
         $fxproCysec = new Regulation();

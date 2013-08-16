@@ -14,27 +14,28 @@ class BrokerData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $test = new Broker();
-        $test->setName('Test Broker');
-        $test->setSlug('test-broker');
-        $test->setCompanyName('Test Broker, LLC');
-        $test->setReferralLink('http://www.test.com?referral_link=test');
-        $test->setBasePercentage(0.8);
-        $test->setMinDeposit(50);
-        $test->setMaxLeverage(500);
-        $test->setWebsite('http://www.test.com');
-        $test->setSpreadLink('http://www.test.com');
-        $test->setYearFounded(1998);
-        $test->setUsClients(false);
-        $test->setRate('$2/round turn lot');
-        $test->setHighlight('This is the test broker, it is great becase it is our first broker');
-        $manager->persist($test);
+        $afbfx = new Broker();
+        $afbfx->setName('AFBFX');
+        $afbfx->setSlug('afbfx');
+        $afbfx->setCompanyName('AFB FX LTD');
+        $afbfx->setReferralLink('https://www.afbfx.com/en/reg2/chooseAccount1?ref_id=1275');
+        $afbfx->setBasePercentage(0.8);
+        $afbfx->setMinDeposit(100);
+        $afbfx->setMaxLeverage(500);
+        $afbfx->setWebsite('http://www.afbfx.com/?ref_id=1275');
+        $afbfx->setSpreadLink('http://www.afbfx.com/en/markets.html?ref_id=1275');
+        $afbfx->setYearFounded(2011);
+        $afbfx->setUsClients(true);
+        $afbfx->setRate('0.9 pips/rount turn');
+        $afbfx->setHighlight('99% Automated Execution; Free research and analysis; Advanced trading tools.');
+        $afbfx->setRectangleImagePath('/uploads/brokers/afbfx_rect.png');
+        $manager->persist($afbfx);
 
         $fxpro = new Broker();
         $fxpro->setName('FxPro');
         $fxpro->setSlug('fxpro');
         $fxpro->setCompanyName('FxPro Financial Services Ltd');
-        $fxpro->setReferralLink('http://www.fxpro.com?referral_link=test');
+        $fxpro->setReferralLink('https://direct.fxpro.com/ib/en/usd/330474');
         $fxpro->setBasePercentage(0.8);
         $fxpro->setMinDeposit(50);
         $fxpro->setMaxLeverage(500);
@@ -44,6 +45,7 @@ class BrokerData extends AbstractFixture implements OrderedFixtureInterface
         $fxpro->setUsClients(true);
         $fxpro->setRate('1.5 pips/round turn');
         $fxpro->setHighlight('Hold accounts in CHF, EUR, GBP, JPY or USD. Tight spreads. 8 Platforms. FSA, ASIC, and CYSEC regulated.');
+        $fxpro->setRectangleImagePath('/uploads/brokers/fxpro_rect.png');
         $manager->persist($fxpro);
 
         $excel = new Broker();
@@ -64,7 +66,7 @@ class BrokerData extends AbstractFixture implements OrderedFixtureInterface
 
         $manager->flush();
 
-        $this->addReference('broker.test', $test);
+        $this->addReference('broker.afbfx', $afbfx);
         $this->addReference('broker.fxpro', $fxpro);
         $this->addReference('broker.excel', $excel);
     }
