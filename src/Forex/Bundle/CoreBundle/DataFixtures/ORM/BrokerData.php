@@ -48,27 +48,28 @@ class BrokerData extends AbstractFixture implements OrderedFixtureInterface
         $fxpro->setRectangleImagePath('/uploads/brokers/fxpro_rect.png');
         $manager->persist($fxpro);
 
-        $excel = new Broker();
-        $excel->setName('Excel Markets');
-        $excel->setSlug('excel-markets');
-        $excel->setCompanyName('Global Brokers NZ Ltd.');
-        $excel->setReferralLink('https://www.excelmarkets.com?referral_link=test');
-        $excel->setBasePercentage(0.8);
-        $excel->setMinDeposit(200);
-        $excel->setMaxLeverage(400);
-        $excel->setWebsite('https://www.excelmarkets.com/');
-        $excel->setSpreadLink('https://www.excelmarkets.com/');
-        $excel->setYearFounded(2002);
-        $excel->setUsClients(false);
-        $excel->setRate('.6 pips/round turn');
-        $excel->setHighlight('Tight spreads with NO Deposit Fees. ECN/STP. MT4. 400:1 leverage. Micro lots.');
-        $manager->persist($excel);
+        $fxcc = new Broker();
+        $fxcc->setName('FXCC');
+        $fxcc->setSlug('fxcc');
+        $fxcc->setCompanyName('FX Central Clearing Ltd');
+        $fxcc->setReferralLink('http://www.fxcc.com/?fx=i-1480-S00C00');
+        $fxcc->setBasePercentage(0.8);
+        $fxcc->setMinDeposit(100);
+        $fxcc->setMaxLeverage(300);
+        $fxcc->setWebsite('http://www.fxcc.com/');
+        $fxcc->setSpreadLink('http://www.fxcc.com/spreads');
+        $fxcc->setYearFounded(2010);
+        $fxcc->setUsClients(true);
+        $fxcc->setRate('dynamic based on trading');
+        $fxcc->setHighlight('FXCC’s business model (ECN/STP) offers complete anonymity, full transparency, advanced execution, direct and competitive market prices and spreads. This creates a trading environment with no re-quotes and no conflict of interests or bias against any trader or forex trading system including automated systems and forex scalping.');
+        $fxcc->setRectangleImagePath('/uploads/brokers/fxcc_rect.gif');
+        $manager->persist($fxcc);
 
         $manager->flush();
 
         $this->addReference('broker.afbfx', $afbfx);
         $this->addReference('broker.fxpro', $fxpro);
-        $this->addReference('broker.excel', $excel);
+        $this->addReference('broker.fxcc', $fxcc);
     }
 
     /**

@@ -96,21 +96,21 @@ class RegulatorData extends AbstractFixture implements OrderedFixtureInterface
         $fxproFsa->setRegulator($fsa);
         $manager->persist($fxproFsa);
 
-        // Excel
-        $excelCysec = new Regulation();
-        $excelCysec->setBroker($this->getReference('broker.excel'));
-        $excelCysec->setRegulator($cysec);
-        $manager->persist($excelCysec);
+        // FXCC
+        $fxccCysec = new Regulation();
+        $fxccCysec->setBroker($this->getReference('broker.fxcc'));
+        $fxccCysec->setRegulator($cysec);
+        $manager->persist($fxccCysec);
 
-        $excelAsic = new Regulation();
-        $excelAsic->setBroker($this->getReference('broker.excel'));
-        $excelAsic->setRegulator($asic);
-        $manager->persist($excelAsic);
+        $fxccFCA = new Regulation();
+        $fxccFCA->setBroker($this->getReference('broker.fxcc'));
+        $fxccFCA->setRegulator($fca);
+        $manager->persist($fxccFCA);
 
-        $excelFsa = new Regulation();
-        $excelFsa->setBroker($this->getReference('broker.excel'));
-        $excelFsa->setRegulator($fsa);
-        $manager->persist($excelFsa);
+        $fxccMIFID = new Regulation();
+        $fxccMIFID->setBroker($this->getReference('broker.fxcc'));
+        $fxccMIFID->setRegulator($mifid);
+        $manager->persist($fxccMIFID);
 
         // Add some regulations
 
