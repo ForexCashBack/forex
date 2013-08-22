@@ -17,13 +17,13 @@ class DepositMethod
     /**
      * @ORM\Id
      * @ORM\Column(type="string", length=10)
-     * @Assert\MaxLength(10)
+     * @Assert\Length(max=10)
      */
     protected $abbr;
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Assert\MaxLength(100)
+     * @Assert\Length(max=100)
      */
     protected $name;
 

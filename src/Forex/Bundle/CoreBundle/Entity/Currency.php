@@ -18,13 +18,13 @@ class Currency
     /**
      * @ORM\Id
      * @ORM\Column(type="string", length=5)
-     * @Assert\MaxLength(5)
+     * @Assert\Length(max=5)
      */
     protected $abbr;
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Assert\MaxLength(100)
+     * @Assert\Length(max=100)
      */
     protected $name;
 

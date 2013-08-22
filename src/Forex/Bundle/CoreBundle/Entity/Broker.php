@@ -88,13 +88,13 @@ class Broker
 
     /**
      * @ORM\Column(type="float")
-     * @Assert\Min(0)
+     * @Assert\Range(min=0)
      */
     protected $minDeposit;
 
     /**
      * @ORM\Column(type="float")
-     * @Assert\Min(0)
+     * @Assert\Range(min=0)
      */
     protected $maxLeverage;
 
@@ -106,7 +106,7 @@ class Broker
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\Min(1900)
+     * @Assert\Range(min=1900)
      */
     protected $yearFounded;
 
