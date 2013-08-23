@@ -138,6 +138,8 @@ class Complaint
 
     public function __toString()
     {
-        return $this->id ?: 'New Complaint';
+        return $this->id
+            ? (string) $this->id
+            : 'New Complaint';
     }
 }
