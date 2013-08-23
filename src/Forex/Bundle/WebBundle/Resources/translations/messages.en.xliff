@@ -6,6 +6,10 @@
                 <source>nav.home</source>
                 <target>Home</target>
             </trans-unit>
+            <trans-unit id="nav.help">
+                <source>nav.help</source>
+                <target>Help</target>
+            </trans-unit>
             <trans-unit id="nav.faq.dropdown">
                 <source>nav.faq.dropdown</source>
                 <target>FAQs</target>
