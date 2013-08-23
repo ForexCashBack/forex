@@ -1,0 +1,21 @@
+{% extends "ForexWebBundle:Layout:base.html.twig" %}
+
+{% block content %}
+    <h5>Register a complaint</h5>
+
+    <p class="muted">If you have a complaint with a broker, please file it and we will investigate.</p>
+
+    <form action="{{ path('feedback_complaint') }}" method="post">
+        {{ form_label(form.broker) }}
+        {{ form_errors(form.broker) }}
+        {{ form_widget(form.broker) }}
+
+        {{ form_label(form.complaint) }}
+        {{ form_errors(form.complaint) }}
+        {{ form_widget(form.complaint, {attr: {placeholder: 'ex. Did not receive correct funds'}}) }}
+
+        <button class="btn btn-info">Submit</button>
+
+        {{ form_rest(form) }}
+    </form>
+{% endblock %}

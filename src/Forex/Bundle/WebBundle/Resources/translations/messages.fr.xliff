@@ -10,6 +10,10 @@
                 <source>nav.help</source>
                 <target>Aider</target>
             </trans-unit>
+            <trans-unit id="nav.help.feedback_complaint">
+                <source>nav.help.feedback_complaint</source>
+                <target>Déposer une plainte</target>
+            </trans-unit>
             <trans-unit id="nav.faq.dropdown">
                 <source>nav.faq.dropdown</source>
                 <target>FAQs</target>
@@ -69,6 +73,10 @@
             <trans-unit id="feedback.suggestion_success">
                 <source>feedback.suggestion_success</source>
                 <target>Merci, votre suggestion a été transmise à notre équipe</target>
+            </trans-unit>
+            <trans-unit id="feedback.complaint_success">
+                <source>feedback.complaint_success</source>
+                <target>Merci, votre plainte a été enregistrée</target>
             </trans-unit>
         </body>
     </file>

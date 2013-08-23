@@ -5,9 +5,11 @@ namespace Forex\Bundle\CoreBundle\Controller;
 use Forex\Bundle\CoreBundle\Entity\Account;
 use Forex\Bundle\CoreBundle\Entity\Broker;
 use Forex\Bundle\CoreBundle\Entity\BrokerSuggestion;
+use Forex\Bundle\CoreBundle\Entity\Complaint;
 use Forex\Bundle\CoreBundle\Entity\User;
 use Forex\Bundle\WebBundle\Form\AccountFormType;
 use Forex\Bundle\WebBundle\Form\BrokerSuggestionFormType;
+use Forex\Bundle\WebBundle\Form\ComplaintFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class BaseController extends Controller
@@ -52,6 +54,14 @@ class BaseController extends Controller
         $brokerSuggestion->setUser($user);
 
         return $this->createForm(new BrokerSuggestionFormType(), $brokerSuggestion);
+    }
+
+    protected function createComplaintForm(User $user = null)
+    {
+        $complaint = new Complaint();
+        $complaint->setUser($user);
+
+        return $this->createForm(new ComplaintFormType(), $complaint);
     }
 
     protected function createContactForm()

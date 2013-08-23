@@ -41,4 +41,34 @@ class FeedbackController extends BaseController
             'form' => $form->createView(),
         );
     }
+
+    /**
+     * @Route("/complaint", name="feedback_complaint")
+     * @Template
+     */
+    public function complaintAction()
+    {
+        $form = $this->createComplaintForm($this->getUser());
+
+        if ($this->getRequest()->getMethod() == 'POST') {
+            $form->bindRequest($this->getRequest());
+            if ($form->isValid()) {
+                $complaint = $form->getData();
+
+                $this->getEntityManager()->persist($complaint);
+                $this->getEntityManager()->flush();
+
+                $message = $this->getTranslatedKey('feedback.complaint_success');
+                $this->addMessage('success', $message);
+            }
+
+            return $this->redirect($this->generateUrl('homepage', array(
+                '_locale' => $this->getLocale(),
+            )));
+        }
+
+        return array(
+            'form' => $form->createView(),
+        );
+    }
 }

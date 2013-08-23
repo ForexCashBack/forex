@@ -10,6 +10,10 @@
                 <source>nav.help</source>
                 <target>Help</target>
             </trans-unit>
+            <trans-unit id="nav.help.feedback_complaint">
+                <source>nav.help.feedback_complaint</source>
+                <target>Register a complaint</target>
+            </trans-unit>
             <trans-unit id="nav.faq.dropdown">
                 <source>nav.faq.dropdown</source>
                 <target>FAQs</target>
@@ -69,6 +73,10 @@
             <trans-unit id="feedback.suggestion_success">
                 <source>feedback.suggestion_success</source>
                 <target>Thank you, your suggestion has been forwarded to our team</target>
+            </trans-unit>
+            <trans-unit id="feedback.complaint_success">
+                <source>feedback.complaint_success</source>
+                <target>Thank you, your complaint has been registered</target>
             </trans-unit>
         </body>
     </file>
