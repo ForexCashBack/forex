@@ -14,6 +14,7 @@ class BrokerAdmin extends Admin
         $formMapper
             ->with('General')
                 ->add('name')
+                ->add('slug')
                 ->add('companyName')
                 ->add('referralLink', 'url')
                 ->add('minDeposit')
@@ -25,6 +26,7 @@ class BrokerAdmin extends Admin
                 ->add('basePercentage', 'percent')
                 ->add('spread')
                 ->add('spreadLink', 'url')
+                ->add('usClients')
             ->end()
             ->with('Regulations')
                 ->add(
