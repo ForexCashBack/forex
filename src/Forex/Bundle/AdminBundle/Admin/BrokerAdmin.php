@@ -9,6 +9,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class BrokerAdmin extends Admin
 {
+    protected $entityManager;
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -50,6 +52,13 @@ class BrokerAdmin extends Admin
         ;
     }
 
+    public function preUpdate($broker)
+    {
+        foreach ($broker->getRegulations() as $regulation) {
+            $this->getEntityManager()->persist($regulation);
+        }
+    }
+
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
@@ -65,5 +74,15 @@ class BrokerAdmin extends Admin
             ->add('name')
             ->add('basePercentage', 'percent')
         ;
+    }
+
+    public function setEntityManager($entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+
+    public function getEntityManager()
+    {
+        return $this->entityManager;
     }
 }

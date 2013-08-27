@@ -21,6 +21,7 @@ services:
             - 'SonataAdminBundle:CRUD'
         calls:
             - [ setTranslationDomain, [ForexAdminBundle]]
+            - [ setEntityManager, [@doctrine.orm.default_entity_manager]]
 
     forex.admin.account:
         class: Forex\Bundle\AdminBundle\Admin\AccountAdmin
