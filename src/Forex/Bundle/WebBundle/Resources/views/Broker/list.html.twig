@@ -8,6 +8,7 @@
             <tr>
                 <th>Broker</th>
                 <th>Rebate</th>
+                <th>Promotions</th>
                 <th>Min Deposit / Max Leverage</th>
                 <th>Regulations</th>
                 <th>Accepts US Clients</th>
@@ -25,6 +26,15 @@
                         </a>
                     </td>
                     <td>{{ broker.rate }}</td>
+                    <td>
+                        {% if broker.promotions|length %}
+                            <ul>
+                                {% for promotion in broker.promotions %}
+                                    <li><a href="{{ path('promotion_view', {slug: promotion.slug}) }}">{{ promotion.title }}</a>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </td>
                     <td>{{ broker.minDeposit }} / {{ broker.maxLeverage }}</td>
                     <td>
                         {% for regulation in broker.regulations %}
