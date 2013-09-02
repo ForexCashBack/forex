@@ -6,15 +6,13 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Company</th>
+                <th>Broker</th>
+                <th>Rebate</th>
+                <th>Min Deposit / Max Leverage</th>
                 <th>Regulations</th>
-                <th>Min Deposit</th>
-                <th>Max Leverage</th>
                 <th>Accepts US Clients</th>
-                <th>Spread</th>
-                <th>Currency Holdings</th>
-                <th>Website</th>
                 <th>Year Founded</th>
+                <th>Links</th>
             </tr>
         </thead>
         <tbody>
@@ -23,10 +21,11 @@
                     <td>
                         <a href="{{ path('broker_view', {slug: broker.slug}) }}">
                             <b>{{ broker.name }}</b><br />
-                            <small class="muted">{{ broker.companyName }}</small><br />
                             <img src="{{ asset(broker.rectangleImagePath) }}">
                         </a>
                     </td>
+                    <td>{{ broker.rate }}</td>
+                    <td>{{ broker.minDeposit }} / {{ broker.maxLeverage }}</td>
                     <td>
                         {% for regulation in broker.regulations %}
                             <a href="{{ regulation.url ?: regulation.regulator.url }}"><abbr title="{{ regulation.regulator.name }}">{{ regulation.regulator.abbr }}</abbr></a>
@@ -34,19 +33,13 @@
                             N/A
                         {% endfor %}
                     </td>
-                    <td>{{ broker.minDeposit }}</td>
-                    <td>{{ broker.maxLeverage }}</td>
                     <td>{{ broker.usClients ? 'Yes' : 'No' }}</td>
-                    <td><a href="{{ broker.spreadLink }}">{{ broker.spread ?: 'Spread Link' }}</a></td>
-                    <td>
-                        {% for currency in broker.equityHoldingCurriencies %}
-                            <abbr title="{{ currency.name }}">{{ currency.abbr }}</abbr>
-                        {% else %}
-                            N/A
-                        {% endfor %}
-                    </td>
-                    <td>{{ broker.website }}</td>
                     <td>{{ broker.yearFounded }}</td>
+                    <td>
+                        <a href="{{ broker.referralLink }}" class="btn btn-success btn-mini">Website</a>
+                        <br />
+                        <a href="{{ path('broker_view', {slug: broker.slug}) }}" class="btn btn-info btn-mini">Details</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
