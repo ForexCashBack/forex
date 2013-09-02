@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new Sonata\jQueryBundle\SonatajQueryBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Presta\SitemapBundle\PrestaSitemapBundle(),
             new Forex\Bundle\WebBundle\ForexWebBundle(),
             new Forex\Bundle\CoreBundle\ForexCoreBundle(),
             new Forex\Bundle\AdminBundle\ForexAdminBundle(),

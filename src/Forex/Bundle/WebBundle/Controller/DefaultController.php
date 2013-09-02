@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends BaseController
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="homepage", options={"sitemap" = true})
      * @Template
      */
     public function homepageAction()
@@ -30,7 +30,7 @@ class DefaultController extends BaseController
     }
 
     /**
-     * @Route("/faq", name="faq")
+     * @Route("/faq", name="faq", options={"sitemap" = true})
      * @Template
      */
     public function faqAction()
@@ -39,7 +39,7 @@ class DefaultController extends BaseController
     }
 
     /**
-     * @Route("/contact", name="contact")
+     * @Route("/contact", name="contact", options={"sitemap" = true})
      * @Template
      */
     public function contactAction()
@@ -52,7 +52,7 @@ class DefaultController extends BaseController
     }
 
     /**
-     * @Route("/referral-program", name="referral-program")
+     * @Route("/referral-program", name="referral-program", options={"sitemap" = true})
      * @Template
      */
     public function referralAction()
@@ -61,7 +61,7 @@ class DefaultController extends BaseController
     }
 
     /**
-     * @Route("/payment-methods", name="payment-methods")
+     * @Route("/payment-methods", name="payment-methods", options={"sitemap" = true})
      * @Template("ForexWebBundle:Default:payment-methods.html.twig")
      */
     public function paymentMethodsAction()
