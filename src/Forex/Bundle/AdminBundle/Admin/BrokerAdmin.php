@@ -28,7 +28,9 @@ class BrokerAdmin extends Admin
                 ->add('basePercentage', 'percent')
                 ->add('spread')
                 ->add('spreadLink', 'url')
-                ->add('usClients')
+                ->add('usClients', 'checkbox', array(
+                    'required' => false,
+                ))
             ->end()
             ->with('Regulations')
                 ->add(
