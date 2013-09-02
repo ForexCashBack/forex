@@ -1,5 +1,7 @@
 {% extends "ForexWebBundle:Layout:nosidebar.html.twig" %}
 
+{% block title %}Current Promotions - {% endblock %}
+
 {% block content %}
     <h2>Promotions</h2>
 
@@ -8,17 +10,20 @@
             <tr>
                 <th>Broker</th>
                 <th>Promotion</th>
+                <th>Details</th>
             </tr>
         </thead>
         <tbody>
             {% for promotion in promotions %}
                 <tr>
                     <td>
-                        <b>{{ promotion.name }}</b><br />
-                        <img src="{{ asset(promotion.broker.rectangleImagePath) }}"><br />
-                        <small class="muted">{{ promotion.broker.companyName }}</small>
+                        <a href="{{ path('broker_view', {slug: promotion.broker.slug}) }}">
+                            <b>{{ promotion.title }}</b><br />
+                            <img src="{{ asset(promotion.broker.rectangleImagePath) }}">
+                        </a>
                     </td>
                     <td>{{ promotion.text }}</td>
+                    <td><a href="{{ path('promotion_view', {slug: promotion.slug}) }}" class="btn btn-info btn-small">View Promotion Details</a></td>
                 </tr>
             {% endfor %}
         </tbody>

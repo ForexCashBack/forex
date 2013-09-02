@@ -47,6 +47,21 @@ class BrokerAdmin extends Admin
                     )
                 )
             ->end()
+            ->with('Promotions')
+                ->add(
+                    'promotions',
+                    'sonata_type_collection',
+                    array(
+                        'required' => false,
+                        'by_reference' => false,
+                    ),
+                    array(
+                        'edit' => 'inline'
+                        ,'inline' => 'table',
+                        'sortable' => 'id',
+                    )
+                )
+            ->end()
             ->with('Images')
                 ->add('rectangleImagePath')
                 ->add('squareImagePath')
@@ -58,6 +73,9 @@ class BrokerAdmin extends Admin
     {
         foreach ($broker->getRegulations() as $regulation) {
             $this->getEntityManager()->persist($regulation);
+        }
+        foreach ($broker->getPromotions() as $promotion) {
+            $this->getEntityManager()->persist($promotion);
         }
     }
 

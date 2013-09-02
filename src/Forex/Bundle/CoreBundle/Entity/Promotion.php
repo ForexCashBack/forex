@@ -28,6 +28,19 @@ class Promotion
     protected $name;
 
     /**
+     * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank
+     */
+    protected $title;
+
+    /**
+     * @ORM\Column(type="string", length=25, unique=true)
+     * @Assert\Length(max=25)
+     * @Assert\NotBlank
+     */
+    protected $slug;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Broker", inversedBy="promotions")
      */
     protected $broker;
@@ -85,6 +98,52 @@ class Promotion
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Promotion
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Promotion
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**

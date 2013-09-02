@@ -1,0 +1,11 @@
+{% extends "ForexWebBundle:Layout:nosidebar.html.twig" %}
+
+{% block title %}{{ promotion.title }} - {% endblock %}
+
+{% block content %}
+    <h2><a href="{{ promotion.broker.referralLink }}">{{ promotion.broker.name }}</a></h2>
+
+    <p class="lead">{{ promotion.text }}</p>
+
+    <p>Promotion End Date: {{ promotion.endTime|date }}</p>
+{% endblock %}

@@ -14,9 +14,11 @@ class PromotionAdmin extends Admin
         $formMapper
             ->add('broker', 'sonata_type_model')
             ->add('name')
+            ->add('title')
+            ->add('slug')
+            ->add('text')
             ->add('startTime')
             ->add('endTime')
-            ->add('text')
         ;
     }
 
@@ -24,6 +26,7 @@ class PromotionAdmin extends Admin
     {
         $datagridMapper
             ->add('broker')
+            ->add('name')
         ;
     }
 
@@ -32,6 +35,7 @@ class PromotionAdmin extends Admin
         $listMapper
             ->addIdentifier('id')
             ->add('broker')
+            ->add('name')
             ->add('startTime')
             ->add('endTime')
         ;
