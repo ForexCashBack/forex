@@ -1,5 +1,7 @@
 {% extends "ForexWebBundle:Layout:nosidebar.html.twig" %}
 
+{% block title %}{{ broker.name }} - {% endblock %}
+
 {% block content %}
     <h2><a href="{{ broker.referralLink }}">{{ broker.name }}</a></h2>
 

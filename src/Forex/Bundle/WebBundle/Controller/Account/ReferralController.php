@@ -1,13 +1,13 @@
 <?php
 
-namespace Forex\Bundle\WebBundle\Controller;
+namespace Forex\Bundle\WebBundle\Controller\Account;
 
 use Forex\Bundle\CoreBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * @Route("/{_locale}/referral", defaults={"_locale" = "en"})
+ * @Route("/account/{_locale}/referral", defaults={"_locale" = "en"})
  */
 class ReferralController extends BaseController
 {

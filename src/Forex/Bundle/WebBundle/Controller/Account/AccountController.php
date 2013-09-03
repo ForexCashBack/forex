@@ -1,6 +1,6 @@
 <?php
 
-namespace Forex\Bundle\WebBundle\Controller;
+namespace Forex\Bundle\WebBundle\Controller\Account;
 
 use Forex\Bundle\CoreBundle\Controller\BaseController;
 use Forex\Bundle\CoreBundle\Entity\Broker;
@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * @Route("/{_locale}/account", defaults={"_locale" = "en"})
+ * @Route("/account/{_locale}/account", defaults={"_locale" = "en"})
  */
 class AccountController extends BaseController
 {
