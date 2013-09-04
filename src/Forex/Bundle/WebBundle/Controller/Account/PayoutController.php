@@ -7,7 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * @Route("/account/{_locale}/payout", defaults={"_locale" = "en"})
+ * @Route("/account/{_locale}/payout", defaults={"_locale" = "en"}, schemes={"https"})
  */
 class PayoutController extends BaseController
 {
