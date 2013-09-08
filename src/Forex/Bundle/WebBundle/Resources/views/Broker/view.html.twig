@@ -10,7 +10,7 @@
     <h3>Broker Information</h3>
     <ul>
         <li>
-            Regulations: 
+            Regulations:
             {% for regulation in broker.regulations %}
                 <a href="{{ regulation.url ?: regulation.regulator.url }}"><abbr title="{{ regulation.regulator.name }}">{{ regulation.regulator.abbr }}</abbr></a>
             {% endfor %}
@@ -25,7 +25,6 @@
                 <abbr title="{{ currency.name }}">{{ currency.abbr }}</abbr>
             {% endfor %}
         </li>
-        <li><a href="{{ broker.referralLink }}">Website</a></li>
         <li>Year Founded: {{ broker.yearFounded }}</li>
     </ul>
 {% endblock %}
