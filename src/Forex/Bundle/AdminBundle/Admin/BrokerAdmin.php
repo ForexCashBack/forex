@@ -16,6 +16,7 @@ class BrokerAdmin extends Admin
         $formMapper
             ->with('General')
                 ->add('name')
+                ->add('rank')
                 ->add('slug')
                 ->add('companyName')
                 ->add('referralLink', 'url')
@@ -29,6 +30,9 @@ class BrokerAdmin extends Admin
                 ->add('spread')
                 ->add('spreadLink', 'url')
                 ->add('usClients', 'checkbox', array(
+                    'required' => false,
+                ))
+                ->add('active', 'checkbox', array(
                     'required' => false,
                 ))
             ->end()
