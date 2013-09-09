@@ -32,6 +32,9 @@ class BrokerAdmin extends Admin
                 ->add('usClients', 'checkbox', array(
                     'required' => false,
                 ))
+                ->add('active', 'checkbox', array(
+                    'required' => false,
+                ))
             ->end()
             ->with('Regulations')
                 ->add(

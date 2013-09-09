@@ -11,7 +11,7 @@ class BrokerRepository extends EntityRepository
         $qb = $this->createQueryBuilder('p');
 
         return $qb
-            //->where('active')->equals(true)
+            ->where('p.active = true')
             ->orderBy('p.rank');
     }
 

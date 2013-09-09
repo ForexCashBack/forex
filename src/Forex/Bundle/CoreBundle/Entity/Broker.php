@@ -166,6 +166,13 @@ class Broker
      */
     protected $rank;
 
+    /**
+     * Is the broker active
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $active;
+
     public function __construct()
     {
         $this->accounts = new ArrayCollection();
@@ -753,6 +760,29 @@ class Broker
     public function getRank()
     {
         return $this->rank;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Broker
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean
+     */
+    public function getActive()
+    {
+        return $this->active;
     }
 
     public function __toString()
