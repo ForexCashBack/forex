@@ -19,7 +19,7 @@ class BrokerController extends BaseController
      */
     public function listAction()
     {
-        $brokers = $this->getRepository('ForexCoreBundle:Broker')->findAll();
+        $brokers = $this->getRepository('ForexCoreBundle:Broker')->findActive();
 
         return array(
             'brokers' => $brokers,
