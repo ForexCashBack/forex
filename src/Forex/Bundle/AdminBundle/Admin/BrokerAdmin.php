@@ -16,6 +16,7 @@ class BrokerAdmin extends Admin
         $formMapper
             ->with('General')
                 ->add('name')
+                ->add('rank')
                 ->add('slug')
                 ->add('companyName')
                 ->add('referralLink', 'url')
