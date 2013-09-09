@@ -26,7 +26,7 @@
                             <img src="{{ asset(broker.rectangleImagePath) }}">
                         </a>
                     </td>
-                    <td>{{ broker.rate }}</td>
+                    <td>{{ broker.rate ?: 'Percentage of spread' }}</td>
                     <td>
                         {% if broker.promotions|length %}
                             <ul>

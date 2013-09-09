@@ -9,7 +9,7 @@
         {% for broker in brokers %}
             <tr>
                 <td><a href="{{ path('broker_view', {slug: broker.slug}) }}">{{ broker.name }}</a></td>
-                <td>{{ broker.rate }}</td>
+                <td>{{ broker.rate ?: 'Percentage of spread' }}</td>
             </tr>
         {% endfor %}
     </tbody>
