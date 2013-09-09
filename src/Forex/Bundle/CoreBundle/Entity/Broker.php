@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * A Broker
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BrokerRepository")
  * @ORM\Table(name="brokers")
  */
 class Broker
@@ -159,6 +159,12 @@ class Broker
      * @ORM\Column(type="boolean")
      */
     protected $usClients;
+
+    /**
+     * @ORM\Column(type="integer", unique=true)
+     * @Assert\Range(min=0, max=1000)
+     */
+    protected $rank;
 
     public function __construct()
     {
@@ -724,6 +730,29 @@ class Broker
     public function getEquityHoldingCurriencies()
     {
         return $this->equityHoldingCurriencies;
+    }
+
+    /**
+     * Set rank
+     *
+     * @param boolean $rank
+     * @return Broker
+     */
+    public function setRank($rank)
+    {
+        $this->rank = $rank;
+
+        return $this;
+    }
+
+    /**
+     * Get rank
+     *
+     * @return boolean
+     */
+    public function getRank()
+    {
+        return $this->rank;
     }
 
     public function __toString()
