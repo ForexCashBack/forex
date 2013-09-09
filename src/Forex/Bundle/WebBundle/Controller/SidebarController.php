@@ -12,9 +12,9 @@ class SidebarController extends BaseController
      * @Route("/_internal/sidebar/broker-rates", name="_sidebar_broker_rates")
      * @Template("ForexWebBundle:Sidebar:broker-rates.html.twig")
      */
-    public function paymentMethodsAction()
+    public function brokerRatesAction()
     {
-        $brokers = $this->getRepository('ForexCoreBundle:Broker')->findAll();
+        $brokers = $this->getRepository('ForexCoreBundle:Broker')->findActive();
 
         return array(
             'brokers' => $brokers,

@@ -33,7 +33,7 @@ class AccountController extends BaseController
     public function addAction()
     {
         $user = $this->getUser();
-        $brokers = $this->getRepository('ForexCoreBundle:Broker')->findAll();
+        $brokers = $this->getRepository('ForexCoreBundle:Broker')->findActive();
 
         return array(
             'user' => $user,

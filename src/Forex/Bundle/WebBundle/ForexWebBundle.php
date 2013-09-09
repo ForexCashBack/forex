@@ -30,7 +30,7 @@ class ForexWebBundle extends Bundle
                     'default'
                 );
 
-                foreach ($em->getRepository('ForexCoreBundle:Broker')->findAll() as $broker) {
+                foreach ($em->getRepository('ForexCoreBundle:Broker')->findActive() as $broker) {
                     $event->getGenerator()->addUrl(
                         new UrlConcrete(
                             $router->generate('broker_view', array('slug' => $broker->getSlug()), true),
