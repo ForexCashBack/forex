@@ -10,6 +10,7 @@
             <tr>
                 <th>Broker</th>
                 <th>Rebate</th>
+                <th>Account Type</th>
                 <th>Promotions</th>
                 <th>Min Deposit / Max Leverage</th>
                 <th>Regulations</th>
@@ -20,14 +21,17 @@
         <tbody>
             {% for broker in brokers %}
                 <tr>
-                    <td>
+                    <td rowspan="{{ broker.accountTypes|length }}">
                         <a href="{{ path('broker_view', {slug: broker.slug}) }}">
                             <b>{{ broker.name }}</b><br />
                             <img src="{{ asset(broker.rectangleImagePath) }}">
                         </a>
                     </td>
-                    <td>{{ broker.rate ?: 'Percentage of spread' }}</td>
-                    <td>
+                    <td rowspan="{{ broker.accountTypes|length }}">{{ broker.rate ?: 'Percentage of spread' }}</td>
+                    {% set accountType = broker.accountTypes[0] %}
+                    <td>{{ accountType.name }}</td>
+                    <td>{{ accountType.minDeposit }} / {{ accountType.maxLeverage }}</td>
+                    <td rowspan="{{ broker.accountTypes|length }}">
                         {% if broker.promotions|length %}
                             <ul>
                                 {% for promotion in broker.promotions %}
@@ -36,21 +40,28 @@
                             </ul>
                         {% endif %}
                     </td>
-                    <td>{{ broker.minDeposit }} / {{ broker.maxLeverage }}</td>
-                    <td>
+                    <td rowspan="{{ broker.accountTypes|length }}">
                         {% for regulation in broker.regulations %}
                             <a href="{{ regulation.url ?: regulation.regulator.url }}"><abbr title="{{ regulation.regulator.name }}">{{ regulation.regulator.abbr }}</abbr></a>
                         {% else %}
                             N/A
                         {% endfor %}
                     </td>
-                    <td>{{ broker.yearFounded }}</td>
-                    <td>
+                    <td rowspan="{{ broker.accountTypes|length }}">{{ broker.yearFounded }}</td>
+                    <td rowspan="{{ broker.accountTypes|length }}">
                         <a href="{{ broker.referralLink }}" class="btn btn-success btn-mini">Website</a>
                         <br />
                         <a href="{{ path('broker_view', {slug: broker.slug}) }}" class="btn btn-info btn-mini">Details</a>
                     </td>
                 </tr>
+                {% for accountType in broker.accountTypes %}
+                    {% if not loop.first %}
+                        <tr>
+                            <td>{{ accountType.name }}</td>
+                            <td>{{ accountType.minDeposit }} / {{ accountType.maxLeverage }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
             {% endfor %}
         </tbody>
     </table>

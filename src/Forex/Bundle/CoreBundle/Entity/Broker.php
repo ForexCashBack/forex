@@ -46,6 +46,11 @@ class Broker
     protected $referralLink;
 
     /**
+     * @ORM\OneToMany(targetEntity="BrokerAccountType", mappedBy="broker")
+     */
+    protected $accountTypes;
+
+    /**
      * @ORM\OneToMany(targetEntity="Account", mappedBy="broker")
      */
     protected $accounts;
@@ -85,18 +90,6 @@ class Broker
      * )
      */
     protected $basePercentage;
-
-    /**
-     * @ORM\Column(type="float")
-     * @Assert\Range(min=0)
-     */
-    protected $minDeposit;
-
-    /**
-     * @ORM\Column(type="float")
-     * @Assert\Range(min=0)
-     */
-    protected $maxLeverage;
 
     /**
      * @ORM\Column(type="string")
@@ -176,6 +169,7 @@ class Broker
     public function __construct()
     {
         $this->accounts = new ArrayCollection();
+        $this->accountTypes = new ArrayCollection();
         $this->payments = new ArrayCollection();
         $this->regulations = new ArrayCollection();
     }
@@ -270,6 +264,39 @@ class Broker
     public function getCompanyName()
     {
         return $this->companyName;
+    }
+
+    /**
+     * Add accountType
+     *
+     * @param \Forex\Bundle\CoreBundle\Entity\BrokerAccountType $accountType
+     * @return Broker
+     */
+    public function addAccountType(BrokerAccountType $accountType)
+    {
+        $this->accountTypes[] = $accountType;
+
+        return $this;
+    }
+
+    /**
+     * Remove accountType
+     *
+     * @param \Forex\Bundle\CoreBundle\Entity\BrokerAccountType $accountType
+     */
+    public function removeAccountType(BrokerAccountType $accountType)
+    {
+        $this->accountTypes->removeElement($accountType);
+    }
+
+    /**
+     * Get accountTypes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAccountTypes()
+    {
+        return $this->accountTypes;
     }
 
     /**
@@ -395,52 +422,6 @@ class Broker
     public function getBasePercentage()
     {
         return $this->basePercentage;
-    }
-
-    /**
-     * Set minDeposit
-     *
-     * @param float $minDeposit
-     * @return Broker
-     */
-    public function setMinDeposit($minDeposit)
-    {
-        $this->minDeposit = $minDeposit;
-
-        return $this;
-    }
-
-    /**
-     * Get minDeposit
-     *
-     * @return float
-     */
-    public function getMinDeposit()
-    {
-        return $this->minDeposit;
-    }
-
-    /**
-     * Set maxLeverage
-     *
-     * @param float $maxLeverage
-     * @return Broker
-     */
-    public function setMaxLeverage($maxLeverage)
-    {
-        $this->maxLeverage = $maxLeverage;
-
-        return $this;
-    }
-
-    /**
-     * Get maxLeverage
-     *
-     * @return float
-     */
-    public function getMaxLeverage()
-    {
-        return $this->maxLeverage;
     }
 
     /**

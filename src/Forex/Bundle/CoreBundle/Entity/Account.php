@@ -35,6 +35,11 @@ class Account
     protected $broker;
 
     /**
+     * @ORM\ManyToOne(targetEntity="BrokerAccountType", inversedBy="accounts")
+     */
+    protected $brokerAccountType;
+
+    /**
      * @ORM\OneToMany(targetEntity="Payment", mappedBy="account")
      */
     protected $payments;
