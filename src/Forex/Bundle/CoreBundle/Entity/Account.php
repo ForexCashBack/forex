@@ -107,6 +107,16 @@ class Account
         return $this->broker;
     }
 
+    public function setBrokerAccountType(BrokerAccountType $brokerAccountType)
+    {
+        $this->brokerAccountType = $brokerAccountType;
+    }
+
+    public function getBrokerAccountType()
+    {
+        return $this->brokerAccountType;
+    }
+
     public function addPayment(Payment $payment)
     {
         $this->payments->add($payment);

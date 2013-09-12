@@ -39,13 +39,20 @@ class BaseController extends Controller
         return $this->get('translator')->trans($key);
     }
 
-    protected function createAccountForm(User $user, Broker $broker)
+    protected function createAccountForm(User $user, Broker $broker, BrokerAccountType $brokerAccountType = null)
     {
         $account = new Account();
         $account->setUser($user);
         $account->setBroker($broker);
 
-        return $this->createForm(new AccountFormType(), $account);
+        if (!$brokerAccountType) {
+            $brokerAccountType = $broker->getAccountTypes()->first();
+        }
+        $account->setBrokerAccountType($brokerAccountType);
+
+        return $this->createForm(new AccountFormType(), $account, array(
+            'broker' => $broker,
+        ));
     }
 
     protected function createBrokerSuggestionForm(User $user = null)
