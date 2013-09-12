@@ -20,8 +20,6 @@ class BrokerAdmin extends Admin
                 ->add('slug')
                 ->add('companyName')
                 ->add('referralLink', 'url')
-                ->add('minDeposit')
-                ->add('maxLeverage')
                 ->add('highlight')
                 ->add('website')
                 ->add('yearFounded')
@@ -35,6 +33,21 @@ class BrokerAdmin extends Admin
                 ->add('active', 'checkbox', array(
                     'required' => false,
                 ))
+            ->end()
+            ->with('Account Types')
+                ->add(
+                    'accountTypes',
+                    'sonata_type_collection',
+                    array(
+                        'required' => false,
+                        'by_reference' => false,
+                    ),
+                    array(
+                        'edit' => 'inline'
+                        ,'inline' => 'table',
+                        'sortable' => 'id',
+                    )
+                )
             ->end()
             ->with('Regulations')
                 ->add(

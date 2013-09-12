@@ -23,6 +23,17 @@ services:
             - [ setTranslationDomain, [ForexAdminBundle]]
             - [ setEntityManager, [@doctrine.orm.default_entity_manager]]
 
+    forex.admin.brokeraccounttype:
+        class: Forex\Bundle\AdminBundle\Admin\BrokerAccountTypeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Main, label: "Broker Account Types" }
+        arguments:
+            - ~
+            - Forex\Bundle\CoreBundle\Entity\BrokerAccountType
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]
+
     forex.admin.account:
         class: Forex\Bundle\AdminBundle\Admin\AccountAdmin
         tags:
