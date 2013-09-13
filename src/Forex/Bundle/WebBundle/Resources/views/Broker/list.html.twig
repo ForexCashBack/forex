@@ -30,7 +30,6 @@
                     <td rowspan="{{ broker.accountTypes|length }}">{{ broker.rate ?: 'Percentage of spread' }}</td>
                     {% set accountType = broker.accountTypes[0] %}
                     <td>{{ accountType.name }}</td>
-                    <td>{{ accountType.minDeposit }} / {{ accountType.maxLeverage }}</td>
                     <td rowspan="{{ broker.accountTypes|length }}">
                         {% if broker.promotions|length %}
                             <ul>
@@ -40,6 +39,7 @@
                             </ul>
                         {% endif %}
                     </td>
+                    <td>{{ accountType.minDeposit }} / {{ accountType.maxLeverage }}</td>
                     <td rowspan="{{ broker.accountTypes|length }}">
                         {% for regulation in broker.regulations %}
                             <a href="{{ regulation.url ?: regulation.regulator.url }}"><abbr title="{{ regulation.regulator.name }}">{{ regulation.regulator.abbr }}</abbr></a>
