@@ -9,7 +9,11 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class BrokerAccountTypeAdmin extends Admin
 {
-    protected $entityManager;
+    protected $datagridValues = array(
+        '_page' => 1,
+        '_sort_order' => 'ASC',
+        '_sort_by' => 'broker, rank',
+    );
 
     protected function configureFormFields(FormMapper $formMapper)
     {
@@ -20,6 +24,7 @@ class BrokerAccountTypeAdmin extends Admin
                 ->add('minDeposit')
                 ->add('maxLeverage')
                 ->add('basePercentage', 'percent')
+                ->add('rank')
             ->end()
         ;
     }
@@ -29,6 +34,7 @@ class BrokerAccountTypeAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('name')
+            ->add('broker')
         ;
     }
 
@@ -38,6 +44,8 @@ class BrokerAccountTypeAdmin extends Admin
             ->addIdentifier('id')
             ->add('name')
             ->add('basePercentage', 'percent')
+            ->add('broker')
+            ->add('rank')
         ;
     }
 }

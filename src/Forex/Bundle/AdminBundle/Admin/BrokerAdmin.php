@@ -10,6 +10,11 @@ use Sonata\AdminBundle\Form\FormMapper;
 class BrokerAdmin extends Admin
 {
     protected $entityManager;
+    protected $datagridValues = array(
+        '_page' => 1,
+        '_sort_order' => 'ASC',
+        '_sort_by' => 'rank',
+    );
 
     protected function configureFormFields(FormMapper $formMapper)
     {
@@ -110,6 +115,7 @@ class BrokerAdmin extends Admin
             ->addIdentifier('id')
             ->add('name')
             ->add('basePercentage', 'percent')
+            ->add('rank')
         ;
     }
 

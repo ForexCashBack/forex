@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * A type of account that a broker offers
  *
  * @ORM\Entity
- * @ORM\Table(name="broker_account_types")
+ * @ORM\Table(name="broker_account_types",uniqueConstraints={@ORM\UniqueConstraint(name="unique_broker_account_type_rank", columns={"broker_id", "rank"})})
  */
 class BrokerAccountType
 {
@@ -72,6 +72,12 @@ class BrokerAccountType
      * @ORM\Column(type="string", nullable=true)
      */
     protected $rate;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @Assert\Range(min=0, max=1000)
+     */
+    protected $rank;
 
     public function __construct()
     {
@@ -305,6 +311,29 @@ class BrokerAccountType
     public function getRate()
     {
         return $this->rate;
+    }
+
+    /**
+     * Set rank
+     *
+     * @param boolean $rank
+     * @return BrokerAccountType
+     */
+    public function setRank($rank)
+    {
+        $this->rank = $rank;
+
+        return $this;
+    }
+
+    /**
+     * Get rank
+     *
+     * @return boolean
+     */
+    public function getRank()
+    {
+        return $this->rank;
     }
 
     public function __toString()
