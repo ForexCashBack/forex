@@ -99,6 +99,9 @@ class BrokerAdmin extends Admin
         foreach ($broker->getPromotions() as $promotion) {
             $this->getEntityManager()->persist($promotion);
         }
+        foreach ($broker->getAccountTypes() as $accountType) {
+            $this->getEntityManager()->persist($accountType);
+        }
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

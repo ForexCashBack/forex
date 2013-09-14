@@ -20,6 +20,7 @@ class BrokerAccountTypeAdmin extends Admin
         $formMapper
             ->with('General')
                 ->add('name')
+                ->add('broker')
                 ->add('rate')
                 ->add('minDeposit')
                 ->add('maxLeverage')
