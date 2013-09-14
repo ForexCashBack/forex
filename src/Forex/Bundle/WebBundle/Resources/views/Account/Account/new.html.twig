@@ -1,10 +1,21 @@
 {% extends "ForexWebBundle:Layout:nosidebar.html.twig" %}
 
+{% block title %}Create Account - {{ broker.name }} - {% endblock %}
+
 {% block content %}
     <h2>Create an account for {{ broker.name }}</h2>
 
     <form action="{{ path('account_create', {brokerId: broker.id}) }}" method="post">
-        {{ form_widget(form) }}
-        <button>Create Account</button>
+        {{ form_label(form.accountNumber, 'Account Number') }}
+        {{ form_errors(form.accountNumber) }}
+        {{ form_widget(form.accountNumber) }}
+
+        {{ form_label(form.brokerAccountType, 'Account Type') }}
+        {{ form_errors(form.brokerAccountType) }}
+        {{ form_widget(form.brokerAccountType) }}
+
+        <button class="btn btn-info">Create Account</button>
+
+        {{ form_rest(form) }}
     </form>
 {% endblock %}

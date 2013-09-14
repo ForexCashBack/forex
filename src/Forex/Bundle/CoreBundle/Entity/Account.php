@@ -35,6 +35,11 @@ class Account
     protected $broker;
 
     /**
+     * @ORM\ManyToOne(targetEntity="BrokerAccountType", inversedBy="accounts")
+     */
+    protected $brokerAccountType;
+
+    /**
      * @ORM\OneToMany(targetEntity="Payment", mappedBy="account")
      */
     protected $payments;
@@ -100,6 +105,16 @@ class Account
     public function getBroker()
     {
         return $this->broker;
+    }
+
+    public function setBrokerAccountType(BrokerAccountType $brokerAccountType)
+    {
+        $this->brokerAccountType = $brokerAccountType;
+    }
+
+    public function getBrokerAccountType()
+    {
+        return $this->brokerAccountType;
     }
 
     public function addPayment(Payment $payment)
