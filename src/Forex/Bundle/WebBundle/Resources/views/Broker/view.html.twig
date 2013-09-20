@@ -16,8 +16,6 @@
                 <abbr title="{{ regulation.regulator.name }}">{{ regulation.regulator.abbr }}</abbr>
             {% endfor %}
         </li>
-        <li>Minimum Deposit: {{ broker.minDeposit }}</li>
-        <li>Maximum Leverage: {{ broker.maxLeverage }}</li>
         <li>
             Equity Holdings:
             {% for currency in broker.equityHoldingCurriencies %}
@@ -26,4 +24,18 @@
         </li>
         <li>Year Founded: {{ broker.yearFounded }}</li>
     </ul>
+    <table class="table">
+        <tr>
+            <th>Account Type</th>
+            <th>Min Deposit</th>
+            <th>Max Leverage</th>
+        <tr>
+        {% for accountType in broker.accountTypes %}
+            <tr>
+                <td>{{ accountType.name }}</td>
+                <td>{{ accountType.minDeposit }}</td>
+                <td>{{ accountType.maxLeverage }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
