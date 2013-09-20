@@ -13,12 +13,11 @@
         <li>
             Regulations:
             {% for regulation in broker.regulations %}
-                <a href="{{ regulation.url ?: regulation.regulator.url }}"><abbr title="{{ regulation.regulator.name }}">{{ regulation.regulator.abbr }}</abbr></a>
+                <abbr title="{{ regulation.regulator.name }}">{{ regulation.regulator.abbr }}</abbr>
             {% endfor %}
         </li>
         <li>Minimum Deposit: {{ broker.minDeposit }}</li>
         <li>Maximum Leverage: {{ broker.maxLeverage }}</li>
-        <li>Spreads: <a href="{{ broker.spreadLink }}">{{ broker.spread ?: 'Spread Link' }}</a></li>
         <li>
             Equity Holdings:
             {% for currency in broker.equityHoldingCurriencies %}
