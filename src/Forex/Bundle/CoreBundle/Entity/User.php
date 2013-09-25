@@ -59,6 +59,7 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->accounts = new ArrayCollection();
+        $this->payouts = new ArrayCollection();
         $this->partialPayouts = new ArrayCollection();
         $this->createdAt = new \DateTime();
     }
@@ -101,6 +102,30 @@ class User extends BaseUser
     public function getPayouts()
     {
         return $this->payouts;
+    }
+
+    public function getTotalPayoutAmount()
+    {
+        return array_sum(array_map(function($payout) {
+            return $payout->getAmount();
+        }, $this->getPayouts()));
+    }
+
+    public function addPartialPayout(PartialPayout $partialPayout)
+    {
+        $this->partialPayouts[] = $partialPayout;
+    }
+
+    public function getPartialPayouts()
+    {
+        return $this->partialPayouts;
+    }
+
+    public function getTotalPartialPayoutAmount()
+    {
+        return array_sum($this->getPartialPayouts()->map(function($payout) {
+            return $payout->getAmount();
+        })->toArray());
     }
 
     public function getReferrals()

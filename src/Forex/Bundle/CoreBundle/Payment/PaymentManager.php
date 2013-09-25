@@ -65,6 +65,8 @@ class PaymentManager
         $partialPayout->setUser($user);
         $partialPayout->setDescription($description);
 
+        $user->addPartialPayout($partialPayout);
+
         $this->em->persist($partialPayout);
 
         return $partialPayout;
