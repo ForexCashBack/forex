@@ -78,3 +78,41 @@ body {
         margin-bottom: 35px;
     }
 }
+
+.getting-started {
+    h5 {
+        margin-top: 0;
+    }
+    ol {
+        li {
+            padding: 10px 5px;
+            border: 1px solid #aaa;
+        }
+        li, li a {
+            font-family: @sansFontFamily;
+            font-weight: bolder;
+            font-size: 18px;
+        }
+        li.step-1, li.step-4 {
+            background-color: @successText;
+            color: @successBackground;
+            a {
+                color: @successBackground;
+            }
+        }
+        li.step-2 {
+            background-color: @infoText;
+            color: @infoBackground;
+            a {
+                color: @infoBackground;
+            }
+        }
+        li.step-3 {
+            background-color: @warningText;
+            color: @warningBackground;
+            a {
+                color: @warningBackground;
+            }
+        }
+    }
+}
