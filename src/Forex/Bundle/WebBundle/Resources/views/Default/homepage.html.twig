@@ -3,7 +3,7 @@
 {% block body_class 'homepage' %}
 
 {% block content %}
-    <h2 class="text-success" style="font-size:62px; line-height: 50px;">Get paid to trade</h2>
+    <h2 class="text-success">Get paid to trade at <i>your</i> Forex Broker</h2>
     <p class="lead">Don't miss out on thousands of dollars a year</p>
 
     <h3>How does this work?</h3>
@@ -13,16 +13,25 @@
 
     <hr>
 
-    <h3>How do I start earning cash rebates?</h3>
-    <ol>
-        <li>To start earning rebates, <a href="{{ path('fos_user_registration_register') }}" class="text-info">create a free ForexCashBack account</a>.</li>
-        <li>After registering, view our <a href="{{ path('broker_list') }}">broker comparison table</a> or any other broker listing page on our site, and click on the broker you either want to open a trading account with or already have an account with.</li>
-        <li>If you are opening a new account follow the new account instructions, if you have an existing account you should follow the existing accounts instructions if they are present.  If they are not present please contact our support staff for further instructions.</li>
-        <li>Once logged in, go to the payment information page and complete the form to let us know how to pay you.</li>
-        <li>You will receive a cash distribution for your earnings at least once per month, for more detailed information please see the payments faq.</li>
+    <h3>How do I get paid?</h3>
+    <ol class="unstyled">
+        <li><b>Step 1</b> - <strong><a href="{{ path('fos_user_registration_register') }}" class="text-info">Create a ForexCashBack account</a></strong></li>
+        <li>
+            <b>Step 2</b> - After creating your account, view our <a href="{{ path('broker_list') }}">broker comparison table</a>, find your broker, and click on the broker you either want to open a trading account with or already have an account with.
+            <ul>
+                <li>If you are opening a new account, follow the instructions on the broker page.</li>
+                <li>If you have an existing account, <a href="{{ path('contact') }}">contact us</a> to ensure that you can</li>
+            </ul>
+        </li>
+        <li>
+            <b>Step 3</b> - Give us your broker account information.
+            <ul>
+                <li>While logged in, click on <a href="{{ path('account_list') }}">My Accounts</a> and add the account</li>
+                <li>If you have any difficulty, just <a href="{{ path('contact') }}">call or email us</a> and we'll be happy to create/update your broker account information</li>
+            </ul>
+        </li>
+        <li><b>Step 4</b> - Choose your payment method, and you will be paid at least once per month, for more detailed information please see the payments faq.</li>
     </ol>
-
-    <p class="muted">* The rebate process varies by broker and depends on whether you have an existing account or will open a new account.  Some processes are very easy while others require slightly more action such as closing all trades, etc.  Fortunately, the small amount of effort is worthwhile because you only have to complete the rebate process once and you will then earn cash on each trade for the entire remainder of the life of the account.</p>
 
     <div class="row">
         <div class="span4">
@@ -35,9 +44,6 @@
             <p>You may be wondering, how can we pay you for each trade you place without somehow adversely affecting trading conditions?  It is a great question, and the answer is simple.  We are paid a commission from the marketing budget of the brokerage firms we represent for each trade placed by a client we introduce to them, or who otherwise engages us as their 'introducing broker'.  We in turn keep only a portion of the commission and pass much of it onto our client.  Our clients get the same spreads and conditions as if they had opened an account directly with the broker, the only difference is a client that goes through us gets a cash commission for every trade placed on their account.  Our service is one of the most effective broker marketing tools on the entire web, so the brokers we represent are happy to pay us a volume based commission for the opportunity to appear on our website and gain clients.</p>
         </div>
     </div>
-
-    <h3>Who we are</h3>
-    <p>ForexCashBack was founded in May 2013 and is rapidly becoming a premier hub for traders shopping for forex brokers and products.</p>
 
     <div class="row">
         <div class="span4">

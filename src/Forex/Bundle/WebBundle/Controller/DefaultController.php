@@ -21,24 +21,6 @@ class DefaultController extends BaseController
     }
 
     /**
-     * @Route("/hello/{name}")
-     * @Template
-     */
-    public function indexAction($name)
-    {
-        return array('name' => $name);
-    }
-
-    /**
-     * @Route("/faq", name="faq", options={"sitemap" = true})
-     * @Template
-     */
-    public function faqAction()
-    {
-        return array();
-    }
-
-    /**
      * @Route("/contact", name="contact", options={"sitemap" = true})
      * @Template
      */
@@ -56,15 +38,6 @@ class DefaultController extends BaseController
      * @Template
      */
     public function referralAction()
-    {
-        return array();
-    }
-
-    /**
-     * @Route("/payment-methods", name="payment-methods", options={"sitemap" = true})
-     * @Template("ForexWebBundle:Default:payment-methods.html.twig")
-     */
-    public function paymentMethodsAction()
     {
         return array();
     }
