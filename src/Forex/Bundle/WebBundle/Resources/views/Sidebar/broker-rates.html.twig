@@ -8,7 +8,11 @@
     <tbody>
         {% for broker in brokers %}
             <tr>
-                <td><a href="{{ path('broker_view', {slug: broker.slug}) }}">{{ broker.name }}</a></td>
+                <td>
+                    <a href="{{ path('broker_view', {slug: broker.slug}) }}" class="btn btn-small">
+                        <img src="{{ asset(broker.rectangleImagePath) }}" height="40">
+                    </a>
+                </td>
                 <td>{{ broker.rate ?: 'Percentage of spread' }}</td>
             </tr>
         {% endfor %}
