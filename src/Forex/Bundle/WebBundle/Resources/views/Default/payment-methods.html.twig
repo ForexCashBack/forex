@@ -3,5 +3,15 @@
 {% block content %}
     <h2>Payment Methods</h2>
 
-    <p>Currently we only offer payouts through PayPal.  However, we are actively working on supporting additional methods in the future.</p>
+    <p class="lead">
+        We offer payouts through the following methods.
+        However, we will work with you to ensure that you receive all payouts.
+        If you need additional assistance, feel free to <a href="{{ path('contact') }}">contact us</a>.
+    </p>
+
+    <ul class="payment-methods">
+        <li>Paypal</li>
+        <li>Moneybookers/Skrill</li>
+        <li>Bank Transfer</li>
+    </ul>
 {% endblock %}
