@@ -12,6 +12,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class HelpController extends BaseController
 {
     /**
+     * @Route("/faq", name="faq", options={"sitemap" = true})
+     * @Template
+     */
+    public function faqAction()
+    {
+        return array();
+    }
+
+    /**
      * @Route("/how-to-choose-a-broker", name="how-to-choose-a-broker", options={"sitemap" = true})
      * @Template
      */

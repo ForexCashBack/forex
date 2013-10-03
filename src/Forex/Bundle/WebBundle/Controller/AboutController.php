@@ -12,15 +12,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class AboutController extends BaseController
 {
     /**
-     * @Route("/faq", name="faq", options={"sitemap" = true})
-     * @Template
-     */
-    public function faqAction()
-    {
-        return array();
-    }
-
-    /**
      * @Route("/payment-methods", name="payment-methods", options={"sitemap" = true})
      * @Template("ForexWebBundle:About:payment-methods.html.twig")
      */
