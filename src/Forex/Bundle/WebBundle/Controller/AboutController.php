@@ -37,4 +37,13 @@ class AboutController extends BaseController
     {
         return array();
     }
+
+    /**
+     * @Route("/how-to-choose-a-broker", name="how-to-choose-a-broker", options={"sitemap" = true})
+     * @Template("ForexWebBundle:About:how-to-choose-a-broker.html.twig")
+     */
+    public function howToChooseABrokerAction()
+    {
+        return array();
+    }
 }
