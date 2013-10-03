@@ -21,6 +21,15 @@ class HelpController extends BaseController
     }
 
     /**
+     * @Route("/getting-started", name="getting-started", options={"sitemap" = true})
+     * @Template
+     */
+    public function gettingStartedAction()
+    {
+        return array();
+    }
+
+    /**
      * @Route("/how-to-choose-a-broker", name="how-to-choose-a-broker", options={"sitemap" = true})
      * @Template
      */
