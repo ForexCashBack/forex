@@ -19,4 +19,13 @@ class HelpController extends BaseController
     {
         return array();
     }
+
+    /**
+     * @Route("/residual-income", name="residual-income", options={"sitemap" = true})
+     * @Template
+     */
+    public function residualIncomeAction()
+    {
+        return array();
+    }
 }
