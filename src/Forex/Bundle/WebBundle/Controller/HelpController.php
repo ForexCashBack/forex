@@ -37,4 +37,13 @@ class HelpController extends BaseController
     {
         return array();
     }
+
+    /**
+     * @Route("/earning-potential", name="earning-potential", options={"sitemap" = true})
+     * @Template
+     */
+    public function earningPotentialAction()
+    {
+        return array();
+    }
 }
