@@ -35,7 +35,7 @@ monolog:
             from_email:         jsuggs@forexcashback.com
             to_email:           webmaster@forexcashback.com
             subject:            "Production Error"
-            level:              debug
+            level:              error
         login:
             type:               stream
             path:               "%kernel.logs_dir%/auth.log"
