@@ -21,7 +21,7 @@ monolog:
     handlers:
         main:
             type:               fingers_crossed
-            action_level:       error
+            action_level:       critical
             handler:            grouped
         grouped:
             type:               group
@@ -32,7 +32,7 @@ monolog:
             level:              debug
         swift:
             type:               swift_mailer
-            from_email:         jsuggs@forexcashback.com
+            from_email:         system@forexcashback.com
             to_email:           webmaster@forexcashback.com
             subject:            "Production Error"
             level:              error
