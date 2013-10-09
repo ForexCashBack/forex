@@ -52,7 +52,7 @@ body {
     border-top: 3px solid @grayLight;
     margin-top: 15px;
     padding: 10px 0;
-    background: @blueDark;
+    background: @blueBase;
     color: @grayLighter;
     .high-risk {
         .warning-text {
@@ -62,15 +62,15 @@ body {
         border: 1px solid @grayLight;
         padding: 5px;
         margin-bottom: 5px;
-        background: @blueMedium;
+        background: @blueLight;
     }
 }
 
 .sidebar {
     h5 {
         .border-radius( 5px );
-        background: @blueDark;
-        color: @white;
+        background: @blueBase;
+        color: @grayLighter;
         padding: 10px;
         margin-bottom: 5px;
     }
@@ -87,32 +87,16 @@ body {
         li {
             padding: 10px 5px;
             border: 1px solid #aaa;
+            background-color: @blueLight;
+            color: @grayLighter;
+            a {
+                color: @grayLighter;
+            }
         }
         li, li a {
             font-family: @sansFontFamily;
             font-weight: bolder;
             font-size: 18px;
-        }
-        li.step-1, li.step-4 {
-            background-color: @successText;
-            color: @successBackground;
-            a {
-                color: @successBackground;
-            }
-        }
-        li.step-2 {
-            background-color: @infoText;
-            color: @infoBackground;
-            a {
-                color: @infoBackground;
-            }
-        }
-        li.step-3 {
-            background-color: @warningText;
-            color: @warningBackground;
-            a {
-                color: @warningBackground;
-            }
         }
     }
 }
