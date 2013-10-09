@@ -40,7 +40,7 @@
                             </ul>
                         {% endif %}
                     </td>
-                    <td>{{ accountType.minDeposit }} / {{ accountType.maxLeverage }}</td>
+                    <td>{{ accountType.minDeposit|number_format }} / {{ accountType.maxLeverage|number_format }}</td>
                     <td rowspan="{{ broker.accountTypes|length }}">
                         {% for regulation in broker.regulations %}
                             <a href="{{ regulation.url ?: regulation.regulator.url }}"><abbr title="{{ regulation.regulator.name }}">{{ regulation.regulator.abbr }}</abbr></a>
@@ -59,7 +59,7 @@
                     {% if not loop.first %}
                         <tr>
                             <td>{{ accountType.name }}</td>
-                            <td>{{ accountType.minDeposit }} / {{ accountType.maxLeverage }}</td>
+                            <td>{{ accountType.minDeposit|number_format }} / {{ accountType.maxLeverage|number_format }}</td>
                         </tr>
                     {% endif %}
                 {% endfor %}
