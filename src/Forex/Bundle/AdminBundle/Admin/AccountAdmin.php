@@ -16,6 +16,13 @@ class AccountAdmin extends Admin
     {
         $formMapper
             ->add('accountNumber')
+            ->add('status', 'choice', array(
+                'choices' => array(
+                    Account::STATUS_VERIFIED => 'Verified',
+                    Account::STATUS_UNVERIFIED => 'Unverified',
+                    Account::STATUS_INVALID => 'Invalid',
+                ),
+            ))
             ->add('broker', 'sonata_type_model', array(), array())
             ->add('user', 'sonata_type_model', array(), array())
             ->add('payoutPercentage', 'percent')
@@ -27,6 +34,7 @@ class AccountAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('user')
+            ->add('status')
             ->add('broker')
             ->add('accountNumber')
         ;
@@ -37,6 +45,7 @@ class AccountAdmin extends Admin
         $listMapper
             ->addIdentifier('id')
             ->add('user')
+            ->add('status')
             ->add('broker')
             ->add('accountNumber')
         ;

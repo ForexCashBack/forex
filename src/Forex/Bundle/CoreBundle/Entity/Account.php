@@ -12,6 +12,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Account
 {
+    const STATUS_VERIFIED = 'verified';
+    const STATUS_UNVERIFIED = 'unverified';
+    const STATUS_INVALID = 'invalid';
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -54,6 +58,11 @@ class Account
      * )
      */
     protected $payoutPercentage;
+
+    /**
+     * @ORM\Column(type="string", length=10, nullable=true)
+     */
+    protected $status = self::STATUS_UNVERIFIED;
 
     public function __construct(Broker $broker = null, User $user = null)
     {
@@ -145,6 +154,16 @@ class Account
     public function getPayoutPercentage()
     {
         return $this->payoutPercentage;
+    }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     public function __toString()
