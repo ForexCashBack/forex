@@ -70,6 +70,11 @@ and Pip Rebates up to 80% of Spread' %}">
     </div>
 
     <div class="container main-content">
+        {% if is_granted('ROLE_USER') and app.user.accounts|length == 0 %}
+            <div class="alert alert-success persistent-reminder">
+                <p><strong>Next Step:</strong> Please <a class="text-success" href="{{ path('account_list') }}"><strong>Add your Broker Account Trading Number</strong></a> after signing up with your Broker via our <a class="text-success" href="{{ path('broker_list') }}"><strong>Broker Comparison Page</strong></a></p>
+            </div>
+        {% endif %}
         <div>
             {% for type, messages in app.session.flashbag.all() %}
                 {% for message in messages %}
