@@ -26,9 +26,9 @@ and Pip Rebates up to 80% of Spread' %}">
                 <h2 class="tagline">World Wide Leader in Forex Rebates</h2>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li><a href="{{ path('homepage') }}">Home</a></li>
-                        <li><a href="{{ path('broker_list') }}">{% trans %}nav.brokers{% endtrans %}</a></li>
-                        <li><a href="{{ path('referral-program') }}">{% trans %}nav.referral_program{% endtrans %}</a></li>
+                        <li><a href="{{ path('homepage') }}"><i class="icon-home"></i> Home</a></li>
+                        <li><a href="{{ path('broker_list') }}"><i class="icon-th-list"></i> {% trans %}nav.brokers{% endtrans %}</a></li>
+                        <li><a href="{{ path('referral-program') }}"><i class="icon-refresh"></i> {% trans %}nav.referral_program{% endtrans %}</a></li>
                         <li class="dropdown navbar-dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-question-sign"></i> {% trans %}nav.help{% endtrans %} <b class="caret"></b></a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
@@ -47,7 +47,7 @@ and Pip Rebates up to 80% of Spread' %}">
                     <ul class="nav pull-right">
                         {% if is_granted('ROLE_USER') %}
                             <li class="dropdown navbar-dropdown">
-                                <a href="{{ path('fos_user_profile_show') }}" class="dropdown-toggle" data-toggle="dropdown" data-target="#"><i class="icon-home"></i> My Account <b class="caret"></b></a>
+                                <a href="{{ path('fos_user_profile_show') }}" class="dropdown-toggle" data-toggle="dropdown" data-target="#"><i class="icon-user"></i> My Account <b class="caret"></b></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                                     <li><a tabindex="-1" href="{{ path('fos_user_profile_show') }}"><i class="icon-user"></i> {% trans %}account.my_profile{% endtrans %}</a></li>
                                     <li><a tabindex="-1" href="{{ path('account_list') }}"><i class="icon-star"></i> {% trans %}account.my_accounts{% endtrans %}</a></li>
@@ -57,7 +57,7 @@ and Pip Rebates up to 80% of Spread' %}">
                                 </ul>
                             </li>
                             <li class="divider-vertical"></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}">{% trans %}user.logout{% endtrans %}</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}"><i class="icon-off"></i> {% trans %}user.logout{% endtrans %}</a></li>
                         {% else %}
                             <li><a href="{{ path('fos_user_security_login') }}">{% trans %}user.login{% endtrans %}</a></li>
                             <li class="divider-vertical"></li>
