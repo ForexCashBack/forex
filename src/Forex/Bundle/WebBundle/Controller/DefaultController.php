@@ -13,11 +13,18 @@ class DefaultController extends BaseController
 {
     /**
      * @Route("/", name="homepage", options={"sitemap" = true})
-     * @Template
      */
     public function homepageAction()
     {
-        return array();
+        $user = $this->getUser();
+
+        $template = $this->get('security.context')->isGranted('ROLE_USER')
+            ? 'ForexWebBundle:Homepage:homepage.auth.html.twig'
+            : 'ForexWebBundle:Homepage:homepage.unauth.html.twig';
+
+        return $this->render($template , array(
+            'user' => $user,
+        ));
     }
 
     /**

@@ -1,0 +1,52 @@
+{% extends "ForexWebBundle:Layout:sidebar.html.twig" %}
+
+{% block body_class 'homepage' %}
+
+{% block content %}
+    <h2 class="text-success">Get paid to trade at <i>your</i> Forex Broker</h2>
+    <p class="lead">Don't miss out on thousands of dollars a year</p>
+
+    <h3>How does this work?</h3>
+    <p class="hero-unit" style="padding: 5px; border: 1px solid #ccc;">
+        When you open a trading account through us we earn a commission from your broker for each trade you place.
+        From this commission we in turn <span class="text-success" style="font-size: 18px; font-weight: bolder;">pay you cash</span> for each trade you place.
+        Your spreads and trading conditions <b>DO NOT</b> change, they remain the same as if you had opened an account directly with the broker.
+        Please read further on below for more details about our company and service.
+    </p>
+
+    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-success btn-large">Create Account <small>(its free)</small></a>
+    <a href="{{ path('getting-started') }}" class="btn btn-primary btn-large" style="margin-left: 10px;">Learn More <small>(how to get started)</small></a>
+
+    <hr>
+
+    <div class="row">
+        <div class="span4">
+            <h3>What we do</h3>
+            <p>
+                Our service pays you cash for each trade you place at many industry leading currency trading brokers.
+                The spreads and trading conditions at the brokers we represent are never adversely affected by opening an account through us.
+                This would be counterintuitive to a trader's best interest and thus, our business model.
+                Cash rebates are paid on a monthly basis and can amount to very substantial savings, always increasing a trader's bottom line and often even making the difference between profit and loss.
+                Our friendly and knowledgeable support staff is available to assist with questions or problems most hours of the day via live chat, telephone, and email.
+            </p>
+        </div>
+
+        <div class="span4">
+            <h3>How it works</h3>
+            <p>
+                You may be wondering, how can we pay you for each trade you place without somehow adversely affecting trading conditions?
+                It is a great question, and the answer is simple.
+                We are paid a commission from the marketing budget of the brokerage firms we represent for each trade placed by a client we introduce to them, or who otherwise engages us as their 'introducing broker'.
+                We in turn keep only a portion of the commission and pass much of it onto our client.
+                Our clients get the same spreads and conditions as if they had opened an account directly with the broker, the only difference is a client that goes through us gets a cash commission for every trade placed on their account.
+                Our service is one of the most effective broker marketing tools on the entire web, so the brokers we represent are happy to pay us a volume based commission for the opportunity to appear on our website and gain clients.
+            </p>
+        </div>
+    </div>
+
+    <h3>When and how will I receive my payment?</h3>
+    <p>
+        Rebates are paid on a monthly basis no later than the 25th of the month following the month commissions were earned in.
+        The actual payment date varies based on the broker(s) and payment method you choose, please see the payments faq for more detailed information.
+    </p>
+{% endblock %}
