@@ -1,6 +1,6 @@
 <?php
 
-namespace Forex\Bundle\WebBundle\Tests\Controller;
+namespace Forex\Bundle\CoreBundle\Tests\Payment;
 
 use Forex\Bundle\CoreBundle\Entity\Account;
 use Forex\Bundle\CoreBundle\Entity\PartialPayout;
