@@ -17,22 +17,19 @@ class LinkManager
     protected $em;
     protected $logger;
     protected $domain;
-    protected $debug;
 
     /**
      * @DI\InjectParams({
      *      "em" = @DI\Inject("doctrine.orm.default_entity_manager"),
      *      "logger" = @DI\Inject("logger"),
      *      "router" = @DI\Inject("router"),
-     *      "debug" = @DI\Inject("%kernel.debug%"),
      * })
      */
-    public function __construct(EntityManager $em, LoggerInterface $logger, $router, $debug)
+    public function __construct(EntityManager $em, LoggerInterface $logger, $router)
     {
         $this->em = $em;
         $this->logger = $logger;
         $this->router = $router;
-        $this->debug = $debug;
     }
 
     public function createLink($toUrl, EmailMessage $message)
@@ -40,9 +37,6 @@ class LinkManager
         $link = new EmailLink($toUrl, $message);
 
         $this->em->persist($link);
-        if (!$this->debug) {
-            $this->em->flush($link);
-        }
 
         $this->logger->debug(sprintf('LinkManager::createLink - %s', $toUrl));
 
