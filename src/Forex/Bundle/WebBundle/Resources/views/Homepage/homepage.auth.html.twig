@@ -1,52 +1,37 @@
-{% extends "ForexWebBundle:Layout:sidebar.html.twig" %}
+{% extends "ForexWebBundle:Layout:nosidebar.html.twig" %}
 
-{% block body_class 'homepage' %}
+{% block body_class 'dashboard' %}
 
 {% block content %}
-    <h2 class="text-success">Get paid to trade at <i>your</i> Forex Broker</h2>
-    <p class="lead">Don't miss out on thousands of dollars a year</p>
+    <h2>Hi {{ app.user.username }}, this is your personal dashboard</h2>
+    <p class="muted">Your dashboard is all of your information at a glance. If you have any questions, please <a href="{{ path('contact') }}">contact us</a>, we'll be more than happy to help answer any questions.</p>
 
-    <h3>How does this work?</h3>
-    <p class="hero-unit" style="padding: 5px; border: 1px solid #ccc;">
-        When you open a trading account through us we earn a commission from your broker for each trade you place.
-        From this commission we in turn <span class="text-success" style="font-size: 18px; font-weight: bolder;">pay you cash</span> for each trade you place.
-        Your spreads and trading conditions <b>DO NOT</b> change, they remain the same as if you had opened an account directly with the broker.
-        Please read further on below for more details about our company and service.
-    </p>
-
-    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-success btn-large">Create Account <small>(its free)</small></a>
-    <a href="{{ path('getting-started') }}" class="btn btn-primary btn-large" style="margin-left: 10px;">Learn More <small>(how to get started)</small></a>
-
+    {% if app.user.accounts|length == 0 %}
+        <div class="alert alert-error">
+            <p>You do not have an broker trading accounts registered with us. Please sign up with your Broker via our <a href="{{ path('broker_list') }}" class="text-error"><strong>Broker Comparison Page</strong></a>, then add your account.</p>
+        </div>
+    {% endif %}
     <hr>
 
-    <div class="row">
-        <div class="span4">
-            <h3>What we do</h3>
-            <p>
-                Our service pays you cash for each trade you place at many industry leading currency trading brokers.
-                The spreads and trading conditions at the brokers we represent are never adversely affected by opening an account through us.
-                This would be counterintuitive to a trader's best interest and thus, our business model.
-                Cash rebates are paid on a monthly basis and can amount to very substantial savings, always increasing a trader's bottom line and often even making the difference between profit and loss.
-                Our friendly and knowledgeable support staff is available to assist with questions or problems most hours of the day via live chat, telephone, and email.
-            </p>
-        </div>
+    <h3><a href="{{ path('payout_list') }}">Your current payout balance: ${{ user.currentPayoutBalance(true)|number_format(2, '.', ',') }}</a></h3>
+    <hr>
 
-        <div class="span4">
-            <h3>How it works</h3>
-            <p>
-                You may be wondering, how can we pay you for each trade you place without somehow adversely affecting trading conditions?
-                It is a great question, and the answer is simple.
-                We are paid a commission from the marketing budget of the brokerage firms we represent for each trade placed by a client we introduce to them, or who otherwise engages us as their 'introducing broker'.
-                We in turn keep only a portion of the commission and pass much of it onto our client.
-                Our clients get the same spreads and conditions as if they had opened an account directly with the broker, the only difference is a client that goes through us gets a cash commission for every trade placed on their account.
-                Our service is one of the most effective broker marketing tools on the entire web, so the brokers we represent are happy to pay us a volume based commission for the opportunity to appear on our website and gain clients.
-            </p>
-        </div>
-    </div>
+    <h3><a href="{{ path('account_list') }}">Manage Broker Trading Accounts</a></h3>
 
-    <h3>When and how will I receive my payment?</h3>
-    <p>
-        Rebates are paid on a monthly basis no later than the 25th of the month following the month commissions were earned in.
-        The actual payment date varies based on the broker(s) and payment method you choose, please see the payments faq for more detailed information.
-    </p>
+    <table class="table">
+        <tr>
+            <th>Account ID</th>
+            <th>Brokerage</th>
+            <th>Account Number</th>
+            <th>Account Status</th>
+        </tr>
+        {% for account in user.accounts %}
+            <tr>
+                <td>{{ account.id }}</td>
+                <td>{{ account.broker.name }}</td>
+                <td>{{ account.accountNumber}}</td>
+                <td class="{% if account.status == 'verified'%}text-success{% elseif account.status == 'unverified' %}text-info{% else %}text-error{% endif %}">{{ account.status }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
