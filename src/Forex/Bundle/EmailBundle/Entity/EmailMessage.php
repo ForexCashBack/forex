@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * An email message
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="EmailMessageRepository")
  * @ORM\Table(name="email_messages")
  */
 class EmailMessage
