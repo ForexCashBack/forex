@@ -81,9 +81,11 @@ class Payout
         $this->amount = $amount;
     }
 
-    public function getAmount()
+    public function getAmount($returnDollars = false)
     {
-        return $this->amount;
+        return $returnDollars
+            ? $this->amount / 100
+            : $this->amount;
     }
 
     public function setPartialPayouts(array $partialPayouts)

@@ -12,7 +12,7 @@
         {% for payout in user.payouts %}
             <tr>
                 <td>{{ payout.id }}</td>
-                <td>{{ payout.amount }}</td>
+                <td>${{ payout.amount(true)|number_format(2, '.', ',') }}</td>
                 <td>{{ payout.createdAt|date }}</td>
             </tr>
         {% endfor %}

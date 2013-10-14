@@ -109,11 +109,15 @@ class User extends BaseUser
         return $this->payouts;
     }
 
-    public function getTotalPayoutAmount()
+    public function getTotalPayoutAmount($returnDollars = false)
     {
-        return array_sum(array_map(function($payout) {
+        $cents = array_sum(array_map(function($payout) {
             return $payout->getAmount();
-        }, $this->getPayouts()));
+        }, $this->getPayouts()->toArray()));
+
+        return $returnDollars
+            ? $cents / 100
+            : $cents;
     }
 
     public function addPartialPayout(PartialPayout $partialPayout)
@@ -131,6 +135,15 @@ class User extends BaseUser
         return array_sum($this->getPartialPayouts()->map(function($payout) {
             return $payout->getAmount();
         })->toArray());
+    }
+
+    public function getCurrentPayoutBalance($returnDollars = false)
+    {
+        $cents = $this->getTotalPartialPayoutAmount() - $this->getTotalPayoutAmount();
+
+        return $returnDollars
+            ? $cents / 100
+            : $cents;
     }
 
     public function getReferrals()

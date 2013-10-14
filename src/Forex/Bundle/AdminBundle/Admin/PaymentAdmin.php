@@ -37,6 +37,7 @@ class PaymentAdmin extends Admin
             ->add('broker')
             ->add('account')
             ->add('amount', 'money', array(
+                'label' => 'Amount (shown in cents)',
                 'currency' => 'USD',
                 'divisor' => 100,
             ))
