@@ -78,6 +78,10 @@
                 <source>feedback.complaint_success</source>
                 <target>Thank you, your complaint has been registered</target>
             </trans-unit>
+            <trans-unit id="help.contact_email_success">
+                <source>help.contact_email_success</source>
+                <target>Thank you, your question has been forwarded to our team</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

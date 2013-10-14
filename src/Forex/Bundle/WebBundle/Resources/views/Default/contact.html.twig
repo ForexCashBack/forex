@@ -13,7 +13,7 @@
         <div class="span4">
             <h3><i class="icon-envelope icon-large"></i> Email Us</h3>
             <p>Email us at <a href="mailto:help@forexcashback.com">help@forexcashback.com</a> or use the form below.</p>
-            <form>
+            <form action="{{ path('contact') }}" method="post">
                 {{ form_widget(contactForm) }}
                 <button class="button">Submit</button>
             </form>

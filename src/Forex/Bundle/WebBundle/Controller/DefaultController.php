@@ -35,6 +35,21 @@ class DefaultController extends BaseController
     {
         $form = $this->createContactForm();
 
+        if ($this->getRequest()->getMethod() == 'POST') {
+            $form->bindRequest($this->getRequest());
+            if ($form->isValid()) {
+
+                $data = $form->getData();
+                $this->getEmailManager()->sendToEmail('help@forexcashback.com', 'Help Form', 'Help:help-form', $data);
+                $this->getEntityManager()->flush();
+
+                $message = $this->getTranslatedKey('help.contact_email_success');
+                $this->addMessage('success', $message);
+
+                return $this->redirect($this->generateUrl('homepage'));
+            }
+        }
+
         return array(
             'contactForm' => $form->createView(),
         );
