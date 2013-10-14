@@ -32,7 +32,6 @@ class SendPendingEmailsCommand extends ContainerAwareCommand
     {
         $progress = $this->getHelperSet()->get('progress');
 
-        // TODO - Move to repo method
         $pendingMessages = $this->em->getRepository('ForexEmailBundle:EmailMessage')->findPendingEmails();
 
         $progress->start($output, count($pendingMessages));
