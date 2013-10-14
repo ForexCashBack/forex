@@ -10,12 +10,14 @@
             <th>Account ID</th>
             <th>Brokerage</th>
             <th>Account Number</th>
+            <th>Account Status</th>
         </tr>
         {% for account in user.accounts %}
             <tr>
                 <td>{{ account.id }}</td>
                 <td>{{ account.broker.name }}</td>
                 <td>{{ account.accountNumber}}</td>
+                <td class="{% if account.status == 'verified'%}text-success{% elseif account.status == 'unverified' %}text-info{% else %}text-error{% endif %}">{{ account.status }}</td>
             </tr>
         {% endfor %}
     </table>
