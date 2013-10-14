@@ -102,4 +102,9 @@ class BaseController extends Controller
     {
         return $this->container->get('forex.email.click_manager');
     }
+
+    protected function getOpenManager()
+    {
+        return $this->container->get('forex.email.open_manager');
+    }
 }

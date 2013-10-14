@@ -2,7 +2,6 @@
 
 namespace Forex\Bundle\EmailBundle\Controller;
 
-use Forex\Bundle\CoreBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -10,7 +9,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * @Route("/link")
  */
-class LinkController extends BaseController
+class LinkController extends EmailController
 {
     /**
      * @Route("/{id}", name="email_link")
@@ -23,16 +22,5 @@ class LinkController extends BaseController
         $this->getEntityManager()->flush();
 
         return $this->redirect($link->getToUrl());
-    }
-
-    protected function findLink($id)
-    {
-        $link = $this->getRepository('ForexEmailBundle:EmailLink')->find($id);
-
-        if (!$link) {
-            throw new \NotFoundHttpException(sprintf('Link with id %s not found', $id));
-        }
-
-        return $link;
     }
 }
