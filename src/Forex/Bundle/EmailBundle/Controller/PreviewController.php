@@ -36,15 +36,4 @@ class PreviewController extends BaseController
             '_message' => $message,
         )));
     }
-
-    protected function findMessage($id)
-    {
-        $message = $this->getRepository('ForexEmailBundle:EmailMessage')->find($id);
-
-        if (!$message) {
-            throw new \NotFoundHttpException(sprintf('Message with id %s not found', $id));
-        }
-
-        return $message;
-    }
 }
