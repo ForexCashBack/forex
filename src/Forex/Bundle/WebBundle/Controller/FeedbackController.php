@@ -20,7 +20,7 @@ class FeedbackController extends BaseController
         $form = $this->createBrokerSuggestionForm($this->getUser());
 
         if ($this->getRequest()->getMethod() == 'POST') {
-            $form->bindRequest($this->getRequest());
+            $form->bind($this->getRequest());
             if ($form->isValid()) {
                 $suggestion = $form->getData();
 
@@ -51,7 +51,7 @@ class FeedbackController extends BaseController
         $form = $this->createComplaintForm($this->getUser());
 
         if ($this->getRequest()->getMethod() == 'POST') {
-            $form->bindRequest($this->getRequest());
+            $form->bind($this->getRequest());
             if ($form->isValid()) {
                 $complaint = $form->getData();
 

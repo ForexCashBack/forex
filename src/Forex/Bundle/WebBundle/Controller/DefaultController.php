@@ -36,7 +36,7 @@ class DefaultController extends BaseController
         $form = $this->createContactForm();
 
         if ($this->getRequest()->getMethod() == 'POST') {
-            $form->bindRequest($this->getRequest());
+            $form->bind($this->getRequest());
             if ($form->isValid()) {
 
                 $data = $form->getData();

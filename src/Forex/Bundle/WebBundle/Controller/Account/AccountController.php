@@ -67,7 +67,7 @@ class AccountController extends BaseController
     {
         $user = $this->getUser();
         $form = $this->createAccountForm($user, $broker);
-        $form->bindRequest($this->getRequest());
+        $form->bind($this->getRequest());
 
         if ($form->isValid()) {
             $account = $form->getData();
