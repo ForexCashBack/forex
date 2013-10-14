@@ -48,6 +48,8 @@ class EmailMessageAdmin extends Admin
             ->add('user')
             ->add('status')
             ->add('template')
+            ->add('opened', 'boolean')
+            ->add('clicked', 'boolean')
         ;
     }
 

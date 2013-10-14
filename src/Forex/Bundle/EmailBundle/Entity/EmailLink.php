@@ -69,6 +69,11 @@ class EmailLink
         return $this->createdAt;
     }
 
+    public function getNumClicks()
+    {
+        return count($this->clicks);
+    }
+
     public function __toString()
     {
         return (string) $this->id

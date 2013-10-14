@@ -162,6 +162,28 @@ class EmailMessage
         return $this->status;
     }
 
+    public function isOpened()
+    {
+        return $this->getNumOpens() > 0;
+    }
+
+    public function getNumOpens()
+    {
+        return count($this->opens);
+    }
+
+    public function isClicked()
+    {
+        return $this->getNumClicks() > 0;
+    }
+
+    public function getNumClicks()
+    {
+        return array_sum(array_map(function ($link) {
+            return $link->getNumClicks();
+        }, iterator_to_array($this->links)));
+    }
+
     public function __toString()
     {
         return (string) $this->id
