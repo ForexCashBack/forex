@@ -18,6 +18,8 @@ class PreviewController extends BaseController
     public function testAction($type)
     {
         $message = new EmailMessage('Test', sprintf('Test:test.%s', $type));
+        $message->setId(-1);
+
         $template = sprintf('ForexEmailBundle:Test:test.%s.twig', $type);
         return $this->render($template, array(
             '_message' => $message,

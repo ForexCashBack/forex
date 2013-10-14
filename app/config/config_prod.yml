@@ -8,6 +8,8 @@ imports:
 framework:
     router:
         strict_requirements: null
+    templating:
+        assets_base_url: "http://www.forexcashback.com/"
     #validation:
     #    cache: apc
 
