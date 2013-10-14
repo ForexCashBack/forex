@@ -48,7 +48,7 @@
             </trans-unit>
             <trans-unit id="account.my_accounts">
                 <source>account.my_accounts</source>
-                <target>Mes Comptes</target>
+                <target>Mon courtier comptes de trading</target>
             </trans-unit>
             <trans-unit id="account.my_payouts">
                 <source>account.my_payouts</source>

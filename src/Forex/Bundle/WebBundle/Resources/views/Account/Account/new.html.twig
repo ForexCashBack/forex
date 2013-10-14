@@ -1,9 +1,12 @@
 {% extends "ForexWebBundle:Layout:nosidebar.html.twig" %}
 
-{% block title %}Create Account - {{ broker.name }} - {% endblock %}
+{% block title %}Create Broker Trading Account - {{ broker.name }} - {% endblock %}
 
 {% block content %}
-    <h2>Create an account for {{ broker.name }}</h2>
+    <h2>Create a broker trading account for {{ broker.name }}</h2>
+
+    <p>Enter your broker trading account information below.  Once you submit your account information, we will verify with the broker.</p>
+    <p class="text-success">If you need assistance, or have <b>any</b> questions about completing this process, please <a href="{{ path('contact') }}">contact us.</a>  We are here to help.</p>
 
     <form action="{{ path('account_create', {brokerId: broker.id}) }}" method="post">
         {{ form_label(form.accountNumber, 'Account Number') }}
@@ -14,7 +17,7 @@
         {{ form_errors(form.brokerAccountType) }}
         {{ form_widget(form.brokerAccountType) }}
 
-        <button class="btn btn-info">Create Account</button>
+        <button class="btn btn-info btn-large">Create Broker Trading Account</button>
 
         {{ form_rest(form) }}
     </form>

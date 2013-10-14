@@ -1,12 +1,23 @@
 {% extends "ForexWebBundle:Layout:nosidebar.html.twig" %}
 
 {% block content %}
-    <h2>Add an account</h2>
-    <p>Choose an brokerage to add an account for</p>
+    <h2>Add A Broker Trading Account</h2>
 
-    <ul>
+    <p class="text-success">Choose the broker you have opened an account with.</p>
+    <p class="muted">
+        Please note, you will be prompted for you account number for the broker you choose.
+        Afterwards we will confirm your account status with the broker of your choosing.<br>
+        Once your account is confirmed you will begin earning commission on your trading with that account.
+    </p>
+    <p>Click on your broker below</p>
+
+    <ul class="unstyled add-broker-list">
     {% for broker in brokers %}
-        <li><a href="{{ path('account_new', {brokerId: broker.id}) }}">{{ broker.name }}</a></li>
+        <li style="display: inline">
+            <a href="{{ path('account_new', {brokerId: broker.id}) }}">
+                <img src="{{ asset(broker.rectangleImagePath) }}" height="40" alt="{{ broker.name }}" class="btn">
+            </a>
+        </li>
     {% endfor %}
     </ul>
 {% endblock %}
