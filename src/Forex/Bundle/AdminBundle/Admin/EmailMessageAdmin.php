@@ -46,6 +46,7 @@ class EmailMessageAdmin extends Admin
         $listMapper
             ->addIdentifier('id')
             ->add('user')
+            ->add('email')
             ->add('status')
             ->add('template')
             ->add('opened', 'boolean')
