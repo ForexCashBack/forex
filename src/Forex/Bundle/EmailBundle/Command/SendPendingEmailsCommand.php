@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class SendPendingEmailsCommand extends ContainerAwareCommand
 {
@@ -24,6 +25,10 @@ class SendPendingEmailsCommand extends ContainerAwareCommand
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
         $container = $this->getContainer();
+        $request = new Request();
+        $container->set('request', $request);
+        $container->enterScope('request');
+
         $this->em = $container->get('doctrine.orm.default_entity_manager');
         $this->sender = $container->get('forex.email_sender');
     }
