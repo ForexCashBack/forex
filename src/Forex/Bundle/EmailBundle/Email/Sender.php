@@ -2,6 +2,7 @@
 
 namespace Forex\Bundle\EmailBundle\Email;
 
+use Forex\Bundle\EmailBundle\Entity\EmailMessage;
 use JMS\DiExtraBundle\Annotation as DI;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
@@ -9,7 +10,7 @@ use Symfony\Component\HttpKernel\Log\LoggerInterface;
 /**
  * @DI\Service("forex.email_sender")
  */
-class Sender
+class Sender implements EmailSenderInterface
 {
     protected $mailer;
     protected $templating;
@@ -29,41 +30,54 @@ class Sender
         $this->logger = $logger;
     }
 
-    public function sendToUser(User $user, $subjectLine, $templateName, array $data = array())
-    {
-        $this->sendToEmail($user->getEmail(), $subjectLine, $templateName, $data);
-    }
-
-    public function sendToEmail($email, $subjectLine, $templateName, array $data = array())
+    public function send(EmailMessage $message)
     {
         // Make the email being sent to available to the templates
-        $data['to'] = $email;
+        $data = array(
+            '_to' => $message->getEmail(),
+            '_message' => $message,
+        );
 
-        $html = $this->templating->render(sprintf('ForexEmailBundle:%s.html.twig', $templateName), $data);
-        $text = $this->templating->render(sprintf('ForexEmailBundle:%s.text.twig', $templateName), $data);
+        $html = $this->templating->render(sprintf('ForexEmailBundle:%s.html.twig', $message->getTemplate()), $data);
+        $text = $this->templating->render(sprintf('ForexEmailBundle:%s.text.twig', $message->getTemplate()), $data);
 
         $from = array_key_exists('from', $data)
             ? $data['from']
-            : array('jsuggs@forexcashback.com' => 'Forex Cash Back');
+            : array('system@forexcashback.com' => 'Forex Cash Back');
 
-        $message = \Swift_Message::newInstance()
-            ->setSubject($subjectLine)
+        $swiftMessage = \Swift_Message::newInstance()
+            ->setSubject($message->getSubjectLine())
             ->setFrom($from)
             ->setBody($html, 'text/html')
             ->addPart($text, 'text/plain')
-            ->setTo($email)
+            ->setTo($message->getEmail())
         ;
 
-        $status = $this->mailer->send($message);
+        try {
+            $status = $this->mailer->send($swiftMessage);
+            $message->setStatus(EmailMessage::STATUS_SENT);
 
-        $this->logger->info(
-            sprintf(
-                'Email Message:: Email: %s Subject Line: %s Template: %s Data: %s',
-                $email,
-                $subjectLine,
-                $templateName,
-                json_encode($data)
-            )
-        );
+            $this->logger->info(
+                sprintf(
+                    'Email Message:: Email: %s Subject Line: %s Template: %s Data: %s',
+                    $message->getEmail(),
+                    $message->getSubjectLine(),
+                    $message->getTemplate(),
+                    $message->getJsonData()
+                )
+            );
+        } catch (\Exception $e) {
+            $message->setStatus(EmailMessage::STATUS_ERROR);
+
+            $this->logger->error(
+                sprintf(
+                    'Email Message:: Email: %s Subject Line: %s Template: %s Data: %s',
+                    $message->getEmail(),
+                    $message->getSubjectLine(),
+                    $message->getTemplate(),
+                    $message->getJsonData()
+                )
+            );
+        }
     }
 }
