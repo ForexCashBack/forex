@@ -32,8 +32,9 @@ and Pip Rebates up to 80% of Spread' %}">
                         <li class="dropdown navbar-dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-question-sign"></i> {% trans %}nav.help{% endtrans %} <b class="caret"></b></a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                                <li><a tabindex="-1" href="{{ path('getting-started') }}">How to Get Started</a></li>
-                                <li><a tabindex="-1" href="{{ path('contact') }}">{% trans %}nav.contact_us{% endtrans %}</a></li>
+                                <li><a tabindex="-1" href="{{ path('contact') }}"><i class="icon-question-sign"></i> {% trans %}nav.contact_us{% endtrans %}</a></li>
+                                <li><a tabindex="-1" href="{{ path('getting-started') }}"><i class="icon-play-circle"></i> How to Get Started</a></li>
+                                <li class="divider"></li>
                                 <li><a tabindex="-1" href="{{ path('faq') }}">{% trans %}nav.faq.general{% endtrans %}</a></li>
                                 <li><a tabindex="-1" href="{{ path('who-we-are') }}">Who We Are</a></li>
                                 <li><a tabindex="-1" href="{{ path('how-to-choose-a-broker') }}">How To Choose A Broker</a></li>
