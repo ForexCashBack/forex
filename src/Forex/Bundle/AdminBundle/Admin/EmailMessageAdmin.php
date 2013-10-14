@@ -2,8 +2,6 @@
 
 namespace Forex\Bundle\AdminBundle\Admin;
 
-use Forex\Bundle\CoreBundle\Entity\Account;
-use Forex\Bundle\CoreBundle\Entity\Broker;
 use Forex\Bundle\EmailBundle\Entity\EmailMessage;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
