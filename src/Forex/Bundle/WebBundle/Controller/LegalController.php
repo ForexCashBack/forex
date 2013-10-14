@@ -28,4 +28,13 @@ class LegalController extends BaseController
     {
         return array();
     }
+
+    /**
+     * @Route("/risk-disclosure-statment", name="risk-disclosure", options={"sitemap" = true})
+     * @Template
+     */
+    public function riskDisclosureAction()
+    {
+        return array();
+    }
 }
