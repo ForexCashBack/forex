@@ -33,10 +33,10 @@ class Sender implements EmailSenderInterface
     public function send(EmailMessage $message)
     {
         // Make the email being sent to available to the templates
-        $data = array(
+        $data = array_merge($message->getData(), array(
             '_to' => $message->getEmail(),
             '_message' => $message,
-        );
+        ));
 
         $html = $this->templating->render(sprintf('ForexEmailBundle:%s.html.twig', $message->getTemplate()), $data);
         $text = $this->templating->render(sprintf('ForexEmailBundle:%s.text.twig', $message->getTemplate()), $data);
