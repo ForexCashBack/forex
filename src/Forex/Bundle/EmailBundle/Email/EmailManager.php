@@ -4,6 +4,7 @@ namespace Forex\Bundle\EmailBundle\Email;
 
 use Doctrine\ORM\EntityManager;
 use Forex\Bundle\EmailBundle\Entity\EmailMessage;
+use Forex\Bundle\CoreBundle\Entity\User;
 use JMS\DiExtraBundle\Annotation as DI;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;

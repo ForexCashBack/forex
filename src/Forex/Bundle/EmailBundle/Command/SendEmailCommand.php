@@ -33,12 +33,21 @@ class SendEmailCommand extends ContainerAwareCommand
     }
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->manager->sendToEmail(
-            $input->getArgument('email'),
-            $input->getArgument('subject'),
-            $input->getArgument('template'),
-            json_decode($input->getArgument('data'), true)
-        );
+        if ($user = $this->em->getRepository('ForexCoreBundle:User')->findOneByEmail($input->getArgument('email'))) {
+            $this->manager->sendToUser(
+                $user,
+                $input->getArgument('subject'),
+                $input->getArgument('template'),
+                json_decode($input->getArgument('data'), true)
+            );
+        } else {
+            $this->manager->sendToEmail(
+                $input->getArgument('email'),
+                $input->getArgument('subject'),
+                $input->getArgument('template'),
+                json_decode($input->getArgument('data'), true)
+            );
+        }
 
         $this->em->flush();
     }
