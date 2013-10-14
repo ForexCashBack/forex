@@ -155,3 +155,36 @@ services:
             - 'SonataAdminBundle:CRUD'
         calls:
             - [ setTranslationDomain, [ForexAdminBundle]]
+
+    forex.admin.email.message:
+        class: Forex\Bundle\AdminBundle\Admin\EmailMessageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Email, label: "Emails" }
+        arguments:
+            - ~
+            - Forex\Bundle\EmailBundle\Entity\EmailMessage
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]
+
+    forex.admin.email.link:
+        class: Forex\Bundle\AdminBundle\Admin\EmailLinkAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Email, label: "Links" }
+        arguments:
+            - ~
+            - Forex\Bundle\EmailBundle\Entity\EmailLink
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]
+
+    forex.admin.email.open:
+        class: Forex\Bundle\AdminBundle\Admin\EmailOpenAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Email, label: "Opens" }
+        arguments:
+            - ~
+            - Forex\Bundle\EmailBundle\Entity\EmailOpen
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]

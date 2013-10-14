@@ -1,5 +1,10 @@
-{% extends "ForexEmailBundle:Layout:base.html.twig" %}
+{% extends "ForexEmailBundle:Layout:formatted.html.twig" %}
+
+{% block subjectLine %}
+    {{ message.subjectLine }}
+{% endblock %}
 
 {% block content %}
     This is a test html email template.
+    <h1>{{ email_link('/test', _message) }}</h1>
 {% endblock %}

@@ -51,6 +51,11 @@ class User extends BaseUser
     protected $partialPayouts;
 
     /**
+     * @ORM\OneToMany(targetEntity="Forex\Bundle\EmailBundle\Entity\EmailMessage", mappedBy="user")
+     **/
+    protected $emails;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     protected $createdAt;
