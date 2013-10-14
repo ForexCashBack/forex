@@ -9,6 +9,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class SendEmailCommand extends ContainerAwareCommand
 {
+    protected $manager;
+    protected $em;
+
     protected function configure()
     {
         $this
@@ -21,14 +24,22 @@ class SendEmailCommand extends ContainerAwareCommand
         ;
     }
 
+    protected function initialize(InputInterface $input, OutputInterface $output)
+    {
+        $container = $this->getContainer();
+
+        $this->em = $container->get('doctrine.orm.default_entity_manager');
+        $this->manager = $container->get('forex.email_manager');
+    }
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->getContainer()->get('forex.email_sender')
-            ->sendToEmail(
-                $input->getArgument('email'),
-                $input->getArgument('subject'),
-                $input->getArgument('template'),
-                json_decode($input->getArgument('data'), true)
-            );
+        $this->manager->sendToEmail(
+            $input->getArgument('email'),
+            $input->getArgument('subject'),
+            $input->getArgument('template'),
+            json_decode($input->getArgument('data'), true)
+        );
+
+        $this->em->flush();
     }
 }
