@@ -3,16 +3,20 @@
 {% block body_class 'homepage' %}
 
 {% block content %}
-    <h2 class="text-success">Get paid to trade at <i>your</i> Forex Broker</h2>
-    <p class="lead">Don't miss out on thousands of dollars a year</p>
+    <h2 class="paid-to-trade">Get paid to trade at <i>your</i> Forex Broker</h2>
+    <p class="lead text-success">Don't miss out on thousands of dollars a year</p>
 
     <h3>How does this work?</h3>
-    <p class="hero-unit" style="padding: 5px; border: 1px solid #ccc;">
-        When you open a trading account through us we earn a commission from your broker for each trade you place.
-        From this commission we in turn <span class="text-success" style="font-size: 18px; font-weight: bolder;">pay you cash</span> for each trade you place.
-        Your spreads and trading conditions <b>DO NOT</b> change, they remain the same as if you had opened an account directly with the broker.
-        Please read further on below for more details about our company and service.
-    </p>
+    <div class="hero-unit how-it-works">
+        <p>
+            When you open a trading account through us we earn a commission from your broker for each trade you place.
+            From this commission we in turn <em class="text-success highlight" >pay you cash</em> for each trade you place.
+        </p>
+        <p>
+            <b>Your spreads and trading conditions <em>DO NOT</em> change</b>, they remain the same as if you had opened an account directly with the broker.
+            Please read further on below for more details about our company and service.
+        </p>
+    </div>
 
     <a href="{{ path('fos_user_registration_register') }}" class="btn btn-success btn-large">Create Account <small>(its free)</small></a>
     <a href="{{ path('getting-started') }}" class="btn btn-primary btn-large" style="margin-left: 10px;">Learn More <small>(how to get started)</small></a>
@@ -23,23 +27,36 @@
         <div class="span4">
             <h3>What we do</h3>
             <p>
-                Our service pays you cash for each trade you place at many industry leading currency trading brokers.
+                Our service pays you cash for each trade you place at many <a href="{{ path('broker_list') }}" class="highlight">industry leading currency trading brokers</a>.
+            </p>
+            <p>
                 The spreads and trading conditions at the brokers we represent are never adversely affected by opening an account through us.
-                This would be counterintuitive to a trader's best interest and thus, our business model.
-                Cash rebates are paid on a monthly basis and can amount to very substantial savings, always increasing a trader's bottom line and often even making the difference between profit and loss.
+                Cash rebates are paid on a monthly basis and can amount to very substantial savings, <b>always increasing a trader's bottom line</b> and often even making the difference between profit and loss.
+            </p>
+            <p>
                 Our friendly and knowledgeable support staff is available to assist with questions or problems most hours of the day via live chat, telephone, and email.
+            </p>
+            <p>
+                <a href="{{ path('contact') }}" class="btn btn-info">Contact Us <small>(We are here to help)</small></a>
             </p>
         </div>
 
         <div class="span4">
             <h3>How it works</h3>
             <p>
-                You may be wondering, how can we pay you for each trade you place without somehow adversely affecting trading conditions?
-                It is a great question, and the answer is simple.
-                We are paid a commission from the marketing budget of the brokerage firms we represent for each trade placed by a client we introduce to them, or who otherwise engages us as their 'introducing broker'.
+                How can we pay you for each trade you place without somehow adversely affecting trading conditions?<br>
+                The answer is simple.
+            </p>
+            <p>
+                We are paid a commission from the marketing budget of the <a href="{{ path('broker_list') }}" class="highlight">brokerage firms we represent</a> for each trade placed by a client we introduce to them, or who otherwise engages us as their '<em>Introducing Broker</em>'.<br>
                 We in turn keep only a portion of the commission and pass much of it onto our client.
-                Our clients get the same spreads and conditions as if they had opened an account directly with the broker, the only difference is a client that goes through us gets a cash commission for every trade placed on their account.
-                Our service is one of the most effective broker marketing tools on the entire web, so the brokers we represent are happy to pay us a volume based commission for the opportunity to appear on our website and gain clients.
+            </p>
+            <p>
+                Our clients get the <b>same spreads and conditions</b> as if they had opened an account directly with the broker, the only difference is a client that goes through us gets a cash commission for every trade placed on their account.<br>
+                Our service is an effective broker marketing tool. The brokers we represent are happy to pay us a volume based commission for the opportunity to appear on our website and gain clients.
+            </p>
+            <p>
+                <a href="{{ path('fos_user_registration_register') }}" class="btn btn-success">Get Started Today</a>
             </p>
         </div>
     </div>
