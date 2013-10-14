@@ -7,6 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
+ * This is when a record of when a user opens an email
+ * Note: This is a potential placeholder for capturing additional metadata
+ *
  * @ORM\Entity
  * @ORM\Table(name="email_opens")
  */
@@ -55,11 +58,14 @@ class EmailOpen
         return $this->message;
     }
 
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
     public function __toString()
     {
-        return (string) $this->id
-            ? sprintf('%s - %s:%s', $this->user->getUsername(), $this->broker->getName(), $this->getAccountNumber())
-            : 'New Account';
+        return (string) $this->id ?: 'New Account';
     }
 }
 
