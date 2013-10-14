@@ -59,6 +59,16 @@ class EmailLink
         return $this->id;
     }
 
+    public function getToUrl()
+    {
+        return $this->toUrl;
+    }
+
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
     public function __toString()
     {
         return (string) $this->id

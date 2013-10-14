@@ -15,10 +15,12 @@ class LinkController extends BaseController
     /**
      * @Route("/{id}", name="email_link")
      */
-    public function linkAction($type)
+    public function linkAction($id)
     {
         $link = $this->findLink($id);
+
         $this->getClickManager()->registerClick($link);
+        $this->getEntityManager()->flush();
 
         return $this->redirect($link->getToUrl());
     }
