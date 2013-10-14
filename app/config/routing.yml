@@ -3,6 +3,11 @@ forex_web:
     type:     annotation
     prefix:   /
 
+forex_email:
+    resource: "@ForexEmailBundle/Controller/"
+    type:     annotation
+    prefix:   /email
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
