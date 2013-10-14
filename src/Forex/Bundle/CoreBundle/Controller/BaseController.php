@@ -10,7 +10,11 @@ use Forex\Bundle\CoreBundle\Entity\User;
 use Forex\Bundle\WebBundle\Form\AccountFormType;
 use Forex\Bundle\WebBundle\Form\BrokerSuggestionFormType;
 use Forex\Bundle\WebBundle\Form\ComplaintFormType;
+use Forex\Bundle\WebBundle\Form\ContactFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Validator\Constraints\Collection;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class BaseController extends Controller
 {
@@ -73,17 +77,34 @@ class BaseController extends Controller
 
     protected function createContactForm()
     {
-        $form = $this->createFormBuilder()
-            ->add('name')
-            ->add('email')
-            ->add('message', 'textarea')
-            ->getForm();
+        $collectionContstraint = new Collection(array(
+            'email' => new Email(),
+            'name' => new NotBlank(),
+            'message' => new NotBlank(),
+        ));
 
-        return $form;
+        return $this->createForm(new ContactFormType(), null, array(
+            'validation_constraint' => $collectionContstraint,
+        ));
     }
 
     protected function getAccountManager()
     {
         return $this->container->get('forex.account_manager');
+    }
+
+    protected function getEmailManager()
+    {
+        return $this->container->get('forex.email_manager');
+    }
+
+    protected function getClickManager()
+    {
+        return $this->container->get('forex.email.click_manager');
+    }
+
+    protected function getOpenManager()
+    {
+        return $this->container->get('forex.email.open_manager');
     }
 }
