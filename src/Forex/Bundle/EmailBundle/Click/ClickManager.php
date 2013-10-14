@@ -33,7 +33,8 @@ class ClickManager
         $click = new EmailClick($link);
         $this->em->persist($click);
 
+        $this->logger->info(sprintf('ClickManager::registerClick %s', $link->getId()));
+
         return $click;
     }
 }
-
