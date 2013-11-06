@@ -39,6 +39,11 @@ class BrokerAdmin extends Admin
                     'required' => false,
                 ))
             ->end()
+            ->with('Contact Information')
+                ->add('accountConfirmationEmail', 'email', array(
+                    'required' => false,
+                ))
+            ->end()
             ->with('Account Types')
                 ->add(
                     'accountTypes',

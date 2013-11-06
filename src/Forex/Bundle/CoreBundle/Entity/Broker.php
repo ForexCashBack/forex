@@ -166,6 +166,14 @@ class Broker
      */
     protected $active;
 
+    /**
+     * Account Confirmation Email
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Email
+     */
+    protected $accountConfirmationEmail;
+
     public function __construct()
     {
         $this->accounts = new ArrayCollection();
@@ -764,6 +772,29 @@ class Broker
     public function getActive()
     {
         return $this->active;
+    }
+
+    /**
+     * setAccountConfirmationEmail
+     *
+     * @param string $accountConfirmationEmail
+     * @return Broker
+     */
+    public function setAccountConfirmationEmail($accountConfirmationEmail)
+    {
+        $this->accountConfirmationEmail = $accountConfirmationEmail;
+
+        return $this;
+    }
+
+    /**
+     * getAccountConfirmationEmail
+     *
+     * @return string
+     */
+    public function getAccountConfirmationEmail()
+    {
+        return $this->accountConfirmationEmail;
     }
 
     public function __toString()
