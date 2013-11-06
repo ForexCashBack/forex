@@ -64,6 +64,9 @@ class AccountCreatedListener
 
         $message = new EmailMessage($subjectLine, $template, $data);
         $message->setEmail($email);
+        $message->setReplyTo('accounts@forexcashback.com');
+        $message->setUser($user);
+
         // TODO - Add Reply To
 
         return $message;
