@@ -18,6 +18,7 @@ class EmailMessageAdmin extends Admin
                 ->add('email', 'email', array('required' => false))
                 ->add('ccEmail', 'email', array('required' => false))
                 ->add('bccEmail', 'email', array('required' => false))
+                ->add('replyTo', 'email', array('required' => false))
                 ->add('user', 'sonata_type_model', array('required' => false), array())
                 ->add('status', 'choice', array(
                     'choices' => array(
