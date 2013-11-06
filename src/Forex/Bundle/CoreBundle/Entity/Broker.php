@@ -46,6 +46,12 @@ class Broker
     protected $referralLink;
 
     /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     * @Assert\Length(max=50)
+     */
+    protected $ibCode;
+
+    /**
      * @ORM\OneToMany(targetEntity="BrokerAccountType", mappedBy="broker")
      */
     protected $accountTypes;
@@ -568,6 +574,16 @@ class Broker
     public function getReferralLink()
     {
         return $this->referralLink;
+    }
+
+    public function setIbCode($ibCode)
+    {
+        $this->ibCode = $ibCode;
+    }
+
+    public function getIbCode()
+    {
+        return $this->ibCode;
     }
 
     /**
