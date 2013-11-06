@@ -7,6 +7,7 @@ use Forex\Bundle\CoreBundle\Account\AccountEvents;
 use Forex\Bundle\CoreBundle\Account\Event\AccountEvent;
 use Forex\Bundle\CoreBundle\Entity\Account;
 use JMS\DiExtraBundle\Annotation as DI;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * @DI\Service("forex.account_manager")
@@ -22,7 +23,7 @@ class AccountManager
      *      "eventDispatcher" = @DI\Inject("event_dispatcher"),
      * })
      */
-    public function __construct(EntityManager $em, $eventDispatcher)
+    public function __construct(EntityManager $em, EventDispatcherInterface $eventDispatcher)
     {
         $this->em = $em;
         $this->eventDispatcher = $eventDispatcher;
