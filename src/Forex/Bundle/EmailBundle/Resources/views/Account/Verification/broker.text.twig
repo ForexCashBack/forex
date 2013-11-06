@@ -3,13 +3,13 @@
 {% block content %}
 Client Confirmation
 
-Please confirm that the following client is registered under our account <i>ForexCashBack</i>.
-{%if broker.ibCode %}
-Our IB Code is {{ broker.ibCode }}
+Please confirm that the following client is registered under our account ForexCashBack.
+{%if broker.ib_code %}
+Our IB Code is {{ broker.ib_code }}
 {% endif %}
 
 Email: {{ user.email }}
-Account Number: {{ account.accountNumber }}
+Account Number: {{ account.account_number }}
 
 If you have any questions, please contact us at accounts@forexcashback.com
 {% endblock %}

@@ -10,8 +10,8 @@
         Please confirm that the following client is registered under our account <i>ForexCashBack</i>.
     </p>
 
-    {% if broker.ibCode %}
-        <p>Our IB Code is <b>{{ broker.ibCode }}</b></p>
+    {% if broker.ib_code %}
+        <p>Our IB Code is <b>{{ broker.ib_code }}</b></p>
     {% endif %}
 
     <dl>
@@ -19,7 +19,7 @@
         <dd>{{ user.email }}</dd>
 
         <dt>Account Number</dt>
-        <dd>{{ account.accountNumber }}</dd>
+        <dd>{{ account.account_number }}</dd>
     </dl>
 
     <p>If you have any questions, please contact us at <a href="accounts@forexcashback.com">accounts@forexcashback.com</a></p>
