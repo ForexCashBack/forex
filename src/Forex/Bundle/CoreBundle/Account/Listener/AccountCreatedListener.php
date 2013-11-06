@@ -67,8 +67,6 @@ class AccountCreatedListener
         $message->setReplyTo('accounts@forexcashback.com');
         $message->setUser($user);
 
-        // TODO - Add Reply To
-
         return $message;
     }
 }
