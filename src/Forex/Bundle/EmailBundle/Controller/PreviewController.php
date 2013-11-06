@@ -2,7 +2,6 @@
 
 namespace Forex\Bundle\EmailBundle\Controller;
 
-use Forex\Bundle\CoreBundle\Controller\BaseController;
 use Forex\Bundle\EmailBundle\Entity\EmailMessage;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -31,7 +30,7 @@ class PreviewController extends BaseController
      */
     public function viewAction($id, $type)
     {
-        $message = $this->findMessage($id);
+        $message = $this->findEmailMessage($id);
 
         $template = sprintf('ForexEmailBundle:%s.%s.twig', $message->getTemplate(), $type);
         return $this->render($template, array_merge($message->getData(), array(

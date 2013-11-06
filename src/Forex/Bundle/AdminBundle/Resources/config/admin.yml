@@ -44,6 +44,7 @@ services:
             - 'SonataAdminBundle:CRUD'
         calls:
             - [ setTranslationDomain, [ForexAdminBundle]]
+            - [ setAccountManager, [@forex.account_manager]]
 
     forex.admin.payment:
         class: Forex\Bundle\AdminBundle\Admin\PaymentAdmin
