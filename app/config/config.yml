@@ -107,3 +107,10 @@ jms_di_extra:
     locations:
         all_bundles: false
         bundles: [ForexCoreBundle, ForexEmailBundle]
+
+jms_serializer:
+    metadata:
+        directories:
+            fosuserbundle:
+                namespace_prefix: "FOS\\UserBundle"
+                path: "%kernel.root_dir%/serializer/FOSUserBundle"
