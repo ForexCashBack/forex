@@ -4,6 +4,7 @@ namespace Forex\Bundle\CoreBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serialize;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -11,6 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Entity(repositoryClass="BrokerRepository")
  * @ORM\Table(name="brokers")
+ * @Serialize\ExclusionPolicy("all")
  */
 class Broker
 {
@@ -18,12 +20,14 @@ class Broker
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Serialize\Expose
      */
     protected $id;
 
     /**
      * @ORM\Column(type="string", length=25, unique=true)
      * @Assert\Length(max=25)
+     * @Serialize\Expose
      */
     protected $slug;
 
@@ -48,11 +52,13 @@ class Broker
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      * @Assert\Length(max=50)
+     * @Serialize\Expose
      */
     protected $ibCode;
 
     /**
      * @ORM\OneToMany(targetEntity="BrokerAccountType", mappedBy="broker")
+     * @Serialize\Expose
      */
     protected $accountTypes;
 
@@ -177,6 +183,7 @@ class Broker
      *
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Email
+     * @Serialize\Expose
      */
     protected $accountConfirmationEmail;
 

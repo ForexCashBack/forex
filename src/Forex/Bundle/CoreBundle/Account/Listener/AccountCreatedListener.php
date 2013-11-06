@@ -5,7 +5,7 @@ namespace Forex\Bundle\CoreBundle\Account\Listener;
 use Doctrine\ORM\EntityManager;
 use Forex\Bundle\CoreBundle\Account\Event\AccountEvent;
 use Forex\Bundle\CoreBundle\Entity\Account;
-use Forex\Bundle\EmailBundle\Entity\EmailMessage;
+use Forex\Bundle\EmailBundle\Email\EmailMessageManager;
 use JMS\DiExtraBundle\Annotation as DI;
 
 /**
@@ -14,15 +14,18 @@ use JMS\DiExtraBundle\Annotation as DI;
 class AccountCreatedListener
 {
     protected $emailSender;
+    protected $emailMessageManager;
 
     /**
      * @DI\InjectParams({
      *      "em" = @DI\Inject("doctrine.orm.default_entity_manager"),
+     *      "emailMessageManager" = @DI\Inject("forex.email_message_manager"),
      * })
      */
-    public function __construct(EntityManager $em)
+    public function __construct(EntityManager $em, EmailMessageManager $emailMessageManager)
     {
         $this->em = $em;
+        $this->emailMessageManager = $emailMessageManager;
     }
 
     /**
@@ -48,21 +51,13 @@ class AccountCreatedListener
 
         $subjectLine = 'Please Verify Account';
         $template = 'Account:Verification\broker';
-        // TODO - Use some serializers?
         $data = array(
-            'user' => array(
-                'email' => $user->getEmail(),
-            ),
-            'account' => array(
-                'accountNumber' => $account->getAccountNumber(),
-            ),
-            'broker' => array(
-                'name' => $broker->getName(),
-                'ibCode' => $broker->getIbCode(),
-            ),
+            'user' => $user,
+            'account' => $account,
+            'broker' => $broker,
         );
 
-        $message = new EmailMessage($subjectLine, $template, $data);
+        $message = $this->emailMessageManager->createEmailMessage($subjectLine, $template, $data);
         $message->setEmail($email);
         $message->setReplyTo('accounts@forexcashback.com');
         $message->setUser($user);
