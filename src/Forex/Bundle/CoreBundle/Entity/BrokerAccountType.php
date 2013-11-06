@@ -4,6 +4,7 @@ namespace Forex\Bundle\CoreBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serialize;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -11,6 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Entity
  * @ORM\Table(name="broker_account_types",uniqueConstraints={@ORM\UniqueConstraint(name="unique_broker_account_type_rank", columns={"broker_id", "rank"})})
+ * @Serialize\ExclusionPolicy("all")
  */
 class BrokerAccountType
 {
@@ -18,6 +20,7 @@ class BrokerAccountType
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Serialize\Expose
      */
     protected $id;
 
@@ -30,6 +33,7 @@ class BrokerAccountType
      * The name of the broker account type
      *
      * @ORM\Column(type="string", length=50)
+     * @Serialize\Expose
      */
     protected $name;
 

@@ -2,6 +2,7 @@
 
 namespace Forex\Bundle\AdminBundle\Admin;
 
+use Forex\Bundle\CoreBundle\Account\AccountManager;
 use Forex\Bundle\CoreBundle\Entity\Account;
 use Forex\Bundle\CoreBundle\Entity\Broker;
 use Forex\Bundle\CoreBundle\Entity\User;
@@ -12,6 +13,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class AccountAdmin extends Admin
 {
+    protected $accountManager;
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -49,5 +52,25 @@ class AccountAdmin extends Admin
             ->add('broker')
             ->add('accountNumber')
         ;
+    }
+
+    public function prePersist($account)
+    {
+        $this->getAccountManager()->createAccount($account);
+    }
+
+    //public function preUpdate($account)
+    //{
+        //die('preUpdate');
+    //}
+
+    public function setAccountManager(AccountManager $accountManager)
+    {
+        $this->accountManager = $accountManager;
+    }
+
+    public function getAccountManager()
+    {
+        return $this->accountManager;
     }
 }

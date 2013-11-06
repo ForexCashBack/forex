@@ -5,10 +5,12 @@ namespace Forex\Bundle\CoreBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use JMS\Serializer\Annotation as Serialize;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="accounts")
+ * @Serialize\ExclusionPolicy("all")
  */
 class Account
 {
@@ -20,11 +22,13 @@ class Account
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Serialize\Expose
      */
     protected $id;
 
     /**
      * @ORM\Column(type="string")
+     * @Serialize\Expose
      */
     protected $accountNumber;
 
@@ -35,11 +39,13 @@ class Account
 
     /**
      * @ORM\ManyToOne(targetEntity="Broker", inversedBy="accounts")
+     * @Serialize\Expose
      */
     protected $broker;
 
     /**
      * @ORM\ManyToOne(targetEntity="BrokerAccountType", inversedBy="accounts")
+     * @Serialize\Expose
      */
     protected $brokerAccountType;
 

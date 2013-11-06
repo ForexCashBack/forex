@@ -2,14 +2,14 @@
 
 namespace Forex\Bundle\WebBundle\Controller;
 
-use Forex\Bundle\CoreBundle\Controller\BaseController;
+use Forex\Bundle\CoreBundle\Controller\CoreController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
  * @Route("/{_locale}/legal", defaults={"_locale" = "en"}, requirements={"_locale" = "en|fr"})
  */
-class LegalController extends BaseController
+class LegalController extends CoreController
 {
     /**
      * @Route("/privacy-policy", name="privacy-policy", options={"sitemap" = true})

@@ -2,10 +2,10 @@
 
 namespace Forex\Bundle\EmailBundle\Controller;
 
-use Forex\Bundle\CoreBundle\Controller\BaseController;
+use Forex\Bundle\CoreBundle\Controller\CoreController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class EmailController extends BaseController
+class EmailController extends CoreController
 {
     protected function findLink($id)
     {

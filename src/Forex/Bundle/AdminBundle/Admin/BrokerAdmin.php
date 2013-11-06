@@ -25,6 +25,9 @@ class BrokerAdmin extends Admin
                 ->add('slug')
                 ->add('companyName')
                 ->add('referralLink', 'url')
+                ->add('ibCode', null, array(
+                    'required' => false,
+                ))
                 ->add('highlight')
                 ->add('website')
                 ->add('yearFounded')
@@ -36,6 +39,11 @@ class BrokerAdmin extends Admin
                     'required' => false,
                 ))
                 ->add('active', 'checkbox', array(
+                    'required' => false,
+                ))
+            ->end()
+            ->with('Contact Information')
+                ->add('accountConfirmationEmail', 'email', array(
                     'required' => false,
                 ))
             ->end()

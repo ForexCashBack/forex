@@ -2,14 +2,14 @@
 
 namespace Forex\Bundle\WebBundle\Controller;
 
-use Forex\Bundle\CoreBundle\Controller\BaseController;
+use Forex\Bundle\CoreBundle\Controller\CoreController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
  * @Route("/{_locale}/feedback", defaults={"_locale" = "en"})
  */
-class FeedbackController extends BaseController
+class FeedbackController extends CoreController
 {
     /**
      * @Route("/suggestion", name="feedback_suggestion")

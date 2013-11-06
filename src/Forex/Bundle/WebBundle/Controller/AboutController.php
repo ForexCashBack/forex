@@ -2,14 +2,14 @@
 
 namespace Forex\Bundle\WebBundle\Controller;
 
-use Forex\Bundle\CoreBundle\Controller\BaseController;
+use Forex\Bundle\CoreBundle\Controller\CoreController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
  * @Route("/{_locale}/about", defaults={"_locale" = "en"}, requirements={"_locale" = "en|fr"})
  */
-class AboutController extends BaseController
+class AboutController extends CoreController
 {
     /**
      * @Route("/payment-methods", name="payment-methods", options={"sitemap" = true})

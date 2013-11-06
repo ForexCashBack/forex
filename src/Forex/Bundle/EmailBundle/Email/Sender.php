@@ -53,6 +53,18 @@ class Sender implements EmailSenderInterface
             ->setTo($message->getEmail())
         ;
 
+        if ($message->getReplyTo()) {
+            $swiftMessage->setReplyTo($message->getReplyTo());
+        }
+
+        if ($message->getCcEmail()) {
+            $swiftMessage->addCc($message->getCcEmail());
+        }
+
+        if ($message->getBccEmail()) {
+            $swiftMessage->addBcc($message->getBccEmail());
+        }
+
         try {
             $status = $this->mailer->send($swiftMessage);
             $message->setStatus(EmailMessage::STATUS_SENT);
