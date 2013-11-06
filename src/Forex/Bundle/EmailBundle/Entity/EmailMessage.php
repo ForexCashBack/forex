@@ -28,8 +28,29 @@ class EmailMessage
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\Email
      */
     protected $email;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\Email
+     */
+    protected $replyTo;
+
+    /**
+     * TODO - This needs to allow many emails
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\Email
+     */
+    protected $ccEmail;
+
+    /**
+     * TODO - This needs to allow many emails
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\Email
+     */
+    protected $bccEmail;
 
     /**
      * @ORM\Column(type="string")
@@ -99,6 +120,36 @@ class EmailMessage
     public function getEmail()
     {
         return $this->email;
+    }
+
+    public function setReplyTo($replyTo)
+    {
+        $this->replyTo = $replyTo;
+    }
+
+    public function getReplyTo()
+    {
+        return $this->replyTo;
+    }
+
+    public function setCcEmail($ccEmail)
+    {
+        $this->ccEmail;
+    }
+
+    public function getCcEmail()
+    {
+        return $this->ccEmail;
+    }
+
+    public function setBccEmail($bccEmail)
+    {
+        $this->bccEmail = $bccEmail;
+    }
+
+    public function getBccEmail()
+    {
+        return $this->bccEmail;
     }
 
     public function setSubjectLine($subjectLine)

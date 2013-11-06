@@ -13,19 +13,25 @@ class EmailMessageAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id', null, array('required' => false))
-            ->add('email', 'email', array('required' => false))
-            ->add('user', 'sonata_type_model', array('required' => false), array())
-            ->add('status', 'choice', array(
-                'choices' => array(
-                    EmailMessage::STATUS_PENDING => 'Pending',
-                    EmailMessage::STATUS_SENT => 'Sent',
-                    EmailMessage::STATUS_ERROR => 'Error',
-                ),
-            ))
-            ->add('subjectLine')
-            ->add('template')
-            ->add('jsonData', 'textarea')
+            ->with('Recipients')
+                ->add('id', null, array('required' => false))
+                ->add('email', 'email', array('required' => false))
+                ->add('ccEmail', 'email', array('required' => false))
+                ->add('bccEmail', 'email', array('required' => false))
+                ->add('user', 'sonata_type_model', array('required' => false), array())
+                ->add('status', 'choice', array(
+                    'choices' => array(
+                        EmailMessage::STATUS_PENDING => 'Pending',
+                        EmailMessage::STATUS_SENT => 'Sent',
+                        EmailMessage::STATUS_ERROR => 'Error',
+                    ),
+                ))
+            ->end()
+            ->with('Meta')
+                ->add('subjectLine')
+                ->add('template')
+                ->add('jsonData', 'textarea')
+            ->end()
         ;
     }
 
