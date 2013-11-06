@@ -2,7 +2,7 @@
 
 namespace Forex\Bundle\WebBundle\Controller;
 
-use Forex\Bundle\CoreBundle\Controller\BaseController;
+use Forex\Bundle\CoreBundle\Controller\CoreController;
 use Forex\Bundle\CoreBundle\Entity\Promotion;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 /**
  * @Route("/{_locale}/promotion", defaults={"_locale" = "en"})
  */
-class PromotionController extends BaseController
+class PromotionController extends CoreController
 {
     /**
      * @Route("/{slug}", name="promotion_view")

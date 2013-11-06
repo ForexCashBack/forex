@@ -2,7 +2,7 @@
 
 namespace Forex\Bundle\EmailBundle\Controller;
 
-use Forex\Bundle\CoreBundle\Controller\BaseController as CoreController;
+use Forex\Bundle\CoreBundle\Controller\CoreController;
 use Forex\Bundle\EmailBundle\Entity\EmailMessage;
 
 class BaseController extends CoreController

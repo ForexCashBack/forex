@@ -2,7 +2,7 @@
 
 namespace Forex\Bundle\WebBundle\Controller;
 
-use Forex\Bundle\CoreBundle\Controller\BaseController;
+use Forex\Bundle\CoreBundle\Controller\CoreController;
 use Forex\Bundle\CoreBundle\Entity\Broker;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 /**
  * @Route("/{_locale}/broker", defaults={"_locale" = "en"})
  */
-class BrokerController extends BaseController
+class BrokerController extends CoreController
 {
     /**
      * @Route("/list", name="broker_list")
