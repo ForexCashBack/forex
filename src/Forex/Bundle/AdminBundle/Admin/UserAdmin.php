@@ -64,6 +64,7 @@ class UserAdmin extends Admin
             ->add('enabled')
             ->add('locked')
             ->add('expired')
+            ->add('accounts')
         ;
     }
 
