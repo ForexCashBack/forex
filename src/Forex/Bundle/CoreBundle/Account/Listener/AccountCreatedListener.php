@@ -60,7 +60,6 @@ class AccountCreatedListener
         $message = $this->emailMessageManager->createEmailMessage($subjectLine, $template, $data);
         $message->setEmail($email);
         $message->setReplyTo('accounts@forexcashback.com');
-        $message->setUser($user);
 
         return $message;
     }
