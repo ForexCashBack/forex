@@ -1,0 +1,15 @@
+parameters:
+    database_driver:   pdo_sqlite
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     "/tmp/forexcashback.sqlite"
+    database_user:     ""
+    database_password: ""
+
+    mailer_transport:  smtp
+    mailer_host:       "localhost"
+    mailer_user:       "system@localhost"
+    mailer_password:   "abc123"
+
+    locale:            en
+    secret:            abc123

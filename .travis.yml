@@ -6,8 +6,9 @@ php:
 
 before_install:
     - composer self-update
+    - composer install
 
 before_script:
-    - composer install
+    - cp app/parameters.yml.dist app/parameters.yml
 
 script: phpunit -c app
