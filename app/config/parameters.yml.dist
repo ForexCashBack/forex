@@ -1,10 +1,10 @@
 parameters:
-    database_driver:   pdo_sqlite
+    database_driver:   pdo_pgsql
     database_host:     127.0.0.1
     database_port:     ~
-    database_name:     "/tmp/forexcashback.sqlite"
-    database_user:     ""
-    database_password: ""
+    database_name:     "forex"
+    database_user:     "forex"
+    database_password: "forex"
 
     mailer_transport:  smtp
     mailer_host:       "localhost"
