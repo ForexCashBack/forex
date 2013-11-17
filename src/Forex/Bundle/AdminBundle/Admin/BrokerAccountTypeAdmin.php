@@ -27,6 +27,17 @@ class BrokerAccountTypeAdmin extends Admin
                 ->add('basePercentage', 'percent')
                 ->add('rank')
             ->end()
+            ->with('Execution Types')
+                ->add(
+                    'executionTypes',
+                    'sonata_type_model',
+                    array(
+                        'expanded' => true,
+                        'multiple' => true,
+                        'by_reference' => false,
+                    )
+                )
+            ->end()
         ;
     }
 
