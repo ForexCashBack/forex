@@ -30,12 +30,20 @@
             <th>Account Type</th>
             <th>Min Deposit</th>
             <th>Max Leverage</th>
+            <th>Execution</th>
         <tr>
         {% for accountType in broker.accountTypes %}
             <tr>
                 <td>{{ accountType.name }}</td>
                 <td>{{ accountType.minDeposit }}</td>
                 <td>{{ accountType.maxLeverage }}</td>
+                <td>
+                    {% for executionType in accountType.executionTypes %}
+                        {% if not loop.first %}, {% endif %} <abbr title="{{ executionType.description }}">{{ executionType.abbr }}</abbr>
+                    {% else %}
+                        N/A
+                    {% endfor %}
+                </td>
             </tr>
         {% endfor %}
     </table>
