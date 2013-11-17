@@ -57,6 +57,17 @@ services:
         calls:
             - [ setTranslationDomain, [ForexAdminBundle]]
 
+    forex.admin.trading_platforms:
+        class: Forex\Bundle\AdminBundle\Admin\TradingPlatformAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Main, label: "Trading Platforms" }
+        arguments:
+            - ~
+            - Forex\Bundle\CoreBundle\Entity\TradingPlatform
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]
+
     forex.admin.payment:
         class: Forex\Bundle\AdminBundle\Admin\PaymentAdmin
         tags:

@@ -16,6 +16,7 @@
                 <th>Min Deposit / Max Leverage</th>
                 <th>Regulations</th>
                 <th>Execution</th>
+                <th>Platform(s)</th>
                 <th>Year Founded</th>
                 <th>Links</th>
             </tr>
@@ -56,6 +57,13 @@
                             N/A
                         {% endfor %}
                     </td>
+                    <td>
+                        {% for platform in accountType.tradingPlatforms %}
+                            {% if not loop.first %}, {% endif %} <abbr title="{{ platform.description }}">{{ platform.abbr }}</abbr>
+                        {% else %}
+                            N/A
+                        {% endfor %}
+                    </td>
                     <td rowspan="{{ broker.accountTypes|length }}">{{ broker.yearFounded }}</td>
                     <td rowspan="{{ broker.accountTypes|length }}">
                         <a href="{{ broker.referralLink }}" class="btn btn-success btn-mini">Website</a>
@@ -71,6 +79,13 @@
                             <td>
                                 {% for executionType in accountType.executionTypes %}
                                     {% if not loop.first %}, {% endif %} <abbr title="{{ executionType.description }}">{{ executionType.abbr }}</abbr>
+                                {% else %}
+                                    N/A
+                                {% endfor %}
+                            </td>
+                            <td>
+                                {% for platform in accountType.tradingPlatforms %}
+                                    {% if not loop.first %}, {% endif %} <abbr title="{{ platform.description }}">{{ platform.abbr }}</abbr>
                                 {% else %}
                                     N/A
                                 {% endfor %}

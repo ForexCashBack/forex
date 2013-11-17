@@ -93,11 +93,22 @@ class BrokerAccountType
      */
     protected $executionTypes;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="TradingPlatform")
+     * @ORM\JoinTable(
+     *      name="broker_trading_platforms",
+     *      joinColumns={@ORM\JoinColumn(name="accountType", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="platform", referencedColumnName="abbr")}
+     * )
+     */
+    protected $tradingPlatforms;
+
     public function __construct()
     {
         $this->accounts = new ArrayCollection();
         $this->payments = new ArrayCollection();
         $this->executionTypes = new ArrayCollection();
+        $this->tradingPlatforms = new ArrayCollection();
     }
 
     /**
@@ -364,6 +375,21 @@ class BrokerAccountType
     public function getExecutionTypes()
     {
         return $this->executionTypes;
+    }
+
+    public function addTradingPlatform(TradingPlatform $tradingPlatform)
+    {
+        $this->tradingPlatforms[] = $tradingPlatform;
+    }
+
+    public function removeTradingPlatform(TradingPlatform $tradingPlatform)
+    {
+        $this->$tradingPlatforms->removeElement($tradingPlatform);
+    }
+
+    public function getTradingPlatforms()
+    {
+        return $this->tradingPlatforms;
     }
 
     public function __toString()

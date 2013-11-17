@@ -38,6 +38,17 @@ class BrokerAccountTypeAdmin extends Admin
                     )
                 )
             ->end()
+            ->with('Trading Platforms')
+                ->add(
+                    'tradingPlatforms',
+                    'sonata_type_model',
+                    array(
+                        'expanded' => true,
+                        'multiple' => true,
+                        'by_reference' => false,
+                    )
+                )
+            ->end()
         ;
     }
 
