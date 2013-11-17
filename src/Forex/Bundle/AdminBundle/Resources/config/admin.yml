@@ -46,6 +46,17 @@ services:
             - [ setTranslationDomain, [ForexAdminBundle]]
             - [ setAccountManager, [@forex.account_manager]]
 
+    forex.admin.execution_types:
+        class: Forex\Bundle\AdminBundle\Admin\ExecutionTypeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Main, label: "Execution Types" }
+        arguments:
+            - ~
+            - Forex\Bundle\CoreBundle\Entity\ExecutionType
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [ForexAdminBundle]]
+
     forex.admin.payment:
         class: Forex\Bundle\AdminBundle\Admin\PaymentAdmin
         tags:

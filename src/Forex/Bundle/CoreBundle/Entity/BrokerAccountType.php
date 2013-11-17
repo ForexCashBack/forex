@@ -83,10 +83,21 @@ class BrokerAccountType
      */
     protected $rank;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="ExecutionType")
+     * @ORM\JoinTable(
+     *      name="broker_execution_types",
+     *      joinColumns={@ORM\JoinColumn(name="accountType", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="executionType", referencedColumnName="abbr")}
+     * )
+     */
+    protected $executionTypes;
+
     public function __construct()
     {
         $this->accounts = new ArrayCollection();
         $this->payments = new ArrayCollection();
+        $this->executionTypes = new ArrayCollection();
     }
 
     /**
@@ -338,6 +349,21 @@ class BrokerAccountType
     public function getRank()
     {
         return $this->rank;
+    }
+
+    public function addExecutionType(ExecutionType $executionType)
+    {
+        $this->executionTypes[] = $executionType;
+    }
+
+    public function removeExecutionType(ExecutionType $executionType)
+    {
+        $this->executionTypes->removeElement($executionType);
+    }
+
+    public function getExecutionTypes()
+    {
+        return $this->executionTypes;
     }
 
     public function __toString()
