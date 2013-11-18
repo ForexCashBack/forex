@@ -14,7 +14,9 @@ class BrokerControllerTest extends WebTestCase
 
     public function testBrokerView()
     {
-        $this->getClient()->request('GET', '/en/about/who-we-are');
+        $broker = $this->createBroker();
+
+        $this->getClient()->request('GET', sprintf('/en/broker/broker/%s', $broker->getSlug()));
         $this->assertResponseSuccess($this->getResponse());
     }
 }
