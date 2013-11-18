@@ -30,8 +30,8 @@ and Pip Rebates up to 80% of Spread' %}">
                         <li><a href="{{ path('broker_list') }}"><i class="icon-th-list"></i> {% trans %}nav.brokers{% endtrans %}</a></li>
                         <li><a href="{{ path('referral-program') }}"><i class="icon-refresh"></i> {% trans %}nav.referral_program{% endtrans %}</a></li>
                         <li class="dropdown navbar-dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-question-sign"></i> {% trans %}nav.help{% endtrans %} <b class="caret"></b></a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                            <a href="#" id="nav-help-dropdown" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-question-sign"></i> {% trans %}nav.help{% endtrans %} <b class="caret"></b></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="nav-help-dropdown">
                                 <li><a tabindex="-1" href="{{ path('contact') }}"><i class="icon-question-sign"></i> {% trans %}nav.contact_us{% endtrans %}</a></li>
                                 <li><a tabindex="-1" href="{{ path('getting-started') }}"><i class="icon-play-circle"></i> How to Get Started</a></li>
                                 <li class="divider"></li>
@@ -48,8 +48,8 @@ and Pip Rebates up to 80% of Spread' %}">
                     <ul class="nav pull-right">
                         {% if is_granted('ROLE_USER') %}
                             <li class="dropdown navbar-dropdown">
-                                <a href="{{ path('fos_user_profile_show') }}" class="dropdown-toggle" data-toggle="dropdown" data-target="#"><i class="icon-user"></i> My Account <b class="caret"></b></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                                <a href="{{ path('fos_user_profile_show') }}" id="nav-account-dropdown" class="dropdown-toggle" data-toggle="dropdown" data-target="#"><i class="icon-user"></i> My Account <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="nav-account-dropdown">
                                     <li><a tabindex="-1" href="{{ path('fos_user_profile_show') }}"><i class="icon-user"></i> {% trans %}account.my_profile{% endtrans %}</a></li>
                                     <li><a tabindex="-1" href="{{ path('account_list') }}"><i class="icon-star"></i> {% trans %}account.my_accounts{% endtrans %}</a></li>
                                     <li><a tabindex="-1" href="{{ path('payout_list') }}"><i class="icon-download"></i> {% trans %}account.my_payouts{% endtrans %}</a></li>
