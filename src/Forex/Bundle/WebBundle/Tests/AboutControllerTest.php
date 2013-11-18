@@ -13,4 +13,12 @@ class AccountControllerTest extends WebTestCase
 
         $this->assertResponseSuccess($client->getResponse());
     }
+
+    public function testWhoWeAre()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/en/about/who-we-are');
+
+        $this->assertResponseSuccess($client->getResponse());
+    }
 }
