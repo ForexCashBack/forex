@@ -82,17 +82,14 @@ abstract class WebTestCase extends BaseWebTestCase
         $broker->setRank(rand(0, 100));
         $broker->setActive(true);
 
-        $brokerAccountType = $this->createBrokerAccountType();
-        $brokerAccountType->setBroker($broker);
-        $broker->addAccountType($brokerAccountType);
+        $brokerAccountType = $this->createBrokerAccountType($broker);
 
         $this->getEntityManager()->persist($broker);
-        $this->getEntityManager()->flush();
 
         return $broker;
     }
 
-    protected function createBrokerAccountType()
+    protected function createBrokerAccountType(Broker $broker)
     {
         $brokerAccountType = new BrokerAccountType();
         $brokerAccountType->setName($this->faker->word());
@@ -100,6 +97,9 @@ abstract class WebTestCase extends BaseWebTestCase
         $brokerAccountType->setBasePercentage($this->getRandomPercentage());
         $brokerAccountType->setMinDeposit(rand(0, 5000));
         $brokerAccountType->setMaxLeverage(rand(100, 1000));
+
+        $brokerAccountType->setBroker($broker);
+        $broker->addAccountType($brokerAccountType);
 
         $this->getEntityManager()->persist($brokerAccountType);
 
