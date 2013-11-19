@@ -6,8 +6,15 @@ use Forex\Bundle\CoreBundle\Test\WebTestCase;
 
 class BrokerControllerTest extends WebTestCase
 {
+    protected function tearDown()
+    {
+        $this->truncateTables(array('broker_account_types', 'brokers'));
+    }
+
     public function testBrokerList()
     {
+        $broker = $this->createBroker();
+
         $this->getClient()->request('GET', '/en/broker/list');
         $this->assertResponseSuccess($this->getResponse());
     }

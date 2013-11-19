@@ -5,6 +5,7 @@ namespace Forex\Bundle\CoreBundle\Test;
 use Faker\Factory;
 use Forex\Bundle\CoreBundle\Test\Constraint\ResponseSuccess;
 use Forex\Bundle\CoreBundle\Entity\Broker;
+use Forex\Bundle\CoreBundle\Entity\BrokerAccountType;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase as BaseWebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -36,7 +37,6 @@ abstract class WebTestCase extends BaseWebTestCase
         return $this->getClient()->getResponse();
     }
 
-
     protected function getContainer()
     {
         return $this->client->getContainer();
@@ -47,12 +47,25 @@ abstract class WebTestCase extends BaseWebTestCase
         return $this->getContainer()->get('doctrine.orm.default_entity_manager');
     }
 
+    protected function getConnection()
+    {
+        return $this->getEntityManager()->getConnection();
+    }
+
+    protected function truncateTables(array $tables = array())
+    {
+        $conn = $this->getConnection();
+        foreach ($tables as $table) {
+            $conn->executeQuery(sprintf('TRUNCATE TABLE %s CASCADE', $table));
+        }
+    }
+
     protected function createBroker()
     {
         $broker = new Broker();
         $broker->setSlug(uniqid());
         $broker->setName($this->faker->word());
-        $broker->setBasePercentage(rand(0, 100));
+        $broker->setBasePercentage($this->getRandomPercentage());
         $broker->setCompanyName($this->faker->word(2));
         $broker->setWebsite($this->faker->url());
         $broker->setYearFounded(rand(2000, 2013));
@@ -63,9 +76,32 @@ abstract class WebTestCase extends BaseWebTestCase
         $broker->setRank(rand(0, 100));
         $broker->setActive(true);
 
+        $brokerAccountType = $this->createBrokerAccountType();
+        $brokerAccountType->setBroker($broker);
+        $broker->addAccountType($brokerAccountType);
+
         $this->getEntityManager()->persist($broker);
         $this->getEntityManager()->flush();
 
         return $broker;
+    }
+
+    protected function createBrokerAccountType()
+    {
+        $brokerAccountType = new BrokerAccountType();
+        $brokerAccountType->setName($this->faker->word());
+        $brokerAccountType->setRank(rand(1, 5));
+        $brokerAccountType->setBasePercentage($this->getRandomPercentage());
+        $brokerAccountType->setMinDeposit(rand(0, 5000));
+        $brokerAccountType->setMaxLeverage(rand(100, 1000));
+
+        $this->getEntityManager()->persist($brokerAccountType);
+
+        return $brokerAccountType;
+    }
+
+    private function getRandomPercentage()
+    {
+        return (float) mt_rand() / mt_getrandmax();
     }
 }

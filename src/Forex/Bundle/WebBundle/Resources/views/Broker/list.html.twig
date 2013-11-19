@@ -31,7 +31,7 @@
                         </a>
                     </td>
                     <td rowspan="{{ broker.accountTypes|length }}">{{ broker.rate ?: 'Percentage of spread' }}</td>
-                    {% set accountType = broker.accountTypes[0] %}
+                    {% set accountType = broker.accountTypes|first %}
                     <td>{{ accountType.name }}</td>
                     <td rowspan="{{ broker.accountTypes|length }}">
                         {% if broker.promotions|length %}

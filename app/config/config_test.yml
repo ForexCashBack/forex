@@ -14,3 +14,12 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+doctrine:
+    dbal:
+        driver:   pdo_pgsql
+        host:     localhost
+        port:     5432
+        dbname:   forex_test
+        user:     forex_test
+        password: forex_test
