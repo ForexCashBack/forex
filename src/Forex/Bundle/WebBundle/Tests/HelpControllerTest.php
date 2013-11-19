@@ -4,6 +4,9 @@ namespace Forex\Bundle\WebBundle\Tests;
 
 use Forex\Bundle\CoreBundle\Test\WebTestCase;
 
+/**
+ * @group functional
+ */
 class HelpControllerTest extends WebTestCase
 {
     public function testFaq()
