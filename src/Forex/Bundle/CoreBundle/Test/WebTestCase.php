@@ -7,6 +7,7 @@ use Forex\Bundle\CoreBundle\Test\Constraint\ResponseRedirect;
 use Forex\Bundle\CoreBundle\Test\Constraint\ResponseSuccess;
 use Forex\Bundle\CoreBundle\Entity\Broker;
 use Forex\Bundle\CoreBundle\Entity\BrokerAccountType;
+use Forex\Bundle\CoreBundle\Entity\Promotion;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase as BaseWebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -104,6 +105,22 @@ abstract class WebTestCase extends BaseWebTestCase
         $this->getEntityManager()->persist($brokerAccountType);
 
         return $brokerAccountType;
+    }
+
+    protected function createPromotion(Broker $broker)
+    {
+        $promotion = new Promotion();
+        $promotion->setName($this->faker->word());
+        $promotion->setSlug($this->faker->word());
+        $promotion->setTitle($this->faker->word(5));
+        $promotion->setText($this->faker->paragraph());
+
+        $promotion->setBroker($broker);
+        $broker->addPromotion($promotion);
+
+        $this->getEntityManager()->persist($promotion);
+
+        return $promotion;
     }
 
     private function getRandomPercentage()
