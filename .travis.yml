@@ -15,4 +15,6 @@ before_script:
     - composer install
     - app/console doctrine:migrations:migrate --no-interaction --env=test
 
-script: phpunit -c app
+script:
+    - phpunit -c app --exclude-group=functional
+    - phpunit -c app --group=functional
