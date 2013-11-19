@@ -3,6 +3,7 @@
 namespace Forex\Bundle\CoreBundle\Test;
 
 use Faker\Factory;
+use Forex\Bundle\CoreBundle\Test\Constraint\ResponseRedirect;
 use Forex\Bundle\CoreBundle\Test\Constraint\ResponseSuccess;
 use Forex\Bundle\CoreBundle\Entity\Broker;
 use Forex\Bundle\CoreBundle\Entity\BrokerAccountType;
@@ -25,6 +26,11 @@ abstract class WebTestCase extends BaseWebTestCase
     public static function assertResponseSuccess(Response $response, $message = '')
     {
         self::assertThat($response, new ResponseSuccess(), $message);
+    }
+
+    public static function assertResponseRedirect(Response $response, $message = '')
+    {
+        self::assertThat($response, new ResponseRedirect(), $message);
     }
 
     protected function getClient()
