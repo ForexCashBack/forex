@@ -8,8 +8,11 @@ use Forex\Bundle\CoreBundle\Test\Constraint\ResponseSuccess;
 use Forex\Bundle\CoreBundle\Entity\Broker;
 use Forex\Bundle\CoreBundle\Entity\BrokerAccountType;
 use Forex\Bundle\CoreBundle\Entity\Promotion;
+use Forex\Bundle\CoreBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase as BaseWebTestCase;
+use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 abstract class WebTestCase extends BaseWebTestCase
 {
@@ -21,7 +24,21 @@ abstract class WebTestCase extends BaseWebTestCase
         parent::setUp();
 
         $this->client = static::createClient();
+
         $this->faker = Factory::create();
+    }
+
+    public function authenticateClient(User $user, $firewall = 'main')
+    {
+        $session = $this->getSession();
+
+        $token = new UsernamePasswordToken($user, null, $firewall, $user->getRoles());
+
+        $session->set('_security_'.$firewall, serialize($token));
+        $session->save();
+
+        $cookie = new Cookie($session->getName(), $session->getId());
+        $this->client->getCookieJar()->set($cookie);
     }
 
     public static function assertResponseSuccess(Response $response, $message = '')
@@ -49,6 +66,11 @@ abstract class WebTestCase extends BaseWebTestCase
         return $this->client->getContainer();
     }
 
+    protected function getSession()
+    {
+        return $this->getContainer()->get('session');
+    }
+
     protected function getEntityManager()
     {
         return $this->getContainer()->get('doctrine.orm.default_entity_manager');
@@ -57,6 +79,11 @@ abstract class WebTestCase extends BaseWebTestCase
     protected function getConnection()
     {
         return $this->getEntityManager()->getConnection();
+    }
+
+    protected function getUserManager()
+    {
+        return $this->getContainer()->get('fos_user.user_manager');
     }
 
     protected function truncateTables(array $tables = array())
@@ -121,6 +148,22 @@ abstract class WebTestCase extends BaseWebTestCase
         $this->getEntityManager()->persist($promotion);
 
         return $promotion;
+    }
+
+    protected function createUser($email, $password)
+    {
+        $userManager = $this->getUserManager();
+
+        $user = $userManager->createUser();
+        $user->setEmail($email);
+        $user->setUsername($email);
+        $user->setPlainPassword($password);
+        $userManager->updateCanonicalFields($user);
+        $userManager->updatePassword($user);
+
+        $this->getEntityManager()->persist($user);
+
+        return $user;
     }
 
     private function getRandomPercentage()
