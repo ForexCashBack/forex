@@ -29,7 +29,6 @@ class FeedbackController extends CoreController
 
                 $message = $this->getTranslatedKey('feedback.suggestion_success');
                 $this->addMessage('success', $message);
-
             }
 
             return $this->redirect($this->generateUrl('homepage', array(

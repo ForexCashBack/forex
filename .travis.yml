@@ -7,8 +7,14 @@ php:
 before_install:
     - composer self-update
     - cp app/config/parameters.yml.dist app/config/parameters.yml
+    - psql -c "CREATE USER forex_test WITH PASSWORD 'forex_test';" -U postgres
+    - psql -c 'CREATE DATABASE forex_test;' -U postgres
+    - psql -c 'GRANT ALL PRIVILEGES ON DATABASE forex_test to forex_test;' -U postgres
 
 before_script:
     - composer install
+    - app/console doctrine:migrations:migrate --no-interaction --env=test
 
-script: phpunit -c app
+script:
+    - phpunit -c app --exclude-group=functional
+    - phpunit -c app --group=functional
