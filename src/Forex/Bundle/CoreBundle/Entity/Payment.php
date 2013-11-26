@@ -2,6 +2,7 @@
 
 namespace Forex\Bundle\CoreBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,7 +39,7 @@ class Payment
     /**
      * @ORM\OneToMany(targetEntity="PartialPayout", mappedBy="payment")
      */
-    protected $partialPayout;
+    protected $partialPayouts;
 
     /**
      * @ORM\Column(type="bigint")
@@ -52,6 +53,7 @@ class Payment
 
     public function __construct()
     {
+        $this->partialPayouts = new ArrayCollection();
         $this->createdAt = new \DateTime();
     }
 
@@ -98,14 +100,21 @@ class Payment
             : $this->amount;
     }
 
-    public function setPartialPayout(PartialPayout $partialPayout)
+    public function addPartialPayout(PartialPayout $partialPayout)
     {
-        $this->partialPayout = $partialPayout;
+        if (!$this->partialPayouts->contains($partialPayout)) {
+            $this->partialPayouts->add($partialPayout);
+        }
     }
 
-    public function getPartialPayout()
+    public function removePartialPayout(PartialPayout $partialPayout)
     {
-        return $this->partialPayout;
+        $this->partialPayouts->removeElement($partialPayout);
+    }
+
+    public function getPartialPayouts()
+    {
+        return $this->partialPayouts;
     }
 
     public function __toString()
