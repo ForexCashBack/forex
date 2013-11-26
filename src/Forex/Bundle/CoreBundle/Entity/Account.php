@@ -175,7 +175,12 @@ class Account
     public function __toString()
     {
         return (string) $this->id
-            ? sprintf('%s:%s', $this->broker->getName(), $this->getAccountNumber())
+            ? sprintf(
+                'User: %s Broker: %s Acct Number :%s',
+                $this->user->getUsername(),
+                $this->broker->getName(),
+                $this->getAccountNumber()
+            )
             : 'New Account';
     }
 }

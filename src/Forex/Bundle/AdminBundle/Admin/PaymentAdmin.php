@@ -13,7 +13,6 @@ class PaymentAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('broker', 'sonata_type_model', array(), array())
             ->add('account', 'sonata_type_model', array(), array())
             ->add('amount', 'money', array(
                 'currency' => 'USD',

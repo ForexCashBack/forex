@@ -66,6 +66,11 @@ class UserAdmin extends Admin
             ->add('expired')
             ->add('createdAt')
             ->add('accounts')
+            ->add('currentPayoutBalance', 'money', array(
+                'label' => 'Balance (shown in cents)',
+                'currency' => 'USD',
+                'divisor' => 100,
+            ))
         ;
     }
 

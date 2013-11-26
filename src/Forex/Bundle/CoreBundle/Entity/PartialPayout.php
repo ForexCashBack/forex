@@ -30,7 +30,7 @@ class PartialPayout
     protected $payout;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Payment", inversedBy="partialPayout")
+     * @ORM\ManyToOne(targetEntity="Payment", inversedBy="partialPayouts")
      */
     protected $payment;
 
@@ -51,8 +51,14 @@ class PartialPayout
 
     public function __construct(Payment $payment)
     {
-        $this->payment = $payment;
+        $this->setPayment($payment);
         $this->createdAt = new \DateTime();
+    }
+
+    public function setPayment(Payment $payment)
+    {
+        $this->payment = $payment;
+        $this->payment->addPartialPayout($this);
     }
 
     public function setUser(User $user)
@@ -120,7 +126,12 @@ class PartialPayout
     public function __toString()
     {
         return $this->id
-            ? sprintf('%s - %s', $this->id, $this->user->getId())
+            ? sprintf(
+                'Id: %s User: %s Amount: %s',
+                $this->id,
+                $this->user->getUsername(),
+                $this->getAmount(true)
+            )
             : 'New Payment';
     }
 }

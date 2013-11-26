@@ -3,6 +3,7 @@
 namespace Forex\Bundle\CoreBundle\Tests\Payment;
 
 use Forex\Bundle\CoreBundle\Entity\Account;
+use Forex\Bundle\CoreBundle\Entity\Broker;
 use Forex\Bundle\CoreBundle\Entity\PartialPayout;
 use Forex\Bundle\CoreBundle\Entity\Payment;
 use Forex\Bundle\CoreBundle\Entity\User;
@@ -39,6 +40,7 @@ class PaymentManagerTest extends \PHPUnit_Framework_TestCase
         $account = new Account();
         $account->setUser($user);
         $account->setPayoutPercentage(0.9);
+        $account->setBroker(new Broker());
 
         // Setup payment
         $payment = new Payment();

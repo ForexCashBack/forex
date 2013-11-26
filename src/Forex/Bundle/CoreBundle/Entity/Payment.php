@@ -2,6 +2,7 @@
 
 namespace Forex\Bundle\CoreBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,7 +39,7 @@ class Payment
     /**
      * @ORM\OneToMany(targetEntity="PartialPayout", mappedBy="payment")
      */
-    protected $partialPayout;
+    protected $partialPayouts;
 
     /**
      * @ORM\Column(type="bigint")
@@ -52,6 +53,7 @@ class Payment
 
     public function __construct()
     {
+        $this->partialPayouts = new ArrayCollection();
         $this->createdAt = new \DateTime();
     }
 
@@ -78,6 +80,7 @@ class Payment
     public function setAccount(Account $account)
     {
         $this->account = $account;
+        $this->setBroker($account->getBroker());
     }
 
     public function getAccount()
@@ -97,20 +100,33 @@ class Payment
             : $this->amount;
     }
 
-    public function setPartialPayout(PartialPayout $partialPayout)
+    public function addPartialPayout(PartialPayout $partialPayout)
     {
-        $this->partialPayout = $partialPayout;
+        if (!$this->partialPayouts->contains($partialPayout)) {
+            $this->partialPayouts->add($partialPayout);
+        }
     }
 
-    public function getPartialPayout()
+    public function removePartialPayout(PartialPayout $partialPayout)
     {
-        return $this->partialPayout;
+        $this->partialPayouts->removeElement($partialPayout);
+    }
+
+    public function getPartialPayouts()
+    {
+        return $this->partialPayouts;
     }
 
     public function __toString()
     {
         return $this->id
-            ? sprintf('%s - %s', $this->id, $this->account->getId())
+            ? sprintf(
+                'Id: %s Broker: %s Account: %s Amount: %d',
+                $this->id,
+                $this->getAccount()->getBroker()->getSlug(),
+                $this->account->getId(),
+                $this->getAmount(true)
+            )
             : 'New Account';
     }
 }
