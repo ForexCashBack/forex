@@ -120,7 +120,12 @@ class PartialPayout
     public function __toString()
     {
         return $this->id
-            ? sprintf('%s - %s', $this->id, $this->user->getId())
+            ? sprintf(
+                'Id: %s User: %s Amount: %s',
+                $this->id,
+                $this->user->getUsername(),
+                $this->getAmount(true)
+            )
             : 'New Payment';
     }
 }

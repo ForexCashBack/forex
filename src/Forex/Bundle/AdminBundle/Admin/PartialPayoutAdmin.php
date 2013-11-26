@@ -12,9 +12,8 @@ class PartialPayoutAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
             ->add('user', 'sonata_type_model', array(), array())
-            ->add('payout', 'sonata_type_model', array(), array())
+            ->add('payout', 'sonata_type_model', array('required' => false), array())
             ->add('amount', 'money', array(
                 'currency' => 'USD',
                 'divisor' => 100,

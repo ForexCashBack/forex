@@ -78,6 +78,7 @@ class Payment
     public function setAccount(Account $account)
     {
         $this->account = $account;
+        $this->setBroker($account->getBroker());
     }
 
     public function getAccount()
@@ -110,7 +111,13 @@ class Payment
     public function __toString()
     {
         return $this->id
-            ? sprintf('%s - %s', $this->id, $this->account->getId())
+            ? sprintf(
+                'Id: %s Broker: %s Account: %s Amount: %d',
+                $this->id,
+                $this->getAccount()->getBroker()->getSlug(),
+                $this->account->getId(),
+                $this->getAmount(true)
+            )
             : 'New Account';
     }
 }
