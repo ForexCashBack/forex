@@ -7,25 +7,25 @@
 <body style="font-family:Helvetica, Arial, Sans-serif; margin: 0; padding: 0;">
 <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center" bgcolor="#0b3487" style="border-spacing:0;">
     <tr>
-        <td height="52">&nbsp;</td>
+        <td height="5">&nbsp;</td>
     </tr>
     <tr>
-        <td height="116" width="600" valign="top" align="center" style="background-color:transparent;">
-            <table cellpadding="0" cellspacing="0" width="600" height="116" style="border-spacing:0;">
+        <td width="600" valign="top" align="center" style="background-color:transparent;">
+            <table cellpadding="0" cellspacing="0" width="600" style="border-spacing:0;">
                 <tr>
                     <td width="72" valign="top">
-                        <img src="{{ asset('/img/email/logo.png') }}" alt="Forex Cash Back" style="display:block; border:0;">
+                        <img src="{{ app.request.getSchemeAndHttpHost ~ asset('/img/email/logo.png') }}" alt="Forex Cash Back" style="display:block; border:0;">
                     </td>
                     <td width="24" valign="top">&nbsp;</td>
                     <td width="504" valign="top">
-                        <table cellpadding="0" cellspacing="0" width="504" height="116" style="border-spacing:0;">
+                        <table cellpadding="0" cellspacing="0" width="504" style="border-spacing:0;">
                             <tr>
                                 <td width="504" height="24" valign="top" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;color:#20C4F4;text-transform:uppercase;">
                                     {{ "now"|date('M d Y') }}
                                 </td>
                             </tr>
                             <tr>
-                                <td width="504" height="92" valign="top" style="font-family:Helvetica,Arial,sans-serif;font-size:58px;line-height:42px;color:#fff;font-weight:100;">
+                                <td width="504" valign="top" style="font-family:Helvetica,Arial,sans-serif;font-size:28px;color:#fff;font-weight:100;">
                                     ForexCashBack
                                 </td>
                             </tr>
@@ -34,6 +34,9 @@
                 </tr>
             </table>
         </td>
+    </tr>
+    <tr>
+        <td height="5">&nbsp;</td>
     </tr>
 </table>
 
@@ -53,9 +56,6 @@
                 </tr>
                 <tr>
                     <td colspan="5" width="600" height="8" valign="top" style="line-height:8px;">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td colspan="5" width="600" height="44" valign="top" style="line-height:44px;">&nbsp;</td>
                 </tr>
             </table>
         </td>
