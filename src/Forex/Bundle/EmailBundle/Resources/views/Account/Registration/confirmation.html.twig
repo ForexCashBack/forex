@@ -1,0 +1,11 @@
+{% extends "ForexEmailBundle:Layout:formatted.html.twig" %}
+
+{% block subjectLine %}
+    {{ _message.subjectLine }}
+{% endblock %}
+
+{% block content %}
+    <h2>Confirm Your Account</h2>
+
+    <p><a href="{{ confirmationUrl }}">{{ confirmationUrl }}</a></p>
+{% endblock %}
