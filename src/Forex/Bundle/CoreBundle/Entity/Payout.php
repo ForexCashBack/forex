@@ -83,7 +83,7 @@ class Payout
 
     public function getAmount($returnDollars = false)
     {
-        return $returnDollars
+        return (float) $returnDollars
             ? $this->amount / 100
             : $this->amount;
     }

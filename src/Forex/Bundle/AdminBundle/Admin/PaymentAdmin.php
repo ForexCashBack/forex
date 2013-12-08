@@ -10,6 +10,9 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class PaymentAdmin extends Admin
 {
+    protected $em;
+    protected $paymentManager;
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -43,9 +46,20 @@ class PaymentAdmin extends Admin
         ;
     }
 
-    public function prePersist($object)
+    public function postPersist($object)
     {
         $this->getPaymentManager()->createPartialPayouts($object);
+        $this->getEntityManager()->flush();
+    }
+
+    public function setEntityManager($em)
+    {
+        $this->em = $em;
+    }
+
+    protected function getEntityManager()
+    {
+        return $this->em;
     }
 
     public function setPaymentManager(PaymentManager $paymentManager)

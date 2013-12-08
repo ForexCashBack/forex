@@ -9,6 +9,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class PayoutAdmin extends Admin
 {
+    protected $payoutManager;
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -37,5 +39,21 @@ class PayoutAdmin extends Admin
                 'divisor' => 100,
             ))
         ;
+    }
+
+    public function postPersist($object)
+    {
+        $this->getPayoutManager()->resolvePartialPayouts($object);
+        die('pst');
+    }
+
+    public function setPayoutManager($payoutManager)
+    {
+        $this->payoutManager = $payoutManager;
+    }
+
+    protected function getPayoutManager()
+    {
+        return $this->payoutManager;
     }
 }

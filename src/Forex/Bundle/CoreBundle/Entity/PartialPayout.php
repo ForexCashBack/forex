@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * This represents an amount that we will group together into a payout
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="PartialPayoutRepository")
  * @ORM\Table(name="partial_payouts")
  */
 class PartialPayout
@@ -108,7 +108,9 @@ class PartialPayout
 
     public function getAmount($returnDollars = false)
     {
-        return $returnDollars
+        var_dump($this->amount);
+        return (float) 'x';
+        return (float) $returnDollars
             ? $this->amount / 100
             : $this->amount;
     }
