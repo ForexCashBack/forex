@@ -26,6 +26,7 @@ class SendPendingEmailsCommand extends ContainerAwareCommand
     {
         $container = $this->getContainer();
         $request = new Request();
+        $request->headers->set('host', $container->getParameter('cli_host'));
         $container->set('request', $request);
         $container->enterScope('request');
 
