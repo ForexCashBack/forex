@@ -75,6 +75,11 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Forex\Bundle\CoreBundle\Entity\User
+    service:
+        mailer: forex.mailer.user_mailer
+    registration:
+        confirmation:
+            enabled: true
 
 sonata_block:
     default_contexts: [cms]
