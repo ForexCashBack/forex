@@ -66,6 +66,21 @@ class User extends BaseUser
      */
     protected $createdAt;
 
+    /**
+     * @ORM\Column(type="string", length=5, nullable=true)
+     */
+    protected $language;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $firstName;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $lastName;
+
     public function __construct()
     {
         parent::__construct();
@@ -160,5 +175,35 @@ class User extends BaseUser
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+    }
+
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+    }
+
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+    }
+
+    public function getLastName()
+    {
+        return $this->lastName;
     }
 }
