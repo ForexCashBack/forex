@@ -80,6 +80,8 @@ fos_user:
     registration:
         confirmation:
             enabled: true
+        form:
+            type: forex_user_registration
 
 sonata_block:
     default_contexts: [cms]
@@ -111,7 +113,7 @@ sonata_admin:
 jms_di_extra:
     locations:
         all_bundles: false
-        bundles: [ForexCoreBundle, ForexEmailBundle]
+        bundles: [ForexCoreBundle, ForexEmailBundle, ForexUserBundle]
 
 jms_serializer:
     metadata:

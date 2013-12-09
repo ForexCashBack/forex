@@ -66,6 +66,11 @@ class User extends BaseUser
      */
     protected $createdAt;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $language;
+
     public function __construct()
     {
         parent::__construct();
@@ -160,5 +165,15 @@ class User extends BaseUser
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+    }
+
+    public function getLanguage()
+    {
+        return $this->language;
     }
 }
