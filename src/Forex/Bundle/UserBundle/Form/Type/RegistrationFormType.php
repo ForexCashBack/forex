@@ -20,14 +20,18 @@ class RegistrationFormType extends FOSFormType
     {
         parent::buildForm($builder, $options);
 
-        $builder->add('language', 'language', array(
-            'preferred_choices' => array(
-                'en',
-                'fr',
-                'de',
-                'es',
-            ),
-        ));
+        $builder
+            ->add('language', 'language', array(
+                'preferred_choices' => array(
+                    'en',
+                    'fr',
+                    'de',
+                    'es',
+                ),
+            ))
+            ->add('firstName')
+            ->add('lastName')
+        ;
     }
 
     public function getName()
