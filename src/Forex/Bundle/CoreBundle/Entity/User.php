@@ -67,7 +67,7 @@ class User extends BaseUser
     protected $createdAt;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=5, nullable=true)
      */
     protected $language;
 
