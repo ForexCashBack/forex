@@ -29,8 +29,8 @@ class RegistrationFormType extends FOSFormType
                     'es',
                 ),
             ))
-            ->add('firstName')
-            ->add('lastName')
+            ->add('firstName', null, array('label' => 'First Name'))
+            ->add('lastName', null, array('label' => 'Last Name'))
         ;
     }
 
