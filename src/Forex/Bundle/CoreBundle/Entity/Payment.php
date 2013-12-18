@@ -90,7 +90,7 @@ class Payment
 
     public function setAmount($amount)
     {
-        $this->amount = $amount;
+        $this->amount = round($amount);
     }
 
     public function getAmount($returnDollars = false)
