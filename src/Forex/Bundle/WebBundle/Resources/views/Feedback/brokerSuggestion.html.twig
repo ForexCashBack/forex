@@ -1,10 +1,12 @@
 <h5>Suggest a Service</h5>
-<p class="muted">Suggest a product, service or broker</p>
-<form action="{{ path('feedback_suggestion') }}" method="post">
-    {{ form_label(form.suggestion) }}
-    {{ form_errors(form.suggestion) }}
-    {{ form_widget(form.suggestion, {attr: {placeholder: 'ex. FxPro'}}) }}
-    <button class="btn btn-info">Submit</button>
+<div class="pad">
+	<p class="muted">Suggest a product, service or broker</p>
+	<form action="{{ path('feedback_suggestion') }}" method="post">
+	    {{ form_label(form.suggestion) }}
+	    {{ form_errors(form.suggestion) }}
+	    {{ form_widget(form.suggestion, {attr: {placeholder: 'ex. FxPro'}}) }}
+	    <button class="btn btn-info">Submit</button>
 
-    {{ form_rest(form) }}
-</form>
+	    {{ form_rest(form) }}
+	</form>
+</div>
