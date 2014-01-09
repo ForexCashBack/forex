@@ -41,6 +41,7 @@ class EmailMessageAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('user')
+            ->add('email')
             ->add('template')
             ->add('status')
         ;

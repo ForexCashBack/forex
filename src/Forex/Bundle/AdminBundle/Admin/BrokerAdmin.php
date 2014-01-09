@@ -117,6 +117,7 @@ class BrokerAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('name')
+            ->add('active')
         ;
     }
 
@@ -127,6 +128,8 @@ class BrokerAdmin extends Admin
             ->add('name')
             ->add('basePercentage', 'percent')
             ->add('rank')
+            ->add('accountConfirmationEmail')
+            ->add('active')
         ;
     }
 

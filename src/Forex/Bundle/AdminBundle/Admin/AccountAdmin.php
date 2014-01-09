@@ -59,11 +59,6 @@ class AccountAdmin extends Admin
         $this->getAccountManager()->createAccount($account);
     }
 
-    //public function preUpdate($account)
-    //{
-        //die('preUpdate');
-    //}
-
     public function setAccountManager(AccountManager $accountManager)
     {
         $this->accountManager = $accountManager;
