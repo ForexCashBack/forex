@@ -3,11 +3,13 @@
 {% block body_class 'homepage' %}
 
 {% block content %}
-    <h2 class="paid-to-trade">Get paid to trade at <i>your</i> Forex Broker</h2>
+    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-info btn-large create-account">Create Account <small>(its free)</small></a>
+
+    <h1 class="paid-to-trade title">Get paid to trade at <i>your</i> Forex Broker</h1>
     <p class="lead text-success">Don't miss out on thousands of dollars a year</p>
 
-    <h3>How does this work?</h3>
-    <div class="hero-unit how-it-works home-section">
+    <h2 class="subtitle">How does this work?</h2>
+    <div class="how-it-works home-section">
         <div class="pad">
             <p>
                 When you open a trading account through us we earn a commission from your broker for each trade you place.
@@ -20,60 +22,53 @@
         </div>
     </div>
 
-    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-success btn-large">Create Account <small>(its free)</small></a>
-    <a href="{{ path('getting-started') }}" class="btn btn-primary btn-large" style="margin-left: 10px;">Learn More <small>(how to get started)</small></a>
-
     <hr>
 
-    <div class="row">
-        <div class="span4">
-            <h3>What we do</h3>
-            <div class="home-section">
-                <div class="pad">
-                    <p>
-                        Our service pays you cash for each trade you place at many <a href="{{ path('broker_list') }}" class="highlight">industry leading currency trading brokers</a>.
-                    </p>
-                    <p>
-                        The spreads and trading conditions at the brokers we represent are never adversely affected by opening an account through us.
-                        Cash rebates are paid on a monthly basis and can amount to very substantial savings, <b>always increasing a trader's bottom line</b> and often even making the difference between profit and loss.
-                    </p>
-                    <p>
-                        Our friendly and knowledgeable support staff is available to assist with questions or problems most hours of the day via live chat, telephone, and email.
-                    </p>
-                    <p>
-                        <a href="{{ path('contact') }}" class="btn btn-info">Contact Us <small>(We are here to help)</small></a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="span4">
-            <h3>How it works</h3>
-            <div class="home-section">
-                <div class="pad">
-                    <p>
-                        How can we pay you for each trade you place without somehow adversely affecting trading conditions?<br>
-                        The answer is simple.
-                    </p>
-                    <p>
-                        We are paid a commission from the marketing budget of the <a href="{{ path('broker_list') }}" class="highlight">brokerage firms we represent</a> for each trade placed by a client we introduce to them, or who otherwise engages us as their '<em>Introducing Broker</em>'.<br>
-                        We in turn keep only a portion of the commission and pass much of it onto our client.
-                    </p>
-                    <p>
-                        Our clients get the <b>same spreads and conditions</b> as if they had opened an account directly with the broker, the only difference is a client that goes through us gets a cash commission for every trade placed on their account.<br>
-                        Our service is an effective broker marketing tool. The brokers we represent are happy to pay us a volume based commission for the opportunity to appear on our website and gain clients.
-                    </p>
-                    <p>
-                        <a href="{{ path('fos_user_registration_register') }}" class="btn btn-success">Get Started Today</a>
-                    </p>
-                </div>
-            </div>
+    <h2 class="subtitle">What we do</h2>
+    <div class="home-section">
+        <div class="pad">
+            <p>
+                Our service pays you cash for each trade you place at many <a href="{{ path('broker_list') }}" class="highlight">industry leading currency trading brokers</a>.
+            </p>
+            <p>
+                The spreads and trading conditions at the brokers we represent are never adversely affected by opening an account through us.
+                Cash rebates are paid on a monthly basis and can amount to very substantial savings, <b>always increasing a trader's bottom line</b> and often even making the difference between profit and loss.
+            </p>
+            <p>
+                Our friendly and knowledgeable support staff is available to assist with questions or problems most hours of the day via live chat, telephone, and email.
+            </p>
+            <p>
+                <a href="{{ path('contact') }}" class="btn btn-info">Contact Us <small>(We are here to help)</small></a>
+            </p>
         </div>
     </div>
 
     <hr>
 
-    <h3>When and how will I receive my payment?</h3>
+    <h2 class="subtitle">How it works</h2>
+    <div class="home-section">
+        <div class="pad">
+            <p>
+                How can we pay you for each trade you place without somehow adversely affecting trading conditions?<br>
+                The answer is simple.
+            </p>
+            <p>
+                We are paid a commission from the marketing budget of the <a href="{{ path('broker_list') }}" class="highlight">brokerage firms we represent</a> for each trade placed by a client we introduce to them, or who otherwise engages us as their '<em>Introducing Broker</em>'.<br>
+                We in turn keep only a portion of the commission and pass much of it onto our client.
+            </p>
+            <p>
+                Our clients get the <b>same spreads and conditions</b> as if they had opened an account directly with the broker, the only difference is a client that goes through us gets a cash commission for every trade placed on their account.<br>
+                Our service is an effective broker marketing tool. The brokers we represent are happy to pay us a volume based commission for the opportunity to appear on our website and gain clients.
+            </p>
+            <p>
+                <a href="{{ path('fos_user_registration_register') }}" class="btn btn-success">Get Started Today</a>
+            </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2 class="subtitle">When and how will I receive my payment?</h2>
     <div class="home-section">
         <div class="pad">
             <p>
