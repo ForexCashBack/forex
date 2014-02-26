@@ -16,7 +16,7 @@ class ForexWebBundle extends Bundle
 
         //listen presta_sitemap.populate event
         $event->addListener(
-            SitemapPopulateEvent::onSitemapPopulate,
+            SitemapPopulateEvent::ON_SITEMAP_POPULATE,
             function(SitemapPopulateEvent $event) use ($router, $em) {
                 $url = $router->generate('homepage', array(), true);
 
