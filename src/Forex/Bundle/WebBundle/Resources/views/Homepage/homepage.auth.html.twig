@@ -3,7 +3,7 @@
 {% block body_class 'dashboard' %}
 
 {% block content %}
-    <h2>Hi {{ app.user.username }}, this is your personal dashboard</h2>
+    <h2 class="subtitle">Hi {{ app.user.username }}, this is your personal dashboard</h2>
     <p class="muted">Your dashboard is all of your information at a glance. If you have any questions, please <a href="{{ path('contact') }}">contact us</a>, we'll be more than happy to help answer any questions.</p>
 
     {% if app.user.accounts|length == 0 %}

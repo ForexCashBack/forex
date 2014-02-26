@@ -10,4 +10,9 @@
         $("#cs_est_monthly_earnings").html((base * 210).toFixed(2));
         $("#cs_est_yearly_earnings").html((base * 2520).toFixed(2));
     });
+
+    $(document).on('click', '.faq-list h3.sublabel', function(e) {
+    	e.preventDefault();
+    	$(this).next().slideToggle();
+    });
 })(jQuery);

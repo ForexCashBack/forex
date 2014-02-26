@@ -1,147 +1,156 @@
 {% extends "ForexWebBundle:Layout:nosidebar.html.twig" %}
 
 {% block content %}
-    <h2>Frequently Asked Questions</h2>
+    <h2 class="subtitle">Frequently Asked Questions</h2>
+    <div class="faq-list">
+        <h3 class="sublabel">Policies</h3>
+        <p class="answer">
+            Clients can not register more than one Forex Cashback account.
+            Clients can register as many broker accounts under the one Forex Cashback account as they want.
+            Subsequent Forex Cashback accounts will be locked.
+            Clients may not be referrer’s on their own account and may not change their referrer.
+        </p>
 
-    <h3>Policies</h3>
-    <p>
-        Clients can not register more than one Forex Cashback account.
-        Clients can register as many broker accounts under the one Forex Cashback account as they want.
-        Subsequent Forex Cashback accounts will be locked.
-        Clients may not be referrer’s on their own account and may not change their referrer.
-    </p>
+        <h3 class="sublabel">How To Get Started</h3>
+        <ol class="unstyled answer">
+            <li><b>Step 1</b> <a href="{{ path('fos_user_registration_register') }}">Create a ForexCashBack account</a></li>
+            <li><b>Step 2</b>
+                After creating your account, view our broker comparison table, find your broker, and click on the broker you either want to open a trading account with or already have an account with.<br>
+                If you see a field for "referred by" enter (ForexCashbackLLC) unless directed otherwise.<br>
+                If you are opening a new account, follow the instructions on the broker page.<br>
+                If you have an existing account, contact us.<br>
+            </li>
+            <li><b>Step 3</b>
+                Give us your broker account information.<br>
+                While logged in, click on My Accounts and add the account.<br>
+                If you have any difficulty, just call or email us and we'll be happy to create/update your broker account information.<br>
+            </li>
+            <li><b>Step 4</b> Choose your payment method, and you will start receiving cash rebates.</li>
+        </ol>
 
-    <h3>How To Get Started</h3>
-    <ol class="unstyled">
-        <li><b>Step 1</b> <a href="{{ path('fos_user_registration_register') }}">Create a ForexCashBack account</a></li>
-        <li><b>Step 2</b>
-            After creating your account, view our broker comparison table, find your broker, and click on the broker you either want to open a trading account with or already have an account with.<br>
-            If you see a field for "referred by" enter (ForexCashbackLLC) unless directed otherwise.<br>
-            If you are opening a new account, follow the instructions on the broker page.<br>
-            If you have an existing account, contact us.<br>
-        </li>
-        <li><b>Step 3</b>
-            Give us your broker account information.<br>
-            While logged in, click on My Accounts and add the account.<br>
-            If you have any difficulty, just call or email us and we'll be happy to create/update your broker account information.<br>
-        </li>
-        <li><b>Step 4</b> Choose your payment method, and you will start receiving cash rebates.</li>
-    </ol>
+        <h3 class="sublabel">Why Should I Open An Account Via Forex Cashback And Not Directly With A Broker</h3>
+        <p class="answer">
+            With us, you will save up to 80% of paid spread or commission!
+            A broker will pay us commission as spread percentage or commission for each transaction of yours.
+            In return, we will rebate you up to 80% of the commission that we receive.
+        </p>
 
-    <h3>Why Should I Open An Account Via Forex Cashback And Not Directly With A Broker</h3>
-    <p>
-        With us, you will save up to 80% of paid spread or commission!
-        A broker will pay us commission as spread percentage or commission for each transaction of yours.
-        In return, we will rebate you up to 80% of the commission that we receive.
-    </p>
+        <h3 class="sublabel">Do My Spreads Change</h3>
+        <p class="answer">
+            <b>NO,</b> Opening an account with Forex Cashback or directly, you get absolutely equal trading conditions.
+            We never extend spreads or charge extra commissions.
+            The only difference is that you will receive cash rebates by opening an account through our <a href="{{ path('broker_list') }}">Broker Comparison page</a>.
+        </p>
 
-    <h3>Do My Spreads Change</h3>
-    <p>
-        <b>NO,</b> Opening an account with Forex Cashback or directly, you get absolutely equal trading conditions.
-        We never extend spreads or charge extra commissions.
-        The only difference is that you will receive cash rebates by opening an account through our <a href="{{ path('broker_list') }}">Broker Comparison page</a>.
-    </p>
+        <h3 class="sublabel">Why Should I Follow The Instructions And Register With Forex Cashback</h3>
+        <p class="answer">
+            The instructions for opening an account at each broker are designed to ensure the brokerage firm recognizes us as your referrer/introducing broker.
+            Unless you follow the instructions and broker links on the site, your broker account will not be associated with us and you will not receive cash rebates.
+            We receive a commission for referring or “introducing” you to the broker as a client.
+            We then give you a portion of the commission that we receive.
+        </p>
 
-    <h3>Why Should I Follow The Instructions And Register With Forex Cashback</h3>
-    <p>
-        The instructions for opening an account at each broker are designed to ensure the brokerage firm recognizes us as your referrer/introducing broker.
-        Unless you follow the instructions and broker links on the site, your broker account will not be associated with us and you will not receive cash rebates.
-        We receive a commission for referring or “introducing” you to the broker as a client.
-        We then give you a portion of the commission that we receive.
-    </p>
+        <h3 class="sublabel">How Much Cash Rebate Can I Make </h3>
+        <p class="answer">
+            The cash rebate amount depends on the account type, broker, size of the trades, and number of trades.
+            More trades equal more rebates.
+            You may use the Cashback Estimator on the site for further details or contact us via the Contact Form.
+        </p>
 
-    <h3>How Much Cash Rebate Can I Make </h3>
-    <p>
-        The cash rebate amount depends on the account type, broker, size of the trades, and number of trades.
-        More trades equal more rebates.
-        You may use the Cashback Estimator on the site for further details or contact us via the Contact Form.
-    </p>
+        <h3 class="sublabel">I Do Not Believe This Is Real</h3>
+        <p class="answer">
+            By contacting the individual brokerages we work with, you may verify us as an introducing broker partner.
+        </p>
 
-    <h3>I Do Not Believe This Is Real</h3>
-    <p>
-        By contacting the individual brokerages we work with, you may verify us as an introducing broker partner.
-    </p>
+        <h3 class="sublabel">Do I Get Rebates For Both Winning And Losing Trades</h3>
+        <p class="answer">
+            Yes.
+        </p>
 
-    <h3>Do I Get Rebates For Both Winning And Losing Trades</h3>
-    <p>
-        Yes.
-    </p>
+        <h3 class="sublabel">Can I Get Rebates On A Broker I Already Have An Account With</h3>
+        <p class="answer">
+            Yes. In most cases brokers permit us to transfer your account to us as your referrer/introducing broker.
+            To do this you need to send a request via Email to the broker’s customer support.
+            Once transferred, you will receive a rebate.
+            Occasionally, if you have had an account for too long of a period the broker will not allow us to associate your account with us.
+            However, in these cases you may open a 2nd account through the instructions on our site and then transfer the funds from the 1st account to be eligible to receive cash rebates.
+        </p>
 
-    <h3>Can I Get Rebates On A Broker I Already Have An Account With</h3>
-    <p>
-        Yes. In most cases brokers permit us to transfer your account to us as your referrer/introducing broker.
-        To do this you need to send a request via Email to the broker’s customer support.
-        Once transferred, you will receive a rebate.
-        Occasionally, if you have had an account for too long of a period the broker will not allow us to associate your account with us.
-        However, in these cases you may open a 2nd account through the instructions on our site and then transfer the funds from the 1st account to be eligible to receive cash rebates.
-    </p>
+        <h3 class="sublabel">I Have An Account With A Broker Not Listed On Forex Cashback, Can I Get A Rebate</h3>
+        <p class="answer">
+            Send us your broker’s name and we will consider adding it to the list of our partners in the future.
+        </p>
 
-    <h3>I Have An Account With A Broker Not Listed On Forex Cashback, Can I Get A Rebate</h3>
-    <p>
-        Send us your broker’s name and we will consider adding it to the list of our partners in the future.
-    </p>
+        <h3 class="sublabel">What Payment Methods Do You Offer</h3>
+        <div class="answer">
+            <ul>
+                <li><i>Skrill/Moneybookers</i> - $25 USD minimum accumulated cash rebate</li>
+                <li><i>Paypal</i> - $25 USD minimum accumulated cash rebate</li>
+                <li><i>Bank Wire</i> - $200 USD minimum accumulated cash rebate</li>
+                <li><i>Neteller</i> - $25 USD minmum accumulated cash rebate</li>
+            </ul>
+            <p>
+                <b>Payment Processor Fees:</b> (We do not take any fees ourselves from payments)<br>
+                <i>Skrill/Moneybookers Fee:</i> 0.50 Eur Cents or 1% of balance (whichever is smaller)<br>
+                <i>Paypal Fee:</i> 1.9% to 3.4% + €0.35 EUR per transaction<br>
+                <i>Bank Wire:</i> $40 International fee<br>
+                <i>Neteller:</i> 
+            </p>
+        </div>
 
-    <h3>What Payment Methods Do You Offer</h3>
-    <ul>
-        <li><i>Skrill/Moneybookers</i> - $25 USD minimum accumulated cash rebate</li>
-        <li><i>Paypal</i> - $25 USD minimum accumulated cash rebate</li>
-        <li><i>Bank Wire</i> - $200 USD minimum accumulated cash rebate</li>
-    </ul>
-    <p>
-        <b>Payment Processor Fees:</b> (We do not take any fees ourselves from payments)<br>
-        <i>Skrill/Moneybookers Fee:</i> 0.50 Eur Cents or 1% of balance (whichever is smaller)<br>
-        <i>Paypal Fee:</i> 1.9% to 3.4% + €0.35 EUR per transaction<br>
-        <i>Bank Wire:</i> $40 International fee
-    </p>
+        <h3 class="sublabel">How Do I Provide My Payment Information</h3>
+        <p class="answer">
+            Email us directly at <a href="mailto:help@forexcashback.com">help@forexcashback.com</a>
+            or through the <a href="{{ path('contact') }}">Contact Form</a> on the site to tell us your preferred payout method and the details concerning payout.
+            (Paypal/Skrill Email/ID or Bank Wire details)
+        </p>
 
-    <h3>How Do I Provide My Payment Information</h3>
-    <p>
-        Email us directly at <a href="mailto:help@forexcashback.com">help@forexcashback.com</a>
-        or through the <a href="{{ path('contact') }}">Contact Form</a> on the site to tell us your preferred payout method and the details concerning payout.
-        (Paypal/Skrill Email/ID or Bank Wire details)
-    </p>
+        <h3 class="sublabel">What Is Your Affiliate/Referral Program</h3>
+        <p class="answer">
+            Yes, we provide an attractive partner referral program. Go to <a href="{{ path('referral-program') }}">Referral Program</a> for details.
+        </p>
 
-    <h3>What Is Your Affiliate/Referral Program</h3>
-    <p>
-        Yes, we provide an attractive partner referral program. Go to <a href="{{ path('referral-program') }}">Referral Program</a> for details.
-    </p>
+        <h3 class="sublabel">Criteria To Get Rebates</h3>
+        <p class="answer">
+            There are no minimum earnings you must generate to receive cash rebate.
+            If you have selected a payment method requiring a minimum payment and your account balance is below this, your account balance will carry over until it reaches the amount required by the payment processor.
+        </p>
 
-    <h3>Criteria To Get Rebates</h3>
-    <p>
-        There are no minimum earnings you must generate to receive cash rebate.
-        If you have selected a payment method requiring a minimum payment and your account balance is below this, your account balance will carry over until it reaches the amount required by the payment processor.
-    </p>
+        <h3 class="sublabel">When Will I Be Able To See My Rebates</h3>
+        <p class="answer">
+            The rebate will be paid to your Profile and you will be able to see it when you are logged in. We will post your rebates to your account by the 25th day of each month for the previous months closed trades.  Payments on weekends/holidays will be processed the following business day.  After your payment amount has been added to your profile, you may Contact Us to request a payout. Payouts will be processed within 5-7 days.  Once payment has been completed/transferred to you, the Account Profile will return to 0.
+        </p>
 
-    <h3>When Will I Be Able To See My Rebates</h3>
-The rebate will be paid to your Profile and you will be able to see it when you are logged in. We will post your rebates to your account by the 25th day of each month for the previous months closed trades.  Payments on weekends/holidays will be processed the following business day.  After your payment amount has been added to your profile, you may Contact Us to request a payout. Payouts will be processed within 5-7 days.  Once payment has been completed/transferred to you, the Account Profile will return to 0.
+        <h3 class="sublabel">What Do I Do If I Disagree With The Amount Of Rebate I Received</h3>
+        <p class="answer">
+            Mistakes can happen and we are happy to take a second look. Simply Contact Us or email us with a copy of your account statement (as it comes from the broker) with a request to have a second look.
+        </p>
 
-    <h3>What Do I Do If I Disagree With The Amount Of Rebate I Received</h3>
-Mistakes can happen and we are happy to take a second look. Simply Contact Us or email us with a copy of your account statement (as it comes from the broker) with a request to have a second look. 
+        <h3 class="sublabel">How Much Does This Cost Me To Start</h3>
+        <p class="answer">
+            Nothing, Our service is free. You earn money from your trades.
+        </p>
 
-    <h3>How Much Does This Cost Me To Start</h3>
-    <p>
-        Nothing, Our service is free. You earn money from your trades.
-    </p>
+        <h3 class="sublabel">Does My Account Size Matter</h3>
+        <p class="answer">
+            NO, you will receive rebates regardless of the size of your account.
+        </p>
 
-    <h3>Does My Account Size Matter</h3>
-    <p>
-        NO, you will receive rebates regardless of the size of your account.
-    </p>
+        <h3 class="sublabel">What Is A Pip</h3>
+        <p class="answer">
+            A “PIP” stands for percentage in point and is the smallest increment, or movement in any currency pair.
+            For most pairs including EUR/USD, a pip = 0.0001, or a movement, for example from 1.9365 to 1.9366.
+        </p>
 
-    <h3>What Is A Pip</h3>
-    <p>
-        A “PIP” stands for percentage in point and is the smallest increment, or movement in any currency pair.
-        For most pairs including EUR/USD, a pip = 0.0001, or a movement, for example from 1.9365 to 1.9366.
-    </p>
+        <h3 class="sublabel">What Is A Round Turn Lot</h3>
+        <p class="answer">
+            A round turn lot is a position that has been both opened and closed (a completed trade).
+        </p>
 
-    <h3>What Is A Round Turn Lot</h3>
-    <p>
-        A round turn lot is a position that has been both opened and closed (a completed trade).
-    </p>
-
-    <h3>What Is A Rebate</h3>
-    <p>
-        A rebate is the term used for the commission paid back to the Referrer/Introducer (Forex Cashback).
-        Out of this rebate we pay your cash rebates.
-    </p>
+        <h3 class="sublabel">What Is A Rebate</h3>
+        <p class="answer">
+            A rebate is the term used for the commission paid back to the Referrer/Introducer (Forex Cashback).
+            Out of this rebate we pay your cash rebates.
+        </p>
+    </div>
 {% endblock %}
