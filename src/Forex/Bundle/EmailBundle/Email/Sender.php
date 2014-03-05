@@ -3,6 +3,7 @@
 namespace Forex\Bundle\EmailBundle\Email;
 
 use Forex\Bundle\EmailBundle\Entity\EmailMessage;
+use Forex\Bundle\MandrillBundle\Email\Sender as MandrillSender;
 use JMS\DiExtraBundle\Annotation as DI;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
@@ -12,61 +13,30 @@ use Symfony\Component\HttpKernel\Log\LoggerInterface;
  */
 class Sender implements EmailSenderInterface
 {
-    protected $mailer;
+    protected $sender;
     protected $templating;
     protected $logger;
 
     /**
      * @DI\InjectParams({
-     *      "mailer" = @DI\Inject("mailer"),
+     *      "sender" = @DI\Inject("forex.mandrill.sender"),
      *      "templating" = @DI\Inject("templating"),
      *      "logger" = @DI\Inject("logger")
      * })
      */
-    public function __construct(\Swift_Mailer $mailer, EngineInterface $templating, LoggerInterface $logger)
+    public function __construct(MandrillSender $sender, EngineInterface $templating, LoggerInterface $logger)
     {
-        $this->mailer = $mailer;
+        $this->sender = $sender;
         $this->templating = $templating;
         $this->logger = $logger;
     }
 
     public function send(EmailMessage $message)
     {
-        // Make the email being sent to available to the templates
-        $data = array_merge($message->getData(), array(
-            '_to' => $message->getEmail(),
-            '_message' => $message,
-        ));
-
-        $html = $this->templating->render(sprintf('ForexEmailBundle:%s.html.twig', $message->getTemplate()), $data);
-        $text = $this->templating->render(sprintf('ForexEmailBundle:%s.text.twig', $message->getTemplate()), $data);
-
-        $from = array_key_exists('from', $data)
-            ? $data['from']
-            : array('system@forexcashback.com' => 'Forex Cash Back');
-
-        $swiftMessage = \Swift_Message::newInstance()
-            ->setSubject($message->getSubjectLine())
-            ->setFrom($from)
-            ->setBody($html, 'text/html')
-            ->addPart($text, 'text/plain')
-            ->setTo($message->getEmail())
-        ;
-
-        if ($message->getReplyTo()) {
-            $swiftMessage->setReplyTo($message->getReplyTo());
-        }
-
-        if ($message->getCcEmail()) {
-            $swiftMessage->addCc($message->getCcEmail());
-        }
-
-        if ($message->getBccEmail()) {
-            $swiftMessage->addBcc($message->getBccEmail());
-        }
+        $data = $this->serializeMessage($message);
 
         try {
-            $status = $this->mailer->send($swiftMessage);
+            $this->sender->send($data);
             $message->setStatus(EmailMessage::STATUS_SENT);
 
             $this->logger->info(
@@ -91,5 +61,46 @@ class Sender implements EmailSenderInterface
                 )
             );
         }
+    }
+
+    public function serializeMessage(EmailMessage $message)
+    {
+        // Make the email being sent to available to the templates
+        $data = array_merge($message->getData(), array(
+            'to' => array(
+                array(
+                    'email' => $message->getEmail(),
+                    'type' => 'to',
+                ),
+            ),
+            'subject' => $message->getSubjectLine(),
+        ));
+
+        $data['html'] = $this->templating->render(sprintf('ForexEmailBundle:%s.html.twig', $message->getTemplate()), $data);
+        $data['text'] = $this->templating->render(sprintf('ForexEmailBundle:%s.text.twig', $message->getTemplate()), $data);
+
+        $data['from_email'] = array_key_exists('from', $data)
+            ? $data['from']
+            : 'system@forexcashback.com';
+
+        if ($message->getReplyTo()) {
+            //$data['reply'] = $swiftMessage->setReplyTo($message->getReplyTo());
+        }
+
+        if ($message->getCcEmail()) {
+            $data['to'][] = array(
+                'email' => $message->getCcEmail(),
+                'type' => 'cc',
+            );
+        }
+
+        if ($message->getBccEmail()) {
+            $data['to'][] = array(
+                'email' => $message->getBccEmail(),
+                'type' => 'bcc',
+            );
+        }
+
+        return $data;
     }
 }

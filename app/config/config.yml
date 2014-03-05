@@ -113,7 +113,7 @@ sonata_admin:
 jms_di_extra:
     locations:
         all_bundles: false
-        bundles: [ForexCoreBundle, ForexEmailBundle, ForexUserBundle]
+        bundles: [ForexCoreBundle, ForexEmailBundle, ForexUserBundle, ForexMandrillBundle]
 
 jms_serializer:
     metadata:
@@ -121,3 +121,6 @@ jms_serializer:
             fosuserbundle:
                 namespace_prefix: "FOS\\UserBundle"
                 path: "%kernel.root_dir%/serializer/FOSUserBundle"
+
+forex_mandrill:
+    api_key: %mandrill_api_key%
