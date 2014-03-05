@@ -13,4 +13,9 @@ class BaseController extends CoreController
 
         return $message;
     }
+
+    protected function getForexEmailSender()
+    {
+        return $this->get('forex.email_sender');
+    }
 }

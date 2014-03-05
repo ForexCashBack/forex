@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\jQueryBundle\SonatajQueryBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
@@ -34,6 +35,7 @@ class AppKernel extends Kernel
             new Forex\Bundle\AdminBundle\ForexAdminBundle(),
             new Forex\Bundle\UserBundle\ForexUserBundle(),
             new Forex\Bundle\EmailBundle\ForexEmailBundle(),
+            new Forex\Bundle\MandrillBundle\ForexMandrillBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

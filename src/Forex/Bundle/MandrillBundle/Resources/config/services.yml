@@ -1,0 +1,4 @@
+services:
+    mandrill.client:
+        class: Mandrill
+        arguments: [%mandrill.api_key%]

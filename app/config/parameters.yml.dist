@@ -13,3 +13,5 @@ parameters:
 
     locale:            en
     secret:            abc123
+
+    mandrill_api_key: "abc123"
