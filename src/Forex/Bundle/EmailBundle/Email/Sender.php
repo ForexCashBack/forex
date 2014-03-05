@@ -74,6 +74,8 @@ class Sender implements EmailSenderInterface
                 ),
             ),
             'subject' => $message->getSubjectLine(),
+            '_message_id' => $message->getId(),
+            'headers' => array(),
         ));
 
         $data['html'] = $this->templating->render(sprintf('ForexEmailBundle:%s.html.twig', $message->getTemplate()), $data);
@@ -84,7 +86,7 @@ class Sender implements EmailSenderInterface
             : 'system@forexcashback.com';
 
         if ($message->getReplyTo()) {
-            //$data['reply'] = $swiftMessage->setReplyTo($message->getReplyTo());
+            $data['headers']['Reply-To'] = $message->getReplyTo();
         }
 
         if ($message->getCcEmail()) {
