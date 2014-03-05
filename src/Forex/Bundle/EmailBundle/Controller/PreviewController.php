@@ -20,9 +20,8 @@ class PreviewController extends BaseController
         $message->setId(-1);
 
         $template = sprintf('ForexEmailBundle:Test:test.%s.twig', $type);
-        return $this->render($template, array(
-            '_message' => $message,
-        ));
+
+        return $this->render($template, $this->getForexEmailSender()->serializeMessage($message));
     }
 
     /**
@@ -33,8 +32,7 @@ class PreviewController extends BaseController
         $message = $this->findEmailMessage($id);
 
         $template = sprintf('ForexEmailBundle:%s.%s.twig', $message->getTemplate(), $type);
-        return $this->render($template, array_merge($message->getData(), array(
-            '_message' => $message,
-        )));
+
+        return $this->render($template, $this->getForexEmailSender()->serializeMessage($message));
     }
 }
