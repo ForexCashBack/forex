@@ -1,0 +1,209 @@
+/*
+Skin Name: Nivo Slider Default Theme
+Skin URI: http://nivo.dev7studios.com
+Description: The default skin for the Nivo Slider.
+Version: 1.3
+Author: Gilbert Pellegrom
+Author URI: http://dev7studios.com
+Supports Thumbs: true
+*/
+
+.theme-default {
+	.nivoSlider {
+		position:relative;
+		background:#fff url(../../img/slider/default/loading.gif) no-repeat 50% 50%;
+	    margin-bottom:10px;
+	    -webkit-box-shadow: 0px 1px 5px 0px #4a4a4a;
+	    -moz-box-shadow: 0px 1px 5px 0px #4a4a4a;
+	    box-shadow: 0px 1px 5px 0px #4a4a4a;
+	    img {
+			position:absolute;
+			top:0px;
+			left:0px;
+			display:none;
+		}
+		a {
+			border:0;
+			display:block;
+		}
+	}
+	.nivo-controlNav {
+		text-align: center;
+		padding: 6px 0 12px;
+		a {
+			display:inline-block;
+			width:22px;
+			height:22px;
+			background:url(../../img/slider/default/bullets.png) no-repeat;
+			text-indent:-9999px;
+			border:0;
+			margin: 0 2px;
+			&.active {
+				background-position:0 -22px;
+			}
+		}
+		&.nivo-thumbs-enabled {
+			width: 100%;
+			a {
+				width: auto;
+				height: auto;
+				background: none;
+				margin-bottom: 5px;
+			}
+			img {
+				display: block;
+				width: 120px;
+				height: auto;
+			}
+		}
+	}
+	.nivo-directionNav a {
+		display:block;
+		width:30px;
+		height:30px;
+		background:url(../../img/slider/default/arrows.png) no-repeat;
+		text-indent:-9999px;
+		border:0;
+		opacity: 0;
+		-webkit-transition: all 200ms ease-in-out;
+	    -moz-transition: all 200ms ease-in-out;
+	    -o-transition: all 200ms ease-in-out;
+	    transition: all 200ms ease-in-out;
+	}
+	&:hover .nivo-directionNav a {
+		opacity: 1;
+	}
+	a.nivo-nextNav {
+		background-position:-30px 0;
+		right:15px;
+	}
+	a.nivo-prevNav {
+		left:15px;
+	}
+	.nivo-caption {
+	    font-family: Helvetica, Arial, sans-serif;
+	    a {
+		    color:#fff;
+		    border-bottom:1px dotted #fff;
+		    &:hover {
+			    color:#fff;
+			}
+		}
+	}
+	&.slider-wrapper { 
+		width: 100%; 
+		margin: 12px auto;
+	}
+}
+
+/*
+ * jQuery Nivo Slider v3.2
+ * http://nivo.dev7studios.com
+ *
+ * Copyright 2012, Dev7studios
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+ 
+/* The Nivo Slider styles */
+.nivoSlider {
+	position:relative;
+	width:100%;
+	height:auto;
+	overflow: hidden;
+	img {
+		position:absolute;
+		top:0px;
+		left:0px;
+		max-width: none;
+	}
+	/* If an image is wrapped in a link */
+	a.nivo-imageLink {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		border: 0;
+		padding: 0;
+		margin: 0;
+		z-index: 6;
+		display: none;
+		background: white; 
+		filter: alpha(opacity=0); 
+		opacity: 0;
+	}
+}
+.nivo-main-image {
+	display: block !important;
+	position: relative !important; 
+	width: 100% !important;
+}
+.nivo-slice {
+	display: block;
+	position: absolute;
+	z-index: 5;
+	height: 100%;
+	top: 0;
+}
+.nivo-box {
+	display: block;
+	position: absolute;
+	z-index: 5;
+	overflow: hidden;
+	img {
+		display: block;
+	}
+}
+.nivo-caption {
+	position: absolute;
+	left: 0px;
+	top: 50%;
+	margin-top: -100px;
+	background: #000;
+	color: #fff;
+	width: 70%;
+	height: 200px;
+	z-index: 8;
+	padding: 5px 10px;
+	overflow: hidden;
+	display: none;
+	opacity: 0.7;
+	-moz-opacity: 0.7;
+	filter: alpha(opacity=70);
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	p {
+		padding:5px;
+		margin:0;
+	}
+	a {
+		display:inline !important;
+	}
+}
+.nivo-html-caption {
+    display:none;
+}
+.nivo-directionNav a {
+	position:absolute;
+	top:45%;
+	z-index:9;
+	cursor:pointer;
+}
+.nivo-prevNav {
+	left:0px;
+}
+.nivo-nextNav {
+	right:0px;
+}
+.nivo-controlNav {
+	text-align:center;
+	padding: 15px 0;
+}
+.nivo-controlNav a {
+	cursor:pointer;
+	.active {
+		font-weight:bold;
+	}
+}

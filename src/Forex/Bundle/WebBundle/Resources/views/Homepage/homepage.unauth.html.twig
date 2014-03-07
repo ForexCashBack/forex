@@ -3,6 +3,27 @@
 {% block body_class 'homepage' %}
 
 {% block content %}
+    <div class="slider-wrapper theme-default">
+        <div id="slider" class="nivoSlider">
+            <img src="{{ asset('img/slider/toystory.jpg') }}" data-thumb="{{ asset('img/slider/toystory.jpg') }}" alt="" title="#htmlcaption1" />
+            <img src="{{ asset('img/slider/up.jpg') }}" data-thumb="{{ asset('img/slider/up.jpg') }}" alt="" title="#htmlcaption2" />
+            <img src="{{ asset('img/slider/walle.jpg') }}" data-thumb="{{ asset('img/slider/walle.jpg') }}" alt="" title="#htmlcaption3" />
+            <img src="{{ asset('img/slider/nemo.jpg') }}" data-thumb="{{ asset('img/slider/nemo.jpg') }}" alt="" title="#htmlcaption4" />
+        </div>
+        <div id="htmlcaption1" class="nivo-html-caption">
+            <strong>This</strong> is an example of a <em>HTML</em> caption 1 with <a href="#">a link</a>. 
+        </div>
+        <div id="htmlcaption2" class="nivo-html-caption">
+            <strong>This</strong> is an example of a <em>HTML</em> caption 2 with <a href="#">a link</a>. 
+        </div>
+        <div id="htmlcaption3" class="nivo-html-caption">
+            <strong>This</strong> is an example of a <em>HTML</em> caption 3 with <a href="#">a link</a>. 
+        </div>
+        <div id="htmlcaption4" class="nivo-html-caption">
+            <strong>This</strong> is an example of a <em>HTML</em> caption 4 with <a href="#">a link</a>. 
+        </div>
+    </div>
+
     <h1 class="paid-to-trade title">Get paid to trade at <i>your</i> Forex Broker</h1>
     <p class="lead text-success">Don't miss out on thousands of dollars a year</p>
 

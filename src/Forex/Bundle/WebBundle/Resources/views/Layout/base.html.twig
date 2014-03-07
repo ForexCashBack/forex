@@ -134,6 +134,7 @@ and Pip Rebates up to 80% of Spread' %}">
         'components/bootstrap/js/bootstrap-button.js'
         'components/bootstrap/js/bootstrap-dropdown.js'
         'components/bootstrap/js/bootstrap-collapse.js'
+        'js/modules/nivo/jquery.nivo.slider.pack.js'
         'js/cashback-estimator.js'
         output='compiled/js/forex.js'
         filter='?uglifyjs2'
@@ -147,6 +148,11 @@ and Pip Rebates up to 80% of Spread' %}">
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-43681086-1', 'forexcashback.com');
       ga('send', 'pageview');
+
+      $(function() {
+        $('#slider').nivoSlider();
+      });
     </script>
+
 </body>
 </html>
