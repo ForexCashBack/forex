@@ -5,22 +5,29 @@
 {% block content %}
     <div class="slider-wrapper theme-default">
         <div id="slider" class="nivoSlider">
-            <img src="{{ asset('img/slider/toystory.jpg') }}" data-thumb="{{ asset('img/slider/toystory.jpg') }}" alt="" title="#htmlcaption1" />
-            <img src="{{ asset('img/slider/up.jpg') }}" data-thumb="{{ asset('img/slider/up.jpg') }}" alt="" title="#htmlcaption2" />
-            <img src="{{ asset('img/slider/walle.jpg') }}" data-thumb="{{ asset('img/slider/walle.jpg') }}" alt="" title="#htmlcaption3" />
-            <img src="{{ asset('img/slider/nemo.jpg') }}" data-thumb="{{ asset('img/slider/nemo.jpg') }}" alt="" title="#htmlcaption4" />
+            <img src="{{ asset('img/slider/broker.jpg') }}" data-thumb="{{ asset('img/slider/broker.jpg') }}" alt="Freedom To Choose Your Broker" title="#brokerfreedom" />
+            <img src="{{ asset('img/slider/get-started.jpg') }}" data-thumb="{{ asset('img/slider/get-started.jpg') }}" alt="" title="#getstarted" />
+            <img src="{{ asset('img/slider/payments.jpg') }}" data-thumb="{{ asset('img/slider/payments.jpg') }}" alt="" title="#payments" />
+            <img src="{{ asset('img/slider/focus.jpg') }}" data-thumb="{{ asset('img/slider/focus.jpg') }}" alt="" title="#focusedonyou" />
         </div>
-        <div id="htmlcaption1" class="nivo-html-caption">
-            <strong>This</strong> is an example of a <em>HTML</em> caption 1 with <a href="#">a link</a>. 
+        <div id="brokerfreedom" class="nivo-html-caption">
+            <h2>Freedom To Choose Your Broker</h2>
+            <p>Choose From <em>Multiple</em> <a href="{{ path('broker_list') }}">Industry Leading Brokers</a> From Around The World</p>
         </div>
-        <div id="htmlcaption2" class="nivo-html-caption">
-            <strong>This</strong> is an example of a <em>HTML</em> caption 2 with <a href="#">a link</a>. 
+        <div id="getstarted" class="nivo-html-caption">
+            <h2>How To Get Started</h2>
         </div>
-        <div id="htmlcaption3" class="nivo-html-caption">
-            <strong>This</strong> is an example of a <em>HTML</em> caption 3 with <a href="#">a link</a>. 
+        <div id="payments" class="nivo-html-caption">
+            <h2>Payments</h2>
+            <p>We conveniently offer Neteller, Paypal, Skrill, Check, and Bank Wire</p>
         </div>
-        <div id="htmlcaption4" class="nivo-html-caption">
-            <strong>This</strong> is an example of a <em>HTML</em> caption 4 with <a href="#">a link</a>. 
+        <div id="focusedonyou" class="nivo-html-caption">
+            <h2>Focused On You</h2>
+            <ul>
+                <li>Personalized customer service</li>
+                <li>Honest. Committed. Dependable.</li>
+                <li>Your Satisfaction Is Our Goal</li>
+            </ul>
         </div>
     </div>
 
