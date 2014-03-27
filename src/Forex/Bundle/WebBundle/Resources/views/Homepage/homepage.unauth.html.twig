@@ -5,16 +5,19 @@
 {% block content %}
     <div class="slider-wrapper theme-default">
         <div id="slider" class="nivoSlider">
-            <img src="{{ asset('img/slider/broker.jpg') }}" data-thumb="{{ asset('img/slider/broker.jpg') }}" alt="Freedom To Choose Your Broker" title="#brokerfreedom" />
-            <img src="{{ asset('img/slider/get-started.jpg') }}" data-thumb="{{ asset('img/slider/get-started.jpg') }}" alt="" title="#getstarted" />
-            <img src="{{ asset('img/slider/payments.jpg') }}" data-thumb="{{ asset('img/slider/payments.jpg') }}" alt="" title="#payments" />
-            <img src="{{ asset('img/slider/focus.jpg') }}" data-thumb="{{ asset('img/slider/focus.jpg') }}" alt="" title="#focusedonyou" />
+            <img src="{{ asset('img/slider/broker_option2.jpg') }}" data-thumb="{{ asset('img/slider/broker_option2.jpg') }}" alt="Freedom To Choose Your Broker" title="#brokerfreedom" class="banner-image" />
+            <img src="{{ asset('img/slider/get_started.jpg') }}" data-thumb="{{ asset('img/slider/get_started.jpg') }}" alt="" title="#getstarted" class="banner-image" />
+            <img src="{{ asset('img/slider/payments_option1.jpg') }}" data-thumb="{{ asset('img/slider/payments_option1.jpg') }}" alt="" title="#payments" class="banner-image" />
+            <img src="{{ asset('img/slider/focus_option1.jpg') }}" data-thumb="{{ asset('img/slider/focus_option1.jpg') }}" alt="" title="#focusedonyou" class="banner-image" />
         </div>
         <div id="brokerfreedom" class="nivo-html-caption">
             <h2>Freedom To Choose Your Broker</h2>
             <p>Choose From <em>Multiple</em> <a href="{{ path('broker_list') }}">Industry Leading Brokers</a> From Around The World</p>
         </div>
         <div id="getstarted" class="nivo-html-caption">
+            <div class="float-graphic">
+                <img src="{{ asset('img/slider/ForexGraphic.png') }}">
+            </div>
             <h2>How To Get Started</h2>
         </div>
         <div id="payments" class="nivo-html-caption">

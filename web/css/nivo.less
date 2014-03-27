@@ -16,7 +16,7 @@ Supports Thumbs: true
 	    -webkit-box-shadow: 0px 1px 5px 0px #4a4a4a;
 	    -moz-box-shadow: 0px 1px 5px 0px #4a4a4a;
 	    box-shadow: 0px 1px 5px 0px #4a4a4a;
-	    img {
+	    img.banner-image {
 			position:absolute;
 			top:0px;
 			left:0px;
@@ -111,7 +111,7 @@ Supports Thumbs: true
 	width:100%;
 	height:auto;
 	overflow: hidden;
-	img {
+	img.banner-image {
 		position:absolute;
 		top:0px;
 		left:0px;
@@ -159,27 +159,65 @@ Supports Thumbs: true
 	position: absolute;
 	left: 0px;
 	top: 50%;
-	margin-top: -100px;
-	background: #000;
+	margin-top: -125px;
 	color: #fff;
 	width: 70%;
-	height: 200px;
+	height: 250px;
 	z-index: 8;
-	padding: 5px 10px;
-	overflow: hidden;
+	padding: 20px 30px 20px 60px;
+	overflow: visible;
 	display: none;
-	opacity: 0.7;
-	-moz-opacity: 0.7;
-	filter: alpha(opacity=70);
+	font-size: 18px;
+	line-height: 24px;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
+	text-shadow: 0 0 8px #000;
 	p {
-		padding:5px;
-		margin:0;
+		padding: 5px 0;
+		margin: 0;
+		font-weight: 100;
 	}
 	a {
 		display:inline !important;
+	}
+	h2 {
+		font-size: 30px;
+		line-height: 40px;
+	}
+	ul {
+		li {
+			line-height: 24px;
+			font-weight: 100;
+		}
+	}
+	.float-graphic {
+		float: right;
+		position: relative;
+		margin-top: -35px;
+		padding: 15px 0;
+		img {
+			display: block;
+			z-index: 2;
+			position: relative;
+		}
+		&:before {
+			content: '';
+			width: 100%;
+			height: 100%;
+			display: block;
+			background: #fff;
+			opacity: 0.7;
+			filter: alpha(opacity=70);
+			border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 0;
+			z-index: 1;
+		}
 	}
 }
 .nivo-html-caption {
