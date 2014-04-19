@@ -1,0 +1,62 @@
+.nav {
+    &:first-child {
+        position: absolute;
+        top: 101px;
+        left: 1px;
+        width: 100%;
+        background: #f5f5f5;
+        > li {
+            > a {
+                padding: 10px 20px 12px;
+                color: @blueBase;
+                font-weight: bold;
+                text-shadow: 1px 1px #f6e70c;
+                border-left: 1px solid transparent;
+                border-right: 1px solid transparent;
+                margin-top: 3px;
+                .border-radius(5px 5px 0 0);
+                .caret {
+                    border-top-color: @blueBase;
+                    border-bottom-color: @blueBase;
+                }
+                &:hover {
+                    background-color: @blueBase;
+                    color: #fff;
+                    text-shadow: none;
+                    .caret {
+                        border-top-color: #fff;
+                        border-bottom-color: #fff;
+                    }
+                }
+            }
+            &.open {
+                > a {
+                    text-shadow: none;
+                }
+                > .dropdown-menu {
+                    padding: 10px 0 20px;
+                    > li {
+                        > a {
+                            &:hover {
+                                background: @blueBase;
+                            }
+                        }
+                    }
+                }
+            }
+            &:first-child {
+                margin-left: 5px;
+            }
+        }
+    }
+    &:last-child {
+        > li {
+            > a {
+                text-shadow: 1px 1px #000;
+                &:hover {
+                    color: #f6e70c;
+                }
+            }
+        }
+    }
+}

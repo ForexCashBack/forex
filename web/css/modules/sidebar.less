@@ -1,0 +1,101 @@
+.sidebar {
+    width: 270px;
+    padding-top: 10px;
+    label, input, button, select, textarea {
+        font-size: 12px;
+    }
+    h5 {
+        .border-radius( 5px );
+        background: @blueBase;
+        color: @grayLighter;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    .section {
+        clear: both;
+        margin-bottom: 24px;
+        padding: 5px 0 0;
+        border: 1px solid @grayLight;
+        .border-radius(5px);
+        background: #fff;
+        position: relative;
+        box-shadow: 0 5px 10px -2px @grayLight;
+        -webkit-box-shadow: 0 5px 10px -2px @grayLight;
+        -moz-box-shadow: 0 5px 10px -2px @grayLight;
+        z-index: 9;
+        font-size: 12px;
+        h5 {
+            margin-top: 0;
+            margin: 0 5px;
+        }
+        .pad {
+            padding: 5px;
+            background: #fff;
+            .border-radius(5px);
+            > p {
+                color: @grayDark;
+                padding: 5px 10px 0;
+                font-weight: normal;
+            }
+            form {
+                padding: 5px 10px;
+                margin-bottom: 0;
+                > select, > input {
+                    margin-bottom: 10px;
+                }
+                > fieldset {
+                    legend {
+                        font-size: 16px;
+                        padding-top: 16px;
+                        margin-bottom: 10px;
+                        line-height: 22px;
+                        padding-bottom: 5px;
+                    }
+                    p {
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+            &.scroll {
+                max-height: 227px;
+                overflow-y: scroll;
+            }
+            table {
+                margin-bottom: 0;
+            }
+            .btn-info {
+                margin: 10px 0 5px;
+            }
+        }
+        &:before {
+            content: '';
+            box-shadow: 0 10px 15px @grayLight;
+            -webkit-box-shadow: 0 10px 15px @grayLight;
+            -moz-box-shadow: 0 10px 15px @grayLight;
+            transform:rotate(-3deg);
+            -ms-transform:rotate(-3deg); /* IE 9 */
+            -webkit-transform:rotate(-3deg); /* Safari and Chrome */
+            width: 50%;
+            bottom: 3px;
+            left: 4px;
+            height: 15px;
+            position: absolute;
+            z-index: -1;
+        }
+        &:after {
+            content: '';
+            box-shadow: 0 5px 10px @grayLight;
+            -webkit-box-shadow: 0 10px 15px @grayLight;
+            -moz-box-shadow: 0 10px 15px @grayLight;
+            transform:rotate(3deg);
+            -ms-transform:rotate(3deg); /* IE 9 */
+            -webkit-transform:rotate(3deg); /* Safari and Chrome */
+            width: 50%;
+            bottom: 3px;
+            right: 4px;
+            height: 15px;
+            position: absolute;
+            z-index: -1;
+        }
+    }
+}

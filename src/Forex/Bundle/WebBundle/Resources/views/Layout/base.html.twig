@@ -3,7 +3,7 @@
 <html>
 <head lang="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href='http://fonts.googleapis.com/css?family=Arapey|Noto+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Arapey|Noto+Sans|Helvetica+Neue' rel='stylesheet' type='text/css'>
     <title>{% block title '' %}Forex Cash Back - The World Wide Leader in Forex Rebates</title>
     {% stylesheets 'css/main.less' filter='less' output='compiled/css/main.css' %}
         <link rel="stylesheet" href="{{ asset_url }}">
@@ -15,85 +15,84 @@ and Pip Rebates up to 80% of Spread' %}">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body class="{% block body_class '' %}">
-    <div class="navbar navbar-inverse navbar-static-top">
-        <div class="navbar-inner">
-            <div class="container header-container">
-                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <h1><a class="brand" id="site-header" href="{{ path('homepage') }}">Forex Cash Back</a></h1>
-                <h2 class="tagline hidden-tablet hidden-phone">World Wide Leader in Forex Rebates</h2>
-                <div class="nav-collapse collapse">
-                    <ul class="nav">
-                        <li><a href="{{ path('homepage') }}"><i class="icon-home"></i> Home</a></li>
-                        <li><a href="{{ path('broker_list') }}"><i class="icon-th-list"></i> {% trans %}nav.brokers{% endtrans %}</a></li>
-                        <li><a href="{{ path('referral-program') }}"><i class="icon-refresh"></i> {% trans %}nav.referral_program{% endtrans %}</a></li>
+    <div class="container">
+        <header class="header-container" id="header">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <h1><a class="brand" id="site-header" href="{{ path('homepage') }}">Forex Cash Back</a></h1>
+            <h2 class="tagline hidden-tablet hidden-phone">World Wide Leader in Forex Rebates</h2>
+        </header>
+
+        <nav class="nav-container" id="nav">
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li><a href="{{ path('homepage') }}"><i class="icon-home"></i> Home</a></li>
+                    <li><a href="{{ path('broker_list') }}"><i class="icon-th-list"></i> {% trans %}nav.brokers{% endtrans %}</a></li>
+                    <li><a href="{{ path('referral-program') }}"><i class="icon-refresh"></i> {% trans %}nav.referral_program{% endtrans %}</a></li>
+                    <li class="dropdown navbar-dropdown">
+                        <a href="#" id="nav-help-dropdown" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-question-sign"></i> {% trans %}nav.help{% endtrans %} <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="nav-help-dropdown">
+                            <li><a tabindex="-1" href="{{ path('contact') }}"><i class="icon-question-sign"></i> {% trans %}nav.contact_us{% endtrans %}</a></li>
+                            <li><a tabindex="-1" href="{{ path('getting-started') }}"><i class="icon-play-circle"></i> How to Get Started</a></li>
+                            <li class="divider"></li>
+                            <li><a tabindex="-1" href="{{ path('faq') }}">{% trans %}nav.faq.general{% endtrans %}</a></li>
+                            <li><a tabindex="-1" href="{{ path('who-we-are') }}">Who We Are</a></li>
+                            <li><a tabindex="-1" href="{{ path('how-to-choose-a-broker') }}">How To Choose A Broker</a></li>
+                            <li><a tabindex="-1" href="{{ path('earning-potential') }}">Earning Potential</a></li>
+                            <li><a tabindex="-1" href="{{ path('residual-income') }}">How To Create Residual Income</a></li>
+                            <li><a tabindex="-1" href="{{ path('feedback_complaint') }}">{% trans %}nav.help.feedback_complaint{% endtrans %}</a></li>
+                            <li><a tabindex="-1" href="{{ path('payment-methods') }}">{% trans %}nav.payment_methods{% endtrans %}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav pull-right">
+                    {% if is_granted('ROLE_USER') %}
                         <li class="dropdown navbar-dropdown">
-                            <a href="#" id="nav-help-dropdown" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-question-sign"></i> {% trans %}nav.help{% endtrans %} <b class="caret"></b></a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="nav-help-dropdown">
-                                <li><a tabindex="-1" href="{{ path('contact') }}"><i class="icon-question-sign"></i> {% trans %}nav.contact_us{% endtrans %}</a></li>
-                                <li><a tabindex="-1" href="{{ path('getting-started') }}"><i class="icon-play-circle"></i> How to Get Started</a></li>
+                            <a href="{{ path('fos_user_profile_show') }}" id="nav-account-dropdown" class="dropdown-toggle" data-toggle="dropdown" data-target="#"><i class="icon-user"></i> My Account <b class="caret"></b></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="nav-account-dropdown">
+                                <li><a tabindex="-1" href="{{ path('fos_user_profile_show') }}"><i class="icon-user"></i> {% trans %}account.my_profile{% endtrans %}</a></li>
+                                <li><a tabindex="-1" href="{{ path('account_list') }}"><i class="icon-star"></i> {% trans %}account.my_accounts{% endtrans %}</a></li>
+                                <li><a tabindex="-1" href="{{ path('payout_list') }}"><i class="icon-download"></i> {% trans %}account.my_payouts{% endtrans %}</a></li>
                                 <li class="divider"></li>
-                                <li><a tabindex="-1" href="{{ path('faq') }}">{% trans %}nav.faq.general{% endtrans %}</a></li>
-                                <li><a tabindex="-1" href="{{ path('who-we-are') }}">Who We Are</a></li>
-                                <li><a tabindex="-1" href="{{ path('how-to-choose-a-broker') }}">How To Choose A Broker</a></li>
-                                <li><a tabindex="-1" href="{{ path('earning-potential') }}">Earning Potential</a></li>
-                                <li><a tabindex="-1" href="{{ path('residual-income') }}">How To Create Residual Income</a></li>
-                                <li><a tabindex="-1" href="{{ path('feedback_complaint') }}">{% trans %}nav.help.feedback_complaint{% endtrans %}</a></li>
-                                <li><a tabindex="-1" href="{{ path('payment-methods') }}">{% trans %}nav.payment_methods{% endtrans %}</a></li>
+                                <li><a tabindex="-1" href="{{ path('referral_home') }}"><i class="icon-refresh"></i> {% trans %}account.my_referrals{% endtrans %}</a></li>
                             </ul>
                         </li>
-                    </ul>
-                    <ul class="nav pull-right">
-                        {% if is_granted('ROLE_USER') %}
-                            <li class="dropdown navbar-dropdown">
-                                <a href="{{ path('fos_user_profile_show') }}" id="nav-account-dropdown" class="dropdown-toggle" data-toggle="dropdown" data-target="#"><i class="icon-user"></i> My Account <b class="caret"></b></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="nav-account-dropdown">
-                                    <li><a tabindex="-1" href="{{ path('fos_user_profile_show') }}"><i class="icon-user"></i> {% trans %}account.my_profile{% endtrans %}</a></li>
-                                    <li><a tabindex="-1" href="{{ path('account_list') }}"><i class="icon-star"></i> {% trans %}account.my_accounts{% endtrans %}</a></li>
-                                    <li><a tabindex="-1" href="{{ path('payout_list') }}"><i class="icon-download"></i> {% trans %}account.my_payouts{% endtrans %}</a></li>
-                                    <li class="divider"></li>
-                                    <li><a tabindex="-1" href="{{ path('referral_home') }}"><i class="icon-refresh"></i> {% trans %}account.my_referrals{% endtrans %}</a></li>
-                                </ul>
-                            </li>
-                            <li class="divider-vertical"></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}"><i class="icon-off"></i> {% trans %}user.logout{% endtrans %}</a></li>
-                        {% else %}
-                            <li><a href="{{ path('fos_user_security_login') }}">{% trans %}user.login{% endtrans %}</a></li>
-                            <li class="divider-vertical"></li>
-                            <li><a href="{{ path('fos_user_registration_register') }}">{% trans %}user.create_account{% endtrans %}</a></li>
-                        {% endif %}
-                    </ul>
+                        <li class="divider-vertical"></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}"><i class="icon-off"></i> {% trans %}user.logout{% endtrans %}</a></li>
+                    {% else %}
+                        <li><a href="{{ path('fos_user_security_login') }}">{% trans %}user.login{% endtrans %}</a></li>
+                        <li class="divider-vertical"></li>
+                        <li><a href="{{ path('fos_user_registration_register') }}">{% trans %}user.create_account{% endtrans %}</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main-container" id="content">
+            {% set _exclude_routes = ['account_list', 'account_add', 'account_new', 'contact', 'homepage', 'fos_user_registration_confirmed'] %}
+            {% if is_granted('ROLE_USER') and app.user.accounts|length == 0 and not (app.request.attributes.get('_route') in _exclude_routes) %}
+                <div class="alert alert-success persistent-reminder">
+                    <p><strong>Next Step:</strong> Please <a class="text-success" href="{{ path('account_add') }}"><strong>Add your Broker Account Trading Number</strong></a> after signing up with your Broker via our <a class="text-success" href="{{ path('broker_list') }}"><strong>Broker Comparison Page</strong></a></p>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container main-content">
-        {% set _exclude_routes = ['account_list', 'account_add', 'account_new', 'contact', 'homepage', 'fos_user_registration_confirmed'] %}
-        {% if is_granted('ROLE_USER') and app.user.accounts|length == 0 and not (app.request.attributes.get('_route') in _exclude_routes) %}
-            <div class="alert alert-success persistent-reminder">
-                <p><strong>Next Step:</strong> Please <a class="text-success" href="{{ path('account_add') }}"><strong>Add your Broker Account Trading Number</strong></a> after signing up with your Broker via our <a class="text-success" href="{{ path('broker_list') }}"><strong>Broker Comparison Page</strong></a></p>
-            </div>
-        {% endif %}
-        <div>
-            {% for type, messages in app.session.flashbag.all() %}
-                {% for message in messages %}
-                    <div class="alert alert-{{ type }}">
-                        <strong>{{ message }}</strong>
-                        <button type="button" class="close" data-dismiss="alert">×</a>
-                    </div>
+            {% endif %}
+            <div>
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ type }}">
+                            <strong>{{ message }}</strong>
+                            <button type="button" class="close" data-dismiss="alert">×</a>
+                        </div>
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
+            </div>
+
+            {% block _content '' %}
         </div>
 
-        {% block _content '' %}
-    </div>
-
-    <footer class="footer" id="footer">
-        <div class="container">
+        <footer class="footer-container" id="footer">
             <div class="high-risk">
                 <strong>High Risk Warning:</strong>
                 <p class="warning-text">Forex, Futures, and Options trading has large potential rewards, but also large potential risks.  The high degree of leverage can work against you as well as for you.  You must be aware of the risks of investing in forex, futures, and options and be willing to accept them in order to trade in these markets.  Forex trading involves substantial risk of loss and is not suitable for all investors.  Please do not trade with borrowed money or money you cannot afford to lose.</p>
@@ -124,8 +123,8 @@ and Pip Rebates up to 80% of Spread' %}">
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     {% javascripts
         'components/jquery/jquery.js'
