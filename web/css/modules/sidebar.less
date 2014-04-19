@@ -1,11 +1,15 @@
 .sidebar {
-    width: 270px;
-    padding-top: 10px;
+    width: 280px;
+    padding-top: 0;
+    margin-left: 20px;
+    > .btn {
+        .border-radius(0);
+        margin-bottom: 20px;
+    }
     label, input, button, select, textarea {
         font-size: 12px;
     }
     h5 {
-        .border-radius( 5px );
         background: @blueBase;
         color: @grayLighter;
         padding: 10px;
@@ -13,10 +17,9 @@
     }
     .section {
         clear: both;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         padding: 5px 0 0;
         border: 1px solid @grayLight;
-        .border-radius(5px);
         background: #fff;
         position: relative;
         box-shadow: 0 5px 10px -2px @grayLight;
@@ -31,7 +34,6 @@
         .pad {
             padding: 5px;
             background: #fff;
-            .border-radius(5px);
             > p {
                 color: @grayDark;
                 padding: 5px 10px 0;

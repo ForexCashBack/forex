@@ -4,12 +4,22 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
-    font: normal 13px "Helvetica Neue, Sans-serif";
+    font-family: @sansFontFamily;
     > .container {
         width: 100%;
         margin: 0;
         padding: 0;
         position: relative;
+        .inner-width {
+            width: 1070px;
+            position: relative;
+            margin: 0 auto;
+            clear: both;
+            .row, .span8 {
+                margin: 0;
+                padding: 0;
+            }
+        }
     }
 }
 
@@ -106,15 +116,6 @@ h3.sublabel {
     }
 }
 
-#site-header {
-    width: 250px;
-    height: 100px;
-    background: url("/img/logo_radial.png") no-repeat scroll -40px 0 transparent;
-    text-indent: -9999px;
-    margin: 0;
-    padding: 0;
-}
-
 .span12 {
     width: 1070px;
 }
@@ -125,7 +126,6 @@ h3.sublabel {
         position: relative;
         padding: 0 10px 10px;
         background: #fff;
-        .border-radius(5px);
         li {
             padding: 10px;
             border-top: 1px solid @grayLight;

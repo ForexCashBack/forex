@@ -1,61 +1,68 @@
-.nav {
-    &:first-child {
+.nav-container {
+    height: 60px;
+    background: @grayLighter;
+    .nav-collapse {
         position: absolute;
-        top: 101px;
-        left: 1px;
+        top: 0;
+        left: 0;
         width: 100%;
-        background: #f5f5f5;
-        > li {
-            > a {
-                padding: 10px 20px 12px;
-                color: @blueBase;
-                font-weight: bold;
-                text-shadow: 1px 1px #f6e70c;
-                border-left: 1px solid transparent;
-                border-right: 1px solid transparent;
-                margin-top: 3px;
-                .border-radius(5px 5px 0 0);
-                .caret {
-                    border-top-color: @blueBase;
-                    border-bottom-color: @blueBase;
-                }
-                &:hover {
-                    background-color: @blueBase;
-                    color: #fff;
-                    text-shadow: none;
+        .nav {
+            position: relative;
+            height: 60px;
+            margin: 0;
+            padding: 0;
+            float: left;
+            > li {
+                float: left;
+                height: 60px;
+                > a {
+                    padding: 22px 20px 0;
+                    color: @grayDarker;
+                    font-weight: bold;
+                    text-shadow: 1px 1px #fff;
+                    margin-top: 0;
+                    float: left;
+                    height: 60px;
+                    box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
                     .caret {
-                        border-top-color: #fff;
-                        border-bottom-color: #fff;
+                        border-top-color: @grayDarker;
+                        border-bottom-color: @grayDarker;
+                        margin-top: 0;
+                        vertical-align: middle;
+                    }
+                    &:hover {
+                        background-color: @blueBackground;
+                        color: #fff;
+                        text-shadow: none;
+                        .caret {
+                            border-top-color: #fff;
+                            border-bottom-color: #fff;
+                        }
                     }
                 }
-            }
-            &.open {
-                > a {
-                    text-shadow: none;
-                }
-                > .dropdown-menu {
-                    padding: 10px 0 20px;
-                    > li {
-                        > a {
-                            &:hover {
-                                background: @blueBase;
+                &.open {
+                    > a {
+                        text-shadow: none;
+                    }
+                    > .dropdown-menu {
+                        padding: 10px 0 20px;
+                        > li {
+                            > a {
+                                &:hover {
+                                    background: @blueBase;
+                                }
                             }
                         }
                     }
                 }
-            }
-            &:first-child {
-                margin-left: 5px;
-            }
-        }
-    }
-    &:last-child {
-        > li {
-            > a {
-                text-shadow: 1px 1px #000;
-                &:hover {
-                    color: #f6e70c;
+                &:first-child {
+                    margin-left: 5px;
                 }
+            }
+            &.pull-right {
+                float: right;
             }
         }
     }

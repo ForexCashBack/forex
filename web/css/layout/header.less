@@ -3,17 +3,34 @@
     position: relative;
     display: block;
     background: #fff;
-    h1 {
+    height: 100px;
+    border-bottom: 1px solid @grayLighterBorder;
+    h1.logo {
         margin: 0;
         padding: 0;
-    }
-    h2 {
-        color: #fff;
         position: absolute;
-        left: 270px;
-        top: 20px;
-        font-size: 14px;
+        left: 0;
+        top: 0;
+        > a {
+            width: 270px;
+            height: 100px;
+            background: url("/img/logo-20140418-transparent.png") no-repeat scroll 0 50% transparent;
+            text-indent: -9999px;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: block;
+        }
+    }
+    h2.tagline {
+        color: #4d4d4d;
+        position: absolute;
+        left: 300px;
+        top: 57px;
+        font-size: 18px;
         font-family: @sansFontFamily;
-        text-shadow: 1px 1px #000;
+        font-weight: 200;
+        line-height: normal;
+        margin: 0;
     }
 }
