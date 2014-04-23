@@ -44,7 +44,7 @@ module.exports = function(grunt) {
         watch: {
             scripts: {
                 files: ['web/js/**'],
-                tasks: ['clean:build', 'copy', 'jshint'],
+                tasks: ['jshint'],
                 options: {
                     spawn: true
                 }
@@ -52,7 +52,7 @@ module.exports = function(grunt) {
             },
             less: {
                 files: 'web/css/*.less',
-                tasks: ['clean:build', 'less', 'copy'],
+                tasks: ['less'],
                 options: {
                     spawn: true
                 }
