@@ -38,6 +38,7 @@ class BrokerData extends AbstractFixture implements OrderedFixtureInterface
         $afbfxMicro->setBasePercentage(0.8);
         $afbfxMicro->setMinDeposit(100);
         $afbfxMicro->setMaxLeverage(500);
+        $afbfxMicro->setRank(1);
         $manager->persist($afbfxMicro);
 
         $afbfxStandard = new BrokerAccountType();
@@ -45,6 +46,7 @@ class BrokerData extends AbstractFixture implements OrderedFixtureInterface
         $afbfxStandard->setBroker($afbfx);
         $afbfxStandard->setBasePercentage(0.8);
         $afbfxStandard->setMinDeposit(1000);
+        $afbfxStandard->setRank(2);
         $afbfxStandard->setMaxLeverage(300);
         $manager->persist($afbfxStandard);
 
@@ -71,6 +73,7 @@ class BrokerData extends AbstractFixture implements OrderedFixtureInterface
         $fxproMicro->setBasePercentage(0.8);
         $fxproMicro->setMinDeposit(100);
         $fxproMicro->setMaxLeverage(500);
+        $fxproMicro->setRank(1);
         $manager->persist($fxproMicro);
 
         $fxcc = new Broker();
@@ -96,6 +99,7 @@ class BrokerData extends AbstractFixture implements OrderedFixtureInterface
         $fxccMicro->setBasePercentage(0.8);
         $fxccMicro->setMinDeposit(100);
         $fxccMicro->setMaxLeverage(500);
+        $fxccMicro->setRank(1);
         $manager->persist($fxccMicro);
 
         $manager->flush();
