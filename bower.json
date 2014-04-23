@@ -6,6 +6,7 @@
         "backbone": "latest",
         "requirejs": "latest",
         "bootstrap": "2.*",
-        "font-awesome": "latest"
+        "font-awesome": "latest",
+        "nivo-slider": "latest"
     }
 }
